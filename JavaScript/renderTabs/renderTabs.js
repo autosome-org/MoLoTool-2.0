@@ -71,8 +71,10 @@ let renderTabs = ( function () {
         closeTab(this);
         handleEvent();
       }
+    });
 
-      switchMode.createButton($tab);
+    $tab.find('.mode-tab').on('click', function () {
+      switchMode.switchMode();
     });
 
     return $tab;

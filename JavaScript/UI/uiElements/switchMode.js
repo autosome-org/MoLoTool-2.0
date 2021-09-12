@@ -3,35 +3,22 @@ var switchMode = (function () {
             "Single":   {"title": "Mode ", "icon": "vertical_align_center"}, //select_all
             "Multiple":   {"title": "Mode ", "icon": "view_headline"} //format_list_bulleted
         },
-        defaultMode;
+        defaultMode,
+        $selectMode;
 
 
     var init = function () {
         defaultMode = comparisonMode.getDefaultComparisonMode();
-        $('#mode-select').selectmenu();
+        $selectMode = $('#mode-select').selectmenu();
     };
 
 
-    var createButton = function ( $tab ) {
-      let $button = $tab.find('.mode-tab');
-      switchMode($button);
-      switchSingleMultiple($button)
-    };
-
-
-    var switchMode = function ($button) {
+    var switchMode = function () {
         var newMode = comparisonMode.switchComparisonMode();
-
-      $button
-          .empty()
-          .html(uiButtons.generateContent(getSettingsFor[newMode]));
+        var currentMode = comparisonMode.getCurrentMode();
+        $('.mode-tab').html( currentMode );
+        $selectMode.find(`option[value=${currentMode}]`).prop('selected', 'selected');
     };
-
-
-    var switchSingleMultiple = function ($button) {
-      $button.html( comparisonMode.getCurrentMode() )
-    };
-
 
     var reset = function () {
 
@@ -43,7 +30,7 @@ var switchMode = (function () {
 
     return {
         init,
-        createButton,
+        switchMode,
         reset
     };
 }());
