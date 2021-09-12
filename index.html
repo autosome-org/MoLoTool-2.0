@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Stylesheets/style.css">
+    <link rel="stylesheet" href="Stylesheets/icon.css">
+    <link rel="stylesheet" href="ExternalLibraries/spectrum-2.0.8/spectrum.css">
+    <link rel="stylesheet" href="ExternalLibraries/jQuery/jquery-ui.css">
+    <title>Sequence Motif Location Tool (MoLoTool)</title>
+</head>
+<body>
+
+<div class="wrapper">
+    <nav>
+        <ul class="nav pull-left">
+            <li class="search-container">
+                <label for="motif-search">Motif ID, Family or gene name</label>
+                <input id="motif-search" placeholder="Start typing here">
+                <div class="suggestions absolute" hidden>
+                    <div id="chosen-legend-container" class="empty chosen-motif-bar">
+                        <div class="legend chosen-legend-reset">Reset</div>
+                        <div class="legend chosen-legend-heading">Chosen motifs</div>
+                    </div>
+                    <div id="chosen-motif-list" class="empty chosen-motif-bar"></div>
+                    <div id="legend-container"></div>
+                    <div id="motif-list"></div>
+                    <div id="support-info" class="suggestion">
+
+                    </div>
+                </div>
+            </li>
+            <li class="select-collection-container">
+                <label for="collection-select">Collection</label>
+                <select id="collection-select">
+                    <option value="false">Core</option>
+                    <option value="true">Full</option>
+                </select>
+                <label for="species-select">Species</label>
+                <select id="species-select">
+                    <option value="human">Human</option>
+                    <option value="mouse">Mouse</option>
+                </select>
+            </li>
+        </ul>
+        <ul class="nav pull-right">
+
+        </ul>
+    </nav>
+    <div class="p-inputs">
+        <label for="pvalue_log">-log<sub>10</sub>(P-value)</label>
+        <input value="4" class="pvalue-input" id="pvalue_log">
+        <label for="pvalue_linear">P-value</label>
+        <input value="1.00e-4" class="pvalue-input" id="pvalue_linear">
+        <div class="slider">
+            <input type="range" min="1.301" max="6" step="0.001" value="4" id="pvalue_slider">
+        </div>
+    </div>
+    <div id="chosen-motif-control" class="empty chosen-motif-bar"></div>
+    <div id="manual-text-input">
+        <table class="sequence-window">
+            <tr>
+                <td id="sequence-window__button-cell">
+                    <button id="input_button">Submit</button>
+                </td>
+                <td id="sequence-window__heading">
+                    <label for="input_textarea" class="sequence-window__label">Nucleotide sequences</label>
+                    <div class="right-tools-panel right-tool">
+                        <div class="mode-select-container right-tool">
+                            <label for="mode-select">Mode</label>
+                            <select id="mode-select">
+                                <option value="multiple">Multiple</option>
+                                <option value="single">Single</option>
+                            </select>
+                        </div>
+                        <a class="zoom-button link-button interface-button" href="#"></a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td id="sequence-window__tab-bar">
+                    <div class="tab tab-result">
+                        <div class="tab__row tab__row--icons"><a href="#" class="close">X</a></div>
+                        <div class="tab__row tab__row--title">
+                            <p class="tab__row__sequence-title"></p>
+                        </div>
+                        <div class="tab__row tab__row--actions">
+                            <a class=".copy-tab">Copy</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <textarea id="input_textarea" class="sequence-window__textarea" rows="6"
+                              placeholder="Insert nucleotide sequences in fasta format here"></textarea>
+                    <div id="output_textarea" class="sequence-window__textarea" hidden></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table id="motif-table"></table>
+
+</div>
+
+<script src="ExternalLibraries/jQuery/jquery-3.6.0.min.js"></script>
+<script src="ExternalLibraries/jQuery/jquery-ui.min.js"></script>
+<script src="ExternalLibraries/dataTables/jquery.dataTables.min.js"></script>
+<script src="ExternalLibraries/spectrum-2.0.8/spectrum.js"></script>
+<script src="ExternalLibraries/clipboard.min.js"></script>
+<script src="ExternalLibraries/autosize.js"></script>
+<script src="JavaScript/UI/uiElements/inputButton.js"></script>
+<script src="JavaScript/UI/uiElements/zoomButton.js"></script>
+<script src="JavaScript/UI/uiElements/pValueInputs.js"></script>
+<script src="JavaScript/inputParsing/inputParsing.js"></script>
+<script src="JavaScript/inputParsing/inputDemo.js"></script>
+<script src="JavaScript/inputParsing/inputErrors.js"></script>
+<script src="JavaScript/renderOutput/digitGuidance.js"></script>
+<script src="JavaScript/motifPicker/motifPicker.js"></script>
+<script src="JavaScript/motifPicker/inputState.js"></script>
+<script src="JavaScript/motifPicker/motifSearch.js"></script>
+<script src="JavaScript/UI/uiElements/uiButtons.js"></script>
+<script src="JavaScript/UI/uiElements/collectionSettingsButtons.js"></script>
+<script src="JavaScript/motifHandler/motifHandler.js"></script>
+<script src="JavaScript/dataLibrary/motifLibrary.js"></script>
+<script src="JavaScript/dataLibrary/sequenceLibrary.js"></script>
+<script src="JavaScript/motifHandler/motif.js"></script>
+<script src="JavaScript/motifTable/motifTable.js"></script>
+<script src="JavaScript/UI/colorPicker.js"></script>
+<script src="JavaScript/renderOutput/segmentation.js"></script>
+<script src="JavaScript/motifHandler/sequenceConstructor.js"></script>
+<!-- <script src="JavaScript/renderOutput/chosenMotifHighlight.js"></script> -->
+<script src="JavaScript/renderTabs/renderTabs.js"></script>
+<script src="JavaScript/renderTabs/resultTabsStates.js"></script>
+<script src="JavaScript/renderTabs/clipboardCopy.js"></script>
+<script src="JavaScript/renderTabs/comparisonMode.js"></script>
+<script src="JavaScript/UI/uiElements/switchMode.js"></script>
+
+<script src="JavaScript/errorHandler.js"></script>
+<script src="JavaScript/UI/uiBuilder.js"></script>
+
+</body>
+</html>

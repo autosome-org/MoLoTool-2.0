@@ -1,0 +1,392 @@
+@charset "utf-8";
+
+html {
+  font-family: "Helvetica Neue", "Arial", sans-serif;
+  font-size: 18px;
+  position: relative;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.link-button, .link-button:hover, .link-button:visited, .link-button:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ui-selectmenu-button {
+  max-width: 4.2rem;
+  height: 0.5rem;
+  padding: 0.1rem 0 0.5rem 0.5rem !important;
+}
+
+.ui-selectmenu-text {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.ui-menu {
+  max-width: 4.7rem;
+}
+
+.ui-menu-item {
+  font-size: 0.8rem;
+}
+
+.nav {
+  list-style-type: none;
+}
+
+.nav.pull-left li {
+  display: inline;
+  white-space: nowrap;
+  padding-right: 1rem;
+}
+
+#chosen-legend-container {
+  height: 1.6rem;
+  border-bottom: 0.08rem solid black;
+  background-color: #c3c3c3;
+}
+
+#chosen-motif-list {
+  width: 35.5rem;
+  overflow-x: scroll;
+}
+
+.chosen-legend-reset {
+  width: 3rem;
+  position: absolute;
+}
+
+.chosen-legend-heading {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.chosen-motif {
+  display: inline-block;
+}
+
+.chosen-motif .motif-title {
+  font-size: 0.9rem;
+  display: inline;
+}
+
+.chosen-in-control .motif-title {
+  display: block;
+}
+
+.chosen-in-control .close {
+  display: inline-block;
+  height: 1.15rem;
+  width: 1.1rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.chosen-in-control .close:hover {
+  background-color: #cfcfcf;
+}
+
+.chosen-motif .description {
+  font-size: 0.7rem;
+}
+
+.chosen-motif .close {
+  display: inline;
+  float: top;
+  margin-right: 0.3em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.chosen-in-search .close {
+  font-size: 1rem;
+}
+
+.chosen-in-search .close:hover {
+  background-color: #c3c3c3;
+  border-radius: 0.2rem;
+}
+
+#legend-container {
+  border-top: 0.08rem solid black;
+  height: 1.6rem;
+  background-color: #c3c3c3;
+}
+
+.legend {
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 0.3rem;
+  vertical-align: top;
+  height: 1.3rem;
+  border-bottom: 0.08rem solid black;
+}
+
+.empty {
+  visibility: hidden;
+  display: none;
+}
+
+.suggestions {
+  z-index: 1;
+  background-color: #d7d7d7;
+}
+
+.suggestion {
+  height: 3.5rem;
+}
+
+.hover-behavior:hover {
+  background-color: #c3c3c3;
+}
+
+.feature {
+  display: inline-block;
+  padding-top: 0.4rem;
+}
+
+.motif-title {
+  width: 14.5rem;
+}
+
+.motif-family {
+  width: 14rem;
+  max-width: 14rem;
+  vertical-align: top;
+}
+
+.motif-family p {
+  width: 14rem;
+  margin: 0;
+  white-space: normal;
+}
+
+.motif-gene {
+  width: 7rem;
+}
+
+#support-info {
+  height: 2.5rem;
+  border-top: 0.08rem solid black;
+  background-color: #d7d7d7;
+}
+
+.p-inputs, #chosen-motif-control {
+  display: inline-block;
+  height: 3.7rem;
+}
+
+#chosen-motif-control {
+  margin-left: 1.5rem;
+}
+
+.chosen-motif {
+  padding-left: 0.3rem;
+  margin-right: 1.2rem;
+}
+
+#chosen-motif-control {
+  /* overflow-x: scroll; */
+}
+
+.pvalue-input {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+#pvalue_slider {
+  width: 100%;
+}
+
+.sequence-window {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+}
+
+.sequence-window td {
+  padding: 0;
+}
+
+#sequence-window__heading {
+  text-align: left;
+}
+
+.right-tools-panel {
+  float: right;
+}
+
+.right-tool {
+  display: inline;
+}
+
+.zoom-button {
+  margin-right: 0!important;
+}
+
+.zoom-button .material-icons {
+  padding: 0.05rem 0.05rem 0.01rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.zoom-group {
+  display: inline;
+  margin-left: 0.5rem;
+}
+
+.zoom-button {
+  margin-right: 0.6rem;
+}
+
+#sequence-window__button-cell {
+  text-align: center;
+}
+
+#input_button {
+  height: 1.5rem;
+  max-width: 8.5rem;
+  padding: 0!important;
+}
+
+#sequence-window__tab-bar {
+  width: 10rem;
+}
+
+.tab {
+  display: none;
+  max-width: 10rem;
+  width: 100%;
+  table-layout: fixed;
+  height: 4rem;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  -webkit-box-sizing: border-box; /* ≤ iOS4, ≤ Android  2.3 */
+  -moz-box-sizing: border-box; /* FF1+ */
+  box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+  background-color: #e4e4e4;
+}
+
+.tab:last-of-type {
+  height: 4rem;
+  -webkit-box-sizing: border-box; /* ≤ iOS4, ≤ Android  2.3 */
+  -moz-box-sizing: border-box; /* FF1+ */
+  box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+  border-bottom: 1px solid black;
+}
+
+.tab__row {
+  display: table-row;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.tab__row--title {
+  overflow: hidden;
+}
+
+.tab__row--title p {
+  max-width: 9.5rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+  margin-left: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab__row--icons {
+}
+
+.tab .material-icons {
+  display: inline-block;
+  float: left;
+  margin: 0.08rem 0.08rem 0.08rem;
+  height: 1.15rem;
+  width: 1.1rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.tab .material-icons:hover {
+  background-color: #cfcfcf;
+}
+
+.tab .close {
+  font-size: 1.2rem;
+}
+
+.tab .copy {
+  font-size: 1rem;
+}
+
+.tab .lock {
+  font-size: 1.1rem;
+}
+
+.mode-tab {
+  display: inline;
+  float: right;
+  margin-right: 0;
+  margin-top: 0.1rem;
+  background-color: #cfcfcf;
+  border-radius: 0.25rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+}
+
+.tab__row__sequence-title {
+  margin: 0.6rem 0 0;
+}
+
+.sequence-window__textarea {
+  font-family: "Courier New", "Monospaced", monospace;
+  font-size: 1rem;
+  width: 100%;
+  resize: none;
+}
+
+#input_textarea {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box; /* ≤ iOS4, ≤ Android  2.3 */
+  -moz-box-sizing: border-box; /* FF1+ */
+  box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+}
+
+#output_textarea {
+  white-space: pre;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  min-height: 2rem;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  box-shadow: inset 0 1px 0 0 black, inset 0 -1px 0 0 black;
+  -webkit-box-sizing: border-box; /* ≤ iOS4, ≤ Android  2.3 */
+  -moz-box-sizing: border-box; /* FF1+ */
+  box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+  background-color: #fff;
+}
+
+#input_button {
+  font-size: 1rem;
+  width: 9rem;
+  margin: 0.25rem;
+}
+
+.tab-result-sequence {
+  height: 4rem;
+  margin: 0;
+  padding: 0;
+  z-index: -3;
+}
