@@ -1,4 +1,4 @@
-let pValueInputs = (function() {
+let PValueInput = (function() {
   let _filename = "_pValueSlider",
 
       $pValueLinear = $('#pvalue_linear'),

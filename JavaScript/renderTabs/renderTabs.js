@@ -70,11 +70,22 @@ let renderTabs = ( function () {
         // $target.qtip("hide");
         closeTab(this);
         handleEvent();
+      } else if ( getCurrentMode() === "Multiple" ) {
+        if ($target.parent().hasClass("lock")) {
+          comparisonMode.switchLock($target);
+        }
+      } else if ( getCurrentMode() === "Single" ) {
+        let tabId = $(this).attr('data-tab');
+
+        if (getCurrentTabId()[0] !== tabId) {
+          setToCurrent(tabId);
+          handleEvent();
+        }
       }
     });
 
     $tab.find('.mode-tab').on('click', function () {
-      switchMode.switchMode();
+      modeSwitcher.switchMode();
     });
 
     return $tab;
@@ -123,12 +134,15 @@ let renderTabs = ( function () {
 
 
       if (getCurrentMode() === "Single") {
-        $resultSequence.addClass("hidden full-screen");
-        $resultSequence.removeClass("flattened");
+        // $resultSequence.addClass("hidden full-screen");
+        // $resultSequence.removeClass("flattened");
 
         if ($.isEmptyObject(resultTabsStates.getOpenedIds())) {
-          // setToCurrent(tabId);
+          setToCurrent(tabId);
+        } else {
+          hideButton(tabId);
         }
+
       } else if (getCurrentMode() === "Multiple") {
         $resultSequence.addClass("flattened");
       }
@@ -145,6 +159,24 @@ let renderTabs = ( function () {
 
   let getCurrentMode = function() {
     return comparisonMode.getCurrentMode();
+  };
+
+
+  let setToCurrent = function (tabId) {
+    let $currentTab = $(".tab-result[data-tab=" + tabId + "]");
+    $(".tab-result").removeClass("current-tab");
+    $currentTab.addClass("current-tab");
+
+    $('.tab-result').find('.mode-tab').addClass('hidden');
+    $currentTab.find('.mode-tab').removeClass('hidden');
+
+    $(".tab-result-sequence").addClass("hidden");
+    $(".tab-result-sequence[data-tab=" + tabId + "]").removeClass("hidden");
+  };
+
+
+  let hideButton = function (tabId) {
+    $(".tab-result[data-tab=" + tabId + "]").find('.mode-tab').addClass('hidden');
   };
 
 
@@ -231,8 +263,9 @@ let renderTabs = ( function () {
     create,
     clearTabs,
     getIdsToHandle,
-    renderResult: renderResult,
+    renderResult,
     updateTab,
+    setToCurrent,
 
     tempSetSequences
   }

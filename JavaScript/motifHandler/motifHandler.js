@@ -44,7 +44,7 @@ var motifHandler = (function () {
 
 
     var setRequestedPvalue = function () {
-        _requestedPvalue = pValueInputs.getPValue();
+        _requestedPvalue = PValueInput.getPValue();
     };
 
 

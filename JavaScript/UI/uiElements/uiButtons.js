@@ -21,7 +21,7 @@ let uiButtons = (function () {
 
 
   let setupButtons = function (inputCallback, collectionSwitchCallback) {
-    switchMode.init();
+    modeSwitcher.init();
     // showTableButton.init();
 
     inputButton.init(inputCallback);
@@ -47,6 +47,7 @@ let uiButtons = (function () {
 
   return {
     create,
+    handleEvent,
     generateContent
   }
 }());

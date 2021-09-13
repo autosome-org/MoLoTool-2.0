@@ -64,13 +64,20 @@ var comparisonMode = (function () {
 
     var switchToSingleMode = function () {
         setCurrentModeTo("Single");
+        let $tabs = $(".tab-result");
+        let $resultSequence = $(".tab-result-sequence");
 
-        $(".tab-result").removeClass("current-tab");
-        $(".tab-result").first().addClass("current-tab");
+        $tabs.removeClass("current-tab");
+        $tabs.first().addClass("current-tab");
 
-        $(".tab-result-sequence").removeClass("flattened");
-        $(".tab-result-sequence").addClass("hidden full-screen");
-        $(".tab-result-sequence").first().removeClass("hidden");
+        $tabs.find('.mode-tab').addClass('hidden');
+        $tabs.first().find('.mode-tab').removeClass('hidden');
+
+        $resultSequence.removeClass("flattened");
+        $resultSequence.addClass("hidden full-screen");
+        $resultSequence.first().removeClass("hidden");
+
+        renderTabs.setToCurrent(1);
 
         turnOffLocks();
         $(".lock").addClass("hidden");
@@ -84,11 +91,14 @@ var comparisonMode = (function () {
 
     var switchToMultipleMode = function () {
         setCurrentModeTo("Multiple");
+        let $sequences = $('.tab-result-sequence');
 
         $(".tab-result").removeClass("current-tab");
 
-        $(".tab-result-sequence").removeClass("hidden full-screen");
-        $(".tab-result-sequence").addClass("flattened");
+        $('.tab-result').find('.mode-tab').removeClass('hidden');
+
+        $sequences.removeClass("hidden full-screen");
+        $sequences.addClass("flattened");
 
         $(".lock").removeClass("hidden");
         $("#result-sequences").removeClass("scrollable");
@@ -119,10 +129,10 @@ var comparisonMode = (function () {
 
     var lockLine = function ($target) {
         var tabId = $target.parents(".tab-result").attr("data-tab"),
-            $tabToLock = $(".tab-result-sequence[data-tab="+ tabId + "]"),
+            $tabToLock = $(".tab-result-sequence[data-tab="+ tabId + "]")/*,
             seqShift = $("#result-sequences").width(),
             tabShift = parseFloat($("#result-tabs").css("width")),
-            width = $("#result-sequences").css("width");
+            width = $("#result-sequences").css("width"); */
 
         $tabToLock
             .find(".sequence, .digits, .title").css({

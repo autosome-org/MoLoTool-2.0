@@ -3,7 +3,7 @@ let inputButton = ( function () {
       $outputTextarea = $('#output_textarea'),
       $inputButton = $('#input_button').addClass("ui-button ui-corner-all"),
 
-      isEditMode,
+      isEditMode = true,
       rawInputString,
       sequences,
       _inputCallBack;
@@ -44,7 +44,7 @@ let inputButton = ( function () {
 
 
   let isNoSequenceErrors = function () {
-    return addSequence(_inputCallBack) ? true : false;
+    return !!addSequence(_inputCallBack);
   };
 
 

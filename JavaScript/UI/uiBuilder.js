@@ -22,7 +22,7 @@ let uiBuilder = (function () {
 
     // Table
 
-    pValueInputs.create(handleEvent);
+    PValueInput.create(handleEvent);
     inputParsing.create();
 
     let tabIdRange = {"min": 1, "max": 10};
@@ -114,6 +114,10 @@ let uiBuilder = (function () {
     /* if (comparisonMode.getCurrentMode() === "Multiple") {
       resultTabs.updateWidth("setToMaximum");
     } */
+
+    if ( comparisonMode.getCurrentMode() === 'Single' ) {
+
+    }
 
     return inputErrors.checkIfNoImportantErrors();
   };

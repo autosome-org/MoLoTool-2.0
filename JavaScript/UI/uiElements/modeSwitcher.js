@@ -1,4 +1,4 @@
-var switchMode = (function () {
+var modeSwitcher = (function () {
     var /* getSettingsFor = {
             "Single":   {"title": "Mode ", "icon": "vertical_align_center"}, //select_all
             "Multiple":   {"title": "Mode ", "icon": "view_headline"} //format_list_bulleted
