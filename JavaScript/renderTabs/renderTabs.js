@@ -172,6 +172,8 @@ let renderTabs = ( function () {
 
     $(".tab-result-sequence").addClass("hidden");
     $(".tab-result-sequence[data-tab=" + tabId + "]").removeClass("hidden");
+
+    $('#output_textarea').height( $('#sequence-window__tab-bar').height() );
   };
 
 

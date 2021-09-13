@@ -29,6 +29,7 @@ let inputButton = ( function () {
           changeRowsQuantity();
           renderTabs.tempSetSequences(sequences);
           resultTabsStates.getOpenedIds(); // ToDo temporary
+          $outputTextarea.height( $('#sequence-window__tab-bar').height() );
           isEditMode = false;
           switchSubmitEdit();
         } else sequenceLibrary.clear();

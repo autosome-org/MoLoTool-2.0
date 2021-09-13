@@ -103,6 +103,8 @@ var comparisonMode = (function () {
         $(".lock").removeClass("hidden");
         $("#result-sequences").removeClass("scrollable");
 
+
+
         // resultTabs.updateWidth("setToMaximum");
 
         return "Multiple";

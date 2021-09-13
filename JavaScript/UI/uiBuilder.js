@@ -115,10 +115,6 @@ let uiBuilder = (function () {
       resultTabs.updateWidth("setToMaximum");
     } */
 
-    if ( comparisonMode.getCurrentMode() === 'Single' ) {
-
-    }
-
     return inputErrors.checkIfNoImportantErrors();
   };
 

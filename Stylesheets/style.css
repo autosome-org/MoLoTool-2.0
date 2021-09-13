@@ -17,6 +17,7 @@ body {
 
 .hidden {
   visibility: hidden;
+  display: none;
 }
 
 .link-button, .link-button:hover, .link-button:visited, .link-button:active {
