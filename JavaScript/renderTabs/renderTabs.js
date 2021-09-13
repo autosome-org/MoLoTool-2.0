@@ -3,7 +3,6 @@ let renderTabs = ( function () {
 
       _libraryIdCheck,
       _libraryIdDelete,
-      $tabTemplate = $('.tab'),
 
       _sequences,
       _eventHandler = function () {};
@@ -52,7 +51,8 @@ let renderTabs = ( function () {
             '<a href="#" class="close link-button material-icons md-dark">close</a>' +
             '<a href="#" class="copy link-button material-icons md-dark">content_copy</a>' +
             '<a href="3" class="lock link-button material-icons md-dark">lock_open</a>' +
-            '<a href="#" class="mode-tab link-button">Multiple</a></div>' +
+            '<a href="#" class="mode-tab link-button">' + comparisonMode.getCurrentMode() + '</a>' +
+            '</div>' +
             '<div class="tab__row tab__row--title">' +
             '<p class="tab__row__sequence-title"></p></div>' +
             '<div class="tab__row tab__row--actions">' +
@@ -172,7 +172,7 @@ let renderTabs = ( function () {
     if (resultTabsStates.idIsOpened(tabId)) {
       let digits = digitGuidance.getDigitsFor(getDigitsLength(tabId)),
 
-          title = sequenceLibrary.getItemById(tabId).seqValues.title,
+          // title = sequenceLibrary.getItemById(tabId).seqValues.title,
 
           $resultLine = $(".tab-result-sequence[data-tab=" + tabId + "]"),
 
@@ -217,7 +217,7 @@ let renderTabs = ( function () {
     } else if (getCurrentMode() === "Single" &&
         !$.isEmptyObject(resultTabsStates.getOpenedIds()) ) {
 
-      let newCurrentTabId = $(".tab-result").first().attr("data-tab");
+      // let newCurrentTabId = $(".tab-result").first().attr("data-tab");
       // setToCurrent(newCurrentTabId);
     }
 
