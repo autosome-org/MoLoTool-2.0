@@ -263,7 +263,7 @@ body {
   width: 10rem;
 }
 
-.tab {
+.tab-result {
   display: none;
   max-width: 10rem;
   width: 100%;
@@ -277,11 +277,7 @@ body {
   background-color: #e4e4e4;
 }
 
-.tab:last-of-type {
-  height: 4rem;
-  -webkit-box-sizing: border-box; /* ≤ iOS4, ≤ Android  2.3 */
-  -moz-box-sizing: border-box; /* FF1+ */
-  box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+.tab-result:last-of-type {
   border-bottom: 1px solid black;
 }
 
@@ -307,7 +303,7 @@ body {
 .tab__row--icons {
 }
 
-.tab .material-icons {
+.tab-result .material-icons {
   display: inline-block;
   float: left;
   margin: 0.08rem 0.08rem 0.08rem;
@@ -317,19 +313,19 @@ body {
   text-align: center;
 }
 
-.tab .material-icons:hover {
+.tab-result .material-icons:hover {
   background-color: #cfcfcf;
 }
 
-.tab .close {
+.tab-result .close {
   font-size: 1.2rem;
 }
 
-.tab .copy {
+.tab-result .copy {
   font-size: 1rem;
 }
 
-.tab .lock {
+.tab-result .lock {
   font-size: 1.1rem;
 }
 

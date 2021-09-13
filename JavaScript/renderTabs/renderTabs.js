@@ -46,7 +46,7 @@ let renderTabs = ( function () {
 
   let createResultTab = function (tabId) {
     let title = sequenceLibrary.getItemById(tabId).seqValues.title,
-        $tab = $('<div class="tab tab-result">' +
+        $tab = $('<div class="tab-result">' +
             '<div class="tab__row tab__row--icons">' +
             '<a href="#" class="close link-button material-icons md-dark">close</a>' +
             '<a href="#" class="copy link-button material-icons md-dark">content_copy</a>' +
