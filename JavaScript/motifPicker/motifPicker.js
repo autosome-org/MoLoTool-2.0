@@ -96,12 +96,12 @@ var motifPicker = (function () {
         } */
 
         var motifCountString = wrapMotifCountValueInContainer(suggestedMotifs.length);
-        $('#motif-count').html(motifCountString);
+        $('.motif-count').html(motifCountString);
     };
 
 
     var wrapMotifCountValueInContainer = function (length) {
-        var correctWord = length.toString().slice(-1) === "1" ? 'motif' : 'motifs';
+        var correctWord = length.toString().slice(-1) === "1" ? 'model' : 'models';
         return `Found <strong>${length}</strong> ${correctWord}`;
     }
 

@@ -187,15 +187,20 @@ body {
 }
 
 #support-info {
-  height: 2.5rem;
+  height: 2rem;
   border-top: 0.08rem solid black;
   background-color: #d7d7d7;
 }
 
-#motif-count {
-  display: block;
-  margin-top: 0.48rem;
-  margin-left: 1rem;
+.info {
+  display: inline-block;
+  margin-top: 0.35rem;
+  margin-left: 0.5rem;
+}
+
+.model-collection, .species-collection {
+  float: right;
+  margin-right: 0.9rem;
 }
 
 .p-inputs, #chosen-motif-control {
