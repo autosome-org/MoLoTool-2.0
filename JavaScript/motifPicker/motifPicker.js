@@ -71,7 +71,7 @@ var motifPicker = (function () {
         var legendContainer = wrapLegendContainer();
         $('#legend-container').html(legendContainer);
 
-        var topMotifs = suggestedMotifs.slice(0, _maxResultCount),
+        var topMotifs = suggestedMotifs.slice(0, /*_maxResultCount*/),
             motifContainers = $.map(topMotifs, wrapMotifInContainer).join(''),
             chosenMotifs = $('.chosen-in-search');
 
@@ -94,7 +94,16 @@ var motifPicker = (function () {
         } else {
             $('#ifMore-container').addClass("hidden");
         } */
+
+        var motifCountString = wrapMotifCountValueInContainer(suggestedMotifs.length);
+        $('#motif-count').html(motifCountString);
     };
+
+
+    var wrapMotifCountValueInContainer = function (length) {
+        var correctWord = length.toString().slice(-1) === "1" ? 'motif' : 'motifs';
+        return `Found <strong>${length}</strong> ${correctWord}`;
+    }
 
 
     var ifMore = function (suggestedMotifs) {
