@@ -124,6 +124,7 @@ body {
 
 #legend-container {
   border-top: 0.08rem solid black;
+  border-bottom: 0.08rem solid black;
   height: 1.6rem;
   background-color: #c3c3c3;
 }
@@ -154,10 +155,6 @@ body {
 
 .suggestion {
   height: 3.5rem;
-}
-
-.suggested:first-of-type {
-  border-top: 0.08rem solid black;
 }
 
 .hover-behavior:hover {
@@ -365,6 +362,7 @@ body {
   float: right;
   margin-right: 0;
   margin-top: 0.1rem;
+  margin-left: 2.35rem;
   background-color: #cfcfcf;
   border-radius: 0.25rem;
   padding-left: 0.1rem;
