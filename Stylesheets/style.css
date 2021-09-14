@@ -156,6 +156,10 @@ body {
   height: 3.5rem;
 }
 
+.suggested:first-of-type {
+  border-top: 0.08rem solid black;
+}
+
 .hover-behavior:hover {
   background-color: #c3c3c3;
 }
