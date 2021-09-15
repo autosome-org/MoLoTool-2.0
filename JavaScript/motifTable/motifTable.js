@@ -4,7 +4,7 @@
 //ToDo: add updateTable
 
 var motifTable = (function () {
-    var _moduleName = "motifTable",
+    var _fileName = "motifTable",
         _dtTable = undefined,
         _tableID = "#motif-table";
 
@@ -68,11 +68,8 @@ var motifTable = (function () {
                 featuresToHide = $.map(features.getFeatures(true), function (feature) {
                     return {"data": feature, "title": feature, "visible": false, "width": featuresWidth[feature]};
 
-                }),
-
-                columns = [].concat(unitDetails, featuresToShow, featuresToHide);
-
-            return columns;
+                });
+            return [].concat(unitDetails, featuresToShow, featuresToHide);
         };
 
 
@@ -146,7 +143,7 @@ var motifTable = (function () {
     var getHiddenColumnsTitles = function () {
         return _dtTable
             .columns( function (idx ) {
-                return _dtTable.column(idx).visible() == false;
+                return _dtTable.column(idx).visible() === false;
             })
             .dataSrc()
             .toArray();

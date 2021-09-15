@@ -37,7 +37,7 @@ var motifHandler = (function () {
         setRequestedMotifs();
 
         var tabsUpdate = updateResultTabs();
-        // updateTable(tabsUpdate);
+        updateTable(tabsUpdate);
 
         return tabsUpdate;
     };

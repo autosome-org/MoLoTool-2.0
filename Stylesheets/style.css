@@ -417,3 +417,7 @@ body {
   padding: 0;
   z-index: -3;
 }
+
+#motif-table img {
+  max-width: 11.5rem;
+}

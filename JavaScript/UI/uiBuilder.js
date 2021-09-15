@@ -14,13 +14,16 @@ let uiBuilder = (function () {
     motifLibrary.create(handleEvent);
 
     motifPicker.create(getMotifSummariesSource, getObjectsToDisable());
-    chosenMotifListComponentBuilder();
-    chosenMotifListComponentRemover();
+    buildChosenMotifListComponent();
+    removeChosenMotifListComponent();
 
     colorPicker.create(handleEvent);
     // chosenMotifHighlight.create();
 
-    // Table
+    let motifFeatureTitles = motifLibrary.getTitlesForDisplayedFeatures(),
+        motifFeaturesRequest = motifLibrary.getMotifFeaturesForTable,
+        table = motifTable.create(motifFeatureTitles, motifFeaturesRequest);
+    // buildExternalTableComponent(table);
 
     PValueInput.create(handleEvent);
     inputParsing.create();
@@ -124,7 +127,7 @@ let uiBuilder = (function () {
   };
 
 
-  let chosenMotifListComponentBuilder = function () {
+  let buildChosenMotifListComponent = function () {
 
     $('#motif-list').on('click', '.motif-container', function () {
       let $motifContainer = $(this).find('.suggestion').clone(),
@@ -168,7 +171,7 @@ let uiBuilder = (function () {
   };
 
 
-  let chosenMotifListComponentRemover = function () {
+  let removeChosenMotifListComponent = function () {
 
     $('#chosen-motif-control, #chosen-motif-list').on('click', '.close', function (event) {
       let $motifContainer = $(event.target).parent();
@@ -187,6 +190,72 @@ let uiBuilder = (function () {
       motifSearch.applySearch();
       handleEvent();
     });
+
+  };
+
+
+  let buildExternalTableComponent = function (table) {
+    let $motifTableTBody = $('#motif-table').find('tbody'),
+        $result = $('#sequence-window__tab-bar, #output_textarea');
+
+    //highlight sequence
+    $motifTableTBody
+        .on('mouse' + 'enter', 'td', function () {
+          let rowData = table.row(this).data(),
+              $resultTab = $result.children('.current-tab'),
+              resultTabId = $resultTab.attr('data-tab'),
+              $resultSequence = $result.find(`.tab-result-sequence[data-tab=${resultTabId}]`);
+
+          if (rowData !== undefined) {
+            let start = rowData['Start Position'], finish = rowData['Finish Position'],
+                $segment,
+                firstID = start,
+                lastID;
+
+            while (start <= finish) {
+              $segment = $resultSequence.children('[data-start=' + start + ']');
+              $segment.addClass('highlighted');
+              if ((finish - start + 1) === $segment.text().length) {
+                break
+              } else {
+                start = $segment.next().attr('data-start')
+              }
+            }
+            lastID = start;
+
+            $('#' + firstID).addClass('first');
+            $('#' + lastID).addClass('last');
+          }
+        });
+
+    $motifTableTBody
+        .on('mouse' + 'leave', 'td', function () {
+          let rowData = table.row(this).data(),
+              $resultTab = $result.children('.current-tab'),
+              resultTabId = $resultTab.attr('data-tab'),
+              $resultSequence = $result.find(`.tab-result-sequence[data-tab=${resultTabId}]`);
+
+          if (rowData !== undefined) {
+            let start = rowData['Start Position'], finish = rowData['Finish Position'],
+                $segment,
+                firstID = start,
+                lastID;
+
+            while (start <= finish) {
+              $segment = $resultSequence.children('[data-start=' + start + ']');
+              $segment.removeClass('highlighted');
+              if ((finish - start + 1) === $segment.text().length) {
+                break
+              } else {
+                start = $segment.next().attr('data-start');
+              }
+            }
+            lastID = start;
+
+            $('#' + firstID).removeClass('first');
+            $('#' + lastID).removeClass('last');
+          }
+        });
 
   };
 

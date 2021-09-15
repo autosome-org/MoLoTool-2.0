@@ -153,7 +153,7 @@ var motifPicker = (function () {
 
 
     var getRequestedMotifNames = function () {
-        var $motifTitles = $(".chosen-motif > .motif-title"),
+        var $motifTitles = $(".chosen-in-control > .motif-title"),
             requestedMotifNames = [];
 
         if ($motifTitles.length > 0) {
