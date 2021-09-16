@@ -11,7 +11,7 @@ var modeSwitcher = (function () {
 
     var init = function () {
         defaultMode = comparisonMode.getDefaultComparisonMode();
-        $modeSelect = $('#mode-select').selectmenu();
+        $modeSelect = $('#mode-select').selectmenu({width: 'auto'});
         $modeSelectButton = $('#mode-select-button');
 
         $modeSelect.on('selectmenuchange', function () {

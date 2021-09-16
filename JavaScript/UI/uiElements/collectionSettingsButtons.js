@@ -3,23 +3,15 @@ let collectionSettingsButtons = (function () {
       updatedURL;
 
   let init = function (collectionSwitchCallback) {
-    $('.model-collection').html('Collection: core');
-    $('.species-collection').html('Species: human');
+    $('.model-collection').html('Collection: human, core');
 
-
-    $("#collection-select").selectmenu().on('selectmenuchange', function() {
+    $("#collection-select").selectmenu({width: 'auto'}).on('selectmenuchange', function() {
+      let species = this.value.split(', ')[0];
+      let collection = this.value.split(', ')[1];
       updatedURL =
-          'https://hocomoco11.autosome.ru/' + $('#species-select option:selected').val() +
-          '/mono.json?summary=true&full=' + this.value;
-      $('.model-collection').html('Collection: ' + ( this.value ? 'full' : 'core' ) );
-      collectionSwitchCallback(updatedURL);
-    });
-
-    $('#species-select').selectmenu().on('selectmenuchange', function() {
-      updatedURL =
-          'https://hocomoco11.autosome.ru/' + this.value + '/mono.json?summary=true&full=' +
-          $('#collection-select option:selected').val();
-      $('.species-collection').html('Species: ' + this.value);
+          'https://hocomoco11.autosome.ru/' + species +
+          '/mono.json?summary=true&full=' + ( collection === 'full' );
+      $('.model-collection').html('Collection: ' + this.value);
       collectionSwitchCallback(updatedURL);
     });
 
