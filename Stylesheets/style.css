@@ -51,6 +51,7 @@ body {
 
 #chosen-legend-container {
   height: 1.6rem;
+  border-top: 0.08rem solid black;
   border-bottom: 0.08rem solid black;
   background-color: #c3c3c3;
 }
@@ -118,7 +119,6 @@ body {
 }
 
 #legend-container {
-  border-top: 0.08rem solid black;
   border-bottom: 0.08rem solid black;
   height: 1.6rem;
   background-color: #c3c3c3;
