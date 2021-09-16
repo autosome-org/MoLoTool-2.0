@@ -103,16 +103,16 @@ var motifSearch = (function () {
     var testMotif = function (motifSummary, regExpsToTest) {
         var motifName = motifSummary["full_name"];
 
-        if (motifPicker.ifMotifIsChosen(motifName)) {
+        /* if (motifPicker.ifMotifIsChosen(motifName)) {
             return 0;
-        } else {
+        } else { */
             var testResult = 0, keysToTest = _keysToTest;
             for(var i = 0, key; i < keysToTest.length; i++) {
                 key = keysToTest[i];
                 testResult += testKeysWithRegExps(motifSummary[key], regExpsToTest);
             }
             return testResult;
-        }
+        /* } */
     };
 
 

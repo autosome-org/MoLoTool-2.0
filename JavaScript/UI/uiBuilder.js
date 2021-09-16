@@ -133,6 +133,9 @@ let uiBuilder = (function () {
       let $motifContainer = $(this).find('.suggestion').clone(),
           motifName = $motifContainer.find('.motif-title').text();
 
+      if ( motifIsChosen(motifName) )
+        return 0;
+
       motifPicker.addChosenMotifToSet(motifName);
       motifLibrary.addUnit(motifName);
 
@@ -192,6 +195,11 @@ let uiBuilder = (function () {
     });
 
   };
+
+
+  let motifIsChosen = function (motifName) {
+    return $(`#chosen-motif-list [data-name="${motifName}"]`).length !== 0;
+  }
 
 
   let buildExternalTableComponent = function (table) {
