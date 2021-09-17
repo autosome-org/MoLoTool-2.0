@@ -83,6 +83,7 @@ body {
 
 .chosen-in-control .motif-title {
   display: block;
+  margin-top: 0.3rem;
 }
 
 .chosen-in-control .close {
@@ -97,8 +98,9 @@ body {
   background-color: #cfcfcf;
 }
 
-.chosen-motif .description {
-  font-size: 0.7rem;
+.description {
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
 }
 
 .chosen-motif .close {

@@ -146,9 +146,7 @@ let uiBuilder = (function () {
               `${motifName}</a></div>`;
 
       let geneName = $motifContainer.find('.motif-gene').html(),
-          family = $motifContainer.find('.motif-family p').html(),
-          description = geneName + ' - ' + family,
-          $description = $('<div class="description">' + description + '</div>');
+          $geneName = $('<span class="description">' + geneName + '</span>');
 
       if (motifPicker.getChosenMotifSet().size !== 0) {
         $('.chosen-motif-bar').removeClass('empty');
@@ -158,12 +156,13 @@ let uiBuilder = (function () {
       $motifContainer.removeAttr('id').attr("data-name", motifName);
       $motifContainer.find('.motif-gene, .motif-family, .motif-title').remove();
       $motifContainer.append($closeButton);
-      $motifContainer.append( $(titleWithRef) ).append($description);
+      $motifContainer.append( $(titleWithRef) );
       $motifContainer.appendTo('#chosen-motif-list');
 
       let $motifContainerForControl = $motifContainer.clone();
       $motifContainerForControl.addClass('chosen-in-control').removeClass('chosen-in-search');
       colorPicker.addTo($motifContainerForControl);
+      $geneName.insertAfter( $motifContainerForControl.find('.sp-replacer') )
       $motifContainerForControl.appendTo('#chosen-motif-control');
 
       motifSearch.applySearch();
