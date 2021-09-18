@@ -1,8 +1,7 @@
 let uiButtons = (function () {
   let _filename = "uiButtons",
 
-      _eventHandler = function() {},
-      _inputMethod = "";
+      _eventHandler = function() {};
 
   let create = function (eventHandler, inputCallback, collectionSwitchCallback) {
     setEventHandlerTo(eventHandler);
@@ -31,13 +30,14 @@ let uiButtons = (function () {
     zoomButton.init("18px", {"top": 30, "bottom": 10});
 
     // clearButton.init();
-    // demoButton.init(inputCallback);
+    demoButton.init(inputCallback);
     // tutorialButton.init();
     // helpButton.init();
     // homeButton.init();
 
     // showMoreButton.init();
     collectionSettingsButtons.init(collectionSwitchCallback);
+    resetChosenMotifs.init();
   };
 
   let generateContent = function (mode) {
@@ -49,5 +49,5 @@ let uiButtons = (function () {
     create,
     handleEvent,
     generateContent
-  }
+  };
 }());

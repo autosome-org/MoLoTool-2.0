@@ -27,7 +27,7 @@
                         <span class="info model-collection"></span>
                     </div>
                     <div id="chosen-legend-container" class="empty chosen-motif-bar">
-                        <div class="legend chosen-legend-reset">Reset</div>
+                        <a class="legend reset-chosen-motifs">Reset</a>
                         <div class="legend chosen-legend-heading">Chosen motifs</div>
                     </div>
                     <div id="chosen-motif-list" class="empty chosen-motif-bar"></div>
@@ -44,7 +44,9 @@
             </li>
         </ul>
         <ul class="nav pull-right">
-
+            <li>
+                <button id="demo-button">Demo</button>
+            </li>
         </ul>
     </nav>
     <div class="p-inputs">
@@ -106,10 +108,12 @@
 <script src="JavaScript/inputParsing/inputErrors.js"></script>
 <script src="JavaScript/renderOutput/digitGuidance.js"></script>
 <script src="JavaScript/motifPicker/motifPicker.js"></script>
+<script src="JavaScript/UI/uiElements/resetChosenMotifs.js"></script>
 <script src="JavaScript/motifPicker/inputState.js"></script>
 <script src="JavaScript/motifPicker/motifSearch.js"></script>
 <script src="JavaScript/UI/uiElements/uiButtons.js"></script>
 <script src="JavaScript/UI/uiElements/collectionSettingsButtons.js"></script>
+<script src="JavaScript/UI/uiElements/demoButton.js"></script>
 <script src="JavaScript/motifHandler/motifHandler.js"></script>
 <script src="JavaScript/dataLibrary/motifLibrary.js"></script>
 <script src="JavaScript/dataLibrary/sequenceLibrary.js"></script>

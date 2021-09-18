@@ -1,7 +1,9 @@
 let inputButton = ( function () {
-  let $inputTextarea = $('#input_textarea'),
+  let _fileName = 'inputButton',
+
+      $inputTextarea = $('#input_textarea'),
       $outputTextarea = $('#output_textarea'),
-      $inputButton = $('#input_button').addClass("ui-button ui-corner-all"),
+      $inputButton = $('#input_button'),
 
       isEditMode = true,
       rawInputString,
@@ -13,6 +15,7 @@ let inputButton = ( function () {
     digitGuidance.create(10000); // ToDo remove
     _inputCallBack = inputCallback;
 
+    $inputButton.addClass("ui-button ui-corner-all");
     $inputButton.on('click', function () {
         submitOrEdit();
     });

@@ -39,8 +39,13 @@ body {
   font-size: 0.8rem;
 }
 
+nav {
+  margin-bottom: 2rem;
+}
+
 .nav {
   list-style-type: none;
+  display: inline;
 }
 
 .nav.pull-left li {
@@ -49,11 +54,19 @@ body {
   padding-right: 1rem;
 }
 
+.nav.pull-right li {
+  display: inline;
+  float: right;
+  padding-right: 1rem;
+}
+
 #chosen-legend-container {
   height: 1.6rem;
   border-top: 0.08rem solid black;
   border-bottom: 0.08rem solid black;
   background-color: #c3c3c3;
+  align-items: center;
+  display: flex;
 }
 
 #chosen-motif-list {
@@ -61,15 +74,16 @@ body {
   overflow-x: scroll;
 }
 
-.chosen-legend-reset {
-  width: 3rem;
+.reset-chosen-motifs {
+  display: inline-block;
+  cursor: pointer;
   position: absolute;
+  padding-bottom: 0.3rem;
 }
 
 .chosen-legend-heading {
-  display: block;
-  width: 100%;
   text-align: center;
+  width: 100%;
 }
 
 .chosen-motif {
@@ -132,7 +146,6 @@ body {
   margin-top: 0.3rem;
   vertical-align: top;
   height: 1.3rem;
-  border-bottom: 0.08rem solid black;
 }
 
 .empty {
