@@ -32,34 +32,30 @@ let demoButton = ( function () {
 
     $demoButton.on('click', function () {
 
-      setDemoValues();
-      triggerEvents();
+      showDemo();
     });
 
   };
 
 
-  let setDemoValues = function () {
-    $pValueLog.val( defaultValueFor.pValueLog );
-    $collectionSelect.val( defaultValueFor.collection ).selectmenu('refresh');
-    $motifSearch.val( defaultValueFor.search );
-    $modeSelect.val( defaultValueFor.mode ).selectmenu('refresh');
-    $inputTextarea.val( defaultValueFor.input );
-  };
-
-
-  let triggerEvents = function () {
-
+  let showDemo = function () {
     if ( inputButton.isSubmitMode() ) {
       $inputButton.click();
     }
 
     $resetButton.click();
-    $pValueLog.change();
-    $collectionSelect.trigger("selectmenuchange");
+
+    $pValueLog.val( defaultValueFor.pValueLog ).change();
+    $collectionSelect.val( defaultValueFor.collection ).selectmenu('refresh').trigger("selectmenuchange");
+    $motifSearch.val( defaultValueFor.search ).change();
+    $modeSelect.val( defaultValueFor.mode ).selectmenu('refresh');
+    $inputTextarea.val( defaultValueFor.input );
+
     motifSearch.applySearch();
-    $motifSearch.change();
     $motifList.children('.motif-container').click();
+
+    $motifSearch.val('');
+    motifSearch.applySearch();
 
     if ( comparisonMode.getCurrentMode() === 'Single' ) {
       modeSwitcher.switchMode();
