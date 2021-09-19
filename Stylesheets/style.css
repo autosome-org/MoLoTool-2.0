@@ -39,7 +39,7 @@ body {
   font-size: 0.8rem;
 }
 
-nav {
+.first-level-control {
   margin-bottom: 2rem;
 }
 
@@ -70,7 +70,8 @@ nav {
 
 #chosen-motif-list {
   width: 35.5rem;
-  overflow-x: scroll;
+  overflow-y: scroll;
+  white-space: normal;
 }
 
 .reset-chosen-motifs {
@@ -122,6 +123,9 @@ nav {
   margin-right: 0.3em;
   vertical-align: middle;
   cursor: pointer;
+}
+
+.chosen-in-search {
 }
 
 .chosen-in-search .close {

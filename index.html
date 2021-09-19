@@ -14,7 +14,7 @@
 <body>
 
 <div class="wrapper">
-    <nav>
+    <nav class="first-level-control">
         <ul class="nav pull-left">
             <li class="search-container">
                 <label for="motif-search">Motif ID, Family or gene name</label>
@@ -49,16 +49,18 @@
             </li>
         </ul>
     </nav>
-    <div class="p-inputs">
-        <label for="pvalue_log">-log<sub>10</sub>(P-value)</label>
-        <input value="4" class="pvalue-input" id="pvalue_log">
-        <label for="pvalue_linear">P-value</label>
-        <input value="1.00e-4" class="pvalue-input" id="pvalue_linear">
-        <div class="slider">
-            <input type="range" min="1.3" max="6" step="0.1" value="4" id="pvalue_slider">
+    <div class="second-level">
+        <div class="p-inputs">
+            <label for="pvalue_log">-log<sub>10</sub>(P-value)</label>
+            <input value="4" class="pvalue-input" id="pvalue_log">
+            <label for="pvalue_linear">P-value</label>
+            <input value="1.00e-4" class="pvalue-input" id="pvalue_linear">
+            <div class="slider">
+                <input type="range" min="1.3" max="6" step="0.1" value="4" id="pvalue_slider">
+            </div>
         </div>
+        <div id="chosen-motif-control" class="empty chosen-motif-bar"></div>
     </div>
-    <div id="chosen-motif-control" class="empty chosen-motif-bar"></div>
     <div id="manual-text-input">
         <table class="sequence-window">
             <tr>

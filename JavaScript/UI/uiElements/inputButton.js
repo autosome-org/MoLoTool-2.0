@@ -30,9 +30,7 @@ let inputButton = ( function () {
           parseInput();
           $outputTextarea.width($inputTextarea.width());
           changeRowsQuantity();
-          renderTabs.tempSetSequences(sequences);
-          resultTabsStates.getOpenedIds(); // ToDo temporary
-          $outputTextarea.height( $('#sequence-window__tab-bar').height() );
+          $outputTextarea.height( $('.tab-result').length * 4 + 'rem' );
           isEditMode = false;
           switchSubmitEdit();
         } else sequenceLibrary.clear();
@@ -48,7 +46,7 @@ let inputButton = ( function () {
 
 
   let isNoSequenceErrors = function () {
-    return !!addSequence(_inputCallBack);
+    return addSequence(_inputCallBack);
   };
 
 

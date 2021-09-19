@@ -164,16 +164,17 @@ let renderTabs = ( function () {
 
   let setToCurrent = function (tabId) {
     let $currentTab = $(".tab-result[data-tab=" + tabId + "]");
-    $(".tab-result").removeClass("current-tab");
+    let $tabs = $('.tab-result');
+    $tabs.removeClass("current-tab");
     $currentTab.addClass("current-tab");
 
-    $('.tab-result').find('.mode-tab').addClass('hidden');
+    $tabs.find('.mode-tab').addClass('hidden');
     $currentTab.find('.mode-tab').removeClass('hidden');
 
     $(".tab-result-sequence").addClass("hidden");
     $(".tab-result-sequence[data-tab=" + tabId + "]").removeClass("hidden");
 
-    $('#output_textarea').height( $('#sequence-window__tab-bar').height() );
+    $('#output_textarea').height( $tabs.length * 4 + 'rem' );
   };
 
 
@@ -250,14 +251,15 @@ let renderTabs = ( function () {
       // updateWidth("setToMaximum");
     } else if (getCurrentMode() === "Single" &&
         !$.isEmptyObject(resultTabsStates.getOpenedIds()) ) {
-
-      // let newCurrentTabId = $(".tab-result").first().attr("data-tab");
-      // setToCurrent(newCurrentTabId);
+        let newCurrentTabId = $(".tab-result").first().attr("data-tab");
+        setToCurrent(newCurrentTabId);
     }
 
     if ($.isEmptyObject(resultTabsStates.getOpenedIds())) {
       $("#result-cmp").addClass("empty");
     }
+
+    $('#output_textarea').height( $('.tab-result').length * 4 + 'rem' );
   };
 
 
