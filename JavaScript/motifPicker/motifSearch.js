@@ -23,7 +23,6 @@ var motifSearch = (function () {
         $('body').on('click', function(e) {
             if ( !$(e.target).is('.search-container, .motif-container, .chosen-in-search') &&
                 $(e.target).parents('.search-container, .motif-container, .chosen-in-search').length === 0 ) {
-                console.log($(e.target).parents());
                 $suggestions.hide();
             }
         });

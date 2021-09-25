@@ -51,7 +51,7 @@ var motifLibrary = (function () {
                     _featuresForTableLibrary[motif["full_name"]] = extractDisplayedFeatures(motif);
 
                     handleEvent();
-                    console.log(JSON.stringify(motif) + " motif added \n\n");
+                    console.log(motif['full_name'] + " motif added \n\n");
                     console.log(extractDisplayedFeatures(motif));
                 });
         }

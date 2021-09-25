@@ -2,7 +2,7 @@
  * Created by HOME on 13.02.2017.
  */
 var chosenMotifHighlight = (function () {
-    var _moduleName = "chosenMotifHighlight",
+    var _fileName = "chosenMotifHighlight",
         _$hoveredMotifs = $("");
 
 
@@ -34,7 +34,7 @@ var chosenMotifHighlight = (function () {
 
 
     var addTo = function () {
-        var $resultCmp = $("#result-cmp");
+        var $resultCmp = $("#output_textarea");
 
         $resultCmp.on('mouseenter', ".segment", mouseInHandler);
         $resultCmp.on('mouseleave', ".segment", mouseOutHandler);

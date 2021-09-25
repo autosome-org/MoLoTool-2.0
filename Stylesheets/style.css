@@ -260,6 +260,7 @@ body {
 
 .right-tools-panel {
   float: right;
+  z-index: 2;
 }
 
 .right-tool {
@@ -293,10 +294,14 @@ body {
   height: 1.5rem;
   max-width: 8.5rem;
   padding: 0!important;
+  font-size: 1rem;
+  width: 9rem;
+  margin: 0.25rem;
 }
 
 #sequence-window__tab-bar {
   width: 10rem;
+  vertical-align: top;
 }
 
 .tab-result {
@@ -403,6 +408,7 @@ body {
 }
 
 #output_textarea {
+  position: relative;
   white-space: pre;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -418,17 +424,28 @@ body {
   background-color: #fff;
 }
 
-#input_button {
-  font-size: 1rem;
-  width: 9rem;
-  margin: 0.25rem;
-}
-
 .tab-result-sequence {
   height: 4rem;
   margin: 0;
   padding: 0;
   z-index: -3;
+}
+
+.flattened > .digits {
+  line-height: 1.7rem;
+}
+
+.full-screen > .digits {
+  position: absolute;
+  word-break: break-all;
+  z-index: 1;
+}
+
+.full-screen > .sequence {
+  position: absolute;
+  margin-top: 0;
+  word-break: break-all;
+  z-index: 0;
 }
 
 #motif-table {

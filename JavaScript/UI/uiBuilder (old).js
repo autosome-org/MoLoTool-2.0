@@ -234,7 +234,7 @@ var uiBuilderOld = (function () {
 
     var buildExternalTableComponent = function (table) {
         var $motifTableTBody = $('#motif-table').find('tbody'),
-            $result = $("#result-cmp");
+            $result = $("#output_textarea");
 
         //highlight sequence
         $motifTableTBody

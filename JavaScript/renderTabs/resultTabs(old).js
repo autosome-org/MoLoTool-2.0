@@ -25,7 +25,7 @@ var resultTabs = (function () {
     clipboardCopy.create();
 
     if ($.isEmptyObject(resultTabsStates.getOpenedIds())) {
-      $("#result-cmp").addClass("empty");
+      $("#output_textarea").addClass("empty");
     }
   };
 
@@ -103,7 +103,7 @@ var resultTabs = (function () {
       }
 
       if ($.isEmptyObject(resultTabsStates.getOpenedIds())) {
-        $("#result-cmp").removeClass("empty");
+        $("#output_textarea").removeClass("empty");
       }
 
       resultTabsStates.openId(tabId);
@@ -312,7 +312,7 @@ var resultTabs = (function () {
     }
 
     if ($.isEmptyObject(resultTabsStates.getOpenedIds())) {
-      $("#result-cmp").addClass("empty");
+      $("#output_textarea").addClass("empty");
     }
   };
 

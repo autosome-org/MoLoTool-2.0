@@ -6,7 +6,6 @@ let inputButton = ( function () {
       $inputButton = $('#input_button'),
 
       isEditMode = true,
-      rawInputString,
       sequences,
       _inputCallBack;
 
@@ -27,17 +26,18 @@ let inputButton = ( function () {
     switch ( $inputButton.text() ) {
       case 'Submit':
         if ( isNoSequenceErrors() ) {
-          parseInput();
           $outputTextarea.width($inputTextarea.width());
           changeRowsQuantity();
           $outputTextarea.height( $('.tab-result').length * 4 + 'rem' );
           isEditMode = false;
           switchSubmitEdit();
+          comparisonMode.applyMode();
         } else sequenceLibrary.clear();
         break;
       case 'Edit':
         sequenceLibrary.clear();
         renderTabs.clearTabs();
+        modeSwitcher.updateOutputView();
         isEditMode = true;
         switchSubmitEdit();
         break;
@@ -46,11 +46,11 @@ let inputButton = ( function () {
 
 
   let isNoSequenceErrors = function () {
-    return addSequence(_inputCallBack);
+    return submitSequence(_inputCallBack);
   };
 
 
-  let addSequence = function (inputCallback) {
+  let submitSequence = function (inputCallback) {
     return inputCallback( $inputTextarea.val() );
   };
 
@@ -68,12 +68,6 @@ let inputButton = ( function () {
 
     });
 
-  }
-
-  function parseInput () {
-    rawInputString = $inputTextarea.val();
-    sequences = inputParsing.parseInput(rawInputString);
-    inputParsing.assembleParsedValues(sequences);
   }
 
   function changeRowsQuantity () {

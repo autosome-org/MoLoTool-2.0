@@ -77,8 +77,9 @@ let renderTabs = ( function () {
       } else if ( getCurrentMode() === "Single" ) {
         let tabId = $(this).attr('data-tab');
 
-        if (getCurrentTabId()[0] !== tabId) {
+        if ( getCurrentTabId()[0] !== tabId ) {
           setToCurrent(tabId);
+          modeSwitcher.updateOutputView('Single');
           handleEvent();
         }
       }
@@ -86,6 +87,7 @@ let renderTabs = ( function () {
 
     $tab.find('.mode-tab').on('click', function () {
       modeSwitcher.switchMode();
+      comparisonMode.applyMode();
     });
 
     return $tab;
@@ -100,7 +102,7 @@ let renderTabs = ( function () {
 
 
   let clearTabs = function () {
-    $('#sequence-window__tab-bar').find('.tab').slice(1).remove();
+    $('#tab-bar').find('.tab').slice(1).remove();
   };
 
 
@@ -122,7 +124,7 @@ let renderTabs = ( function () {
       errorHandler.logError({"fileName": _fileName, "message": "tab cannot be added to result, it's already in result"});
       return 0;
     } else {
-      let $tabBar = $("#sequence-window__tab-bar"),
+      let $tabBar = $("#tab-bar"),
           $tab = createResultTab(tabId),
 
           $outputTextarea = $("#output_textarea"),
@@ -148,7 +150,7 @@ let renderTabs = ( function () {
       }
 
       if ($.isEmptyObject(resultTabsStates.getOpenedIds())) {
-        $("#result-cmp").removeClass("empty");
+        $("#output_textarea").removeClass("empty");
       }
 
       resultTabsStates.openId(tabId);
@@ -213,7 +215,6 @@ let renderTabs = ( function () {
 
           $sequence = $resultLine.find(".sequence"),
           $digits = $resultLine.find(".digits");
-      console.log($resultLine)
 
       $sequence.empty().html(content);
       $digits.empty().html(digits);
@@ -256,7 +257,7 @@ let renderTabs = ( function () {
     }
 
     if ($.isEmptyObject(resultTabsStates.getOpenedIds())) {
-      $("#result-cmp").addClass("empty");
+      $("#output_textarea").addClass("empty");
     }
 
     $('#output_textarea').height( $('.tab-result').length * 4 + 'rem' );

@@ -46,24 +46,43 @@ var comparisonMode = (function () {
 
 
     var switchComparisonMode = function () {
-        var newMode = "";
+        var newMode = "",
+            currentMode = getCurrentMode();
 
-        if (getCurrentMode() === "Single"){
+        if ( currentMode === "Single") {
             newMode = switchToMultipleMode();
-        } else if (getCurrentMode() === "Multiple") {
+        } else if ( currentMode === "Multiple") {
             newMode = switchToSingleMode();
         } else {
             errorHandler.logError({"fileName": _fileName, "message": "comparisonMode is undefined"});
         }
 
-        handleEvent(); //needed to update table for single sequence
+        handleEvent();
 
         return newMode;
     };
 
 
+    var applyMode = function () {
+        var currentMode = getCurrentMode();
+
+        if ( currentMode === "Single" )
+            switchToSingleMode();
+        else if ( currentMode === "Multiple" )
+            switchToMultipleMode();
+        else
+            errorHandler.logError({"fileName": _fileName, "message": "comparisonMode is undefined"});
+
+        handleEvent();
+    };
+
+
     var switchToSingleMode = function () {
         setCurrentModeTo("Single");
+
+        if ( !inputButton.isSubmitMode() )
+            return "Single";
+
         let $tabs = $(".tab-result");
         let $resultSequence = $(".tab-result-sequence");
 
@@ -82,8 +101,10 @@ var comparisonMode = (function () {
         turnOffLocks();
         $(".lock").addClass("hidden");
         $("#result-sequences").addClass("scrollable");
-
+        $('#output_textarea').css('white-space', 'normal')
+            .css('overflow-x','hidden');
         // resultTabs.updateWidth("reset");
+        modeSwitcher.updateOutputView('Single');
 
         return "Single";
     };
@@ -91,6 +112,10 @@ var comparisonMode = (function () {
 
     var switchToMultipleMode = function () {
         setCurrentModeTo("Multiple");
+
+        if ( !inputButton.isSubmitMode() )
+            return "Multiple";
+
         let $sequences = $('.tab-result-sequence');
 
         $(".tab-result").removeClass("current-tab");
@@ -103,9 +128,11 @@ var comparisonMode = (function () {
         $(".lock").removeClass("hidden");
         $("#result-sequences").removeClass("scrollable");
 
-
+        $('#output_textarea').css('white-space', 'pre')
+            .css('overflow-x','scroll');
 
         // resultTabs.updateWidth("setToMaximum");
+        modeSwitcher.updateOutputView();
 
         return "Multiple";
     };
@@ -167,6 +194,7 @@ var comparisonMode = (function () {
         getDefaultComparisonMode: getDefaultComparisonMode,
 
         switchComparisonMode: switchComparisonMode,
+        applyMode: applyMode,
         switchLock: switchLock,
 
         turnOffLocks: turnOffLocks

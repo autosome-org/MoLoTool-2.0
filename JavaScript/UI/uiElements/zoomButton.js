@@ -37,7 +37,8 @@ var zoomButton = (function () {
 
     var zoom = function (eventType) {
         var newFontSize = (eventType === "zoom_in") ? getNewFontSize("1px") : getNewFontSize("-1px");
-        $target.css({"font-size": newFontSize, "line-height": getLineHeight(newFontSize)});
+        $target.css({"font-size": newFontSize});
+        modeSwitcher.updateOutputView( comparisonMode.getCurrentMode() );
 
         // resultTabs.updateMarginForCurrentTab();
 
@@ -53,7 +54,6 @@ var zoomButton = (function () {
         getSettingsFor["threshold"] = thresholds;
         defaultFontSize = cutWithThresholds(defaultFontSizeToSet);
 
-        // $target.css({"font-size": defaultFontSize, "line-height": getLineHeight(defaultFontSize)});
         // resultTabs.updateMarginForCurrentTab();
 
         var content =  '<span class="icon icon-medium">'+ getSettingsFor.default.title + defaultFontSize + '</span>' +
@@ -74,7 +74,7 @@ var zoomButton = (function () {
     };
 
     var reset = function () {
-        // $target.css({"font-size": defaultFontSize, "line-height": getLineHeight(defaultFontSize)});
+        $target.css({"font-size": defaultFontSize, "line-height": getLineHeight(defaultFontSize)});
 
         // resultTabs.updateMarginForCurrentTab();
 
