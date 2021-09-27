@@ -70,6 +70,7 @@ body {
 
 #chosen-motif-list {
   width: 35.5rem;
+  max-height: 9rem;
   overflow-y: scroll;
   white-space: normal;
 }
@@ -93,6 +94,10 @@ body {
 .chosen-motif .motif-title {
   font-size: 0.9rem;
   display: inline;
+}
+
+.motif-title span {
+  white-space: pre;
 }
 
 .chosen-in-control .motif-title {
@@ -126,6 +131,10 @@ body {
 }
 
 .chosen-in-search {
+  box-sizing: border-box;
+  width: 50%;
+  margin: 0!important;
+  padding: 0!important;
 }
 
 .chosen-in-search .close {

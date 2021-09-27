@@ -141,12 +141,12 @@ let uiBuilder = (function () {
 
       let $closeButton = $('<a href="#" class="close link-button md-dark material-icons">close</a>');
 
-      let hocomocoRef = 'https://hocomoco11.autosome.ru/motif/' + motifName,
-          titleWithRef = `<div class="motif-title"><a class="hocomoco-info link-button" href="${hocomocoRef}" target=_blank>` +
-              `${motifName}</a></div>`;
-
       let geneName = $motifContainer.find('.motif-gene').html(),
           $geneName = $('<span class="description">' + geneName + '</span>');
+
+      let hocomocoRef = 'https://hocomoco11.autosome.ru/motif/' + motifName,
+          titleWithRef = `<div class="motif-title"><a class="hocomoco-info link-button" href="${hocomocoRef}" target=_blank>` +
+              `${motifName}</a><span>  (${geneName})<span></div>`;
 
       if (motifPicker.getChosenMotifSet().size !== 0) {
         $('.chosen-motif-bar').removeClass('empty');
@@ -156,11 +156,12 @@ let uiBuilder = (function () {
       $motifContainer.removeAttr('id').attr("data-name", motifName);
       $motifContainer.find('.motif-gene, .motif-family, .motif-title').remove();
       $motifContainer.append($closeButton);
-      $motifContainer.append( $(titleWithRef) );
+      $motifContainer.append( $(titleWithRef));
       $motifContainer.appendTo('#chosen-motif-list');
 
       let $motifContainerForControl = $motifContainer.clone();
       $motifContainerForControl.addClass('chosen-in-control').removeClass('chosen-in-search');
+      $motifContainerForControl.find('.motif-title span').remove();
       colorPicker.addTo($motifContainerForControl);
       $geneName.insertAfter( $motifContainerForControl.find('.sp-replacer') )
       $motifContainerForControl.appendTo('#chosen-motif-control');
