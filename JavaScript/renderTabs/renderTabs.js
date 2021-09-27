@@ -79,8 +79,8 @@ let renderTabs = ( function () {
 
         if ( getCurrentTabId()[0] !== tabId ) {
           setToCurrent(tabId);
-          modeSwitcher.updateOutputView('Single');
           handleEvent();
+          comparisonMode.updateOutputView('Single');
         }
       }
     });
@@ -126,7 +126,6 @@ let renderTabs = ( function () {
     } else {
       let $tabBar = $("#tab-bar"),
           $tab = createResultTab(tabId),
-
           $outputTextarea = $("#output_textarea"),
           $resultSequence = createResultSequence(tabId);
 

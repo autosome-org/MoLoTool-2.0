@@ -38,7 +38,7 @@ var zoomButton = (function () {
     var zoom = function (eventType) {
         var newFontSize = (eventType === "zoom_in") ? getNewFontSize("1px") : getNewFontSize("-1px");
         $target.css({"font-size": newFontSize});
-        modeSwitcher.updateOutputView( comparisonMode.getCurrentMode() );
+        comparisonMode.updateOutputView( comparisonMode.getCurrentMode() );
 
         // resultTabs.updateMarginForCurrentTab();
 

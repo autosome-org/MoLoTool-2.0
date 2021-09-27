@@ -104,7 +104,7 @@ var comparisonMode = (function () {
         $('#output_textarea').css('white-space', 'normal')
             .css('overflow-x','hidden');
         // resultTabs.updateWidth("reset");
-        modeSwitcher.updateOutputView('Single');
+        comparisonMode.updateOutputView('Single');
 
         return "Single";
     };
@@ -132,7 +132,7 @@ var comparisonMode = (function () {
             .css('overflow-x','scroll');
 
         // resultTabs.updateWidth("setToMaximum");
-        modeSwitcher.updateOutputView();
+        comparisonMode.updateOutputView();
 
         return "Multiple";
     };
@@ -187,12 +187,46 @@ var comparisonMode = (function () {
     };
 
 
+    let updateOutputView = function (event) {
+        let $inputTextarea = $('#input_textarea'),
+            $outputTextarea = $('#output_textarea'),
+            $sequences = $outputTextarea.find('.sequence'),
+            $digits = $outputTextarea.find('.digits'),
+            fontSize = $sequences.css('font-size');
+
+        let shift = parseFloat( fontSize ) * 1.28,
+            digitsMarginTop = ( event === 'Single' ) ? - shift: 0;
+        $digits.css("margin-top", digitsMarginTop + "px");
+
+        let lineHeightConst = ( event === 'Single' ) ? 4 : 1.2,
+            newLineHeight = parseFloat(fontSize) * lineHeightConst + 'px';
+        $sequences.css('line-height', newLineHeight);
+        $digits.css('line-height', newLineHeight);
+        $inputTextarea.css('line-height', 'normal');
+
+        if ( event === 'Single' ) {
+            let tabId = $('.current-tab').data('tab'),
+                sequenceHeight = $sequences.eq(tabId - 1).height(),
+                tabBarHeight = $('#tab-bar').height();
+
+            if ( sequenceHeight > tabBarHeight )
+                $outputTextarea.height(sequenceHeight);
+            else
+                $outputTextarea.height(tabBarHeight);
+
+        } else {
+            $outputTextarea.height( $('#tab-bar').height() );
+        }
+
+    };
+
+
     return {
         create: create,
 
         getCurrentMode: getCurrentMode,
         getDefaultComparisonMode: getDefaultComparisonMode,
-
+        updateOutputView,
         switchComparisonMode: switchComparisonMode,
         applyMode: applyMode,
         switchLock: switchLock,

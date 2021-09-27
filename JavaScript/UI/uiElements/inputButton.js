@@ -37,7 +37,7 @@ let inputButton = ( function () {
       case 'Edit':
         sequenceLibrary.clear();
         renderTabs.clearTabs();
-        modeSwitcher.updateOutputView();
+        comparisonMode.updateOutputView();
         isEditMode = true;
         switchSubmitEdit();
         break;
