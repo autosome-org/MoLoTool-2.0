@@ -150,6 +150,7 @@ let uiBuilder = (function () {
 
       if (motifPicker.getChosenMotifSet().size !== 0) {
         $('.chosen-motif-bar').removeClass('empty');
+        $('#support-info').addClass('straight');
       }
 
       $motifContainer.addClass('chosen-motif chosen-in-search').removeClass('hover-behavior suggestion');
@@ -188,6 +189,7 @@ let uiBuilder = (function () {
 
       if (motifPicker.getChosenMotifSet().size === 0) {
         $('#chosen-motif-control, #chosen-motif-list, #chosen-legend-container').addClass('empty');
+        $('#support-info').removeClass('straight');
       }
 
       motifSearch.applySearch();

@@ -46,6 +46,7 @@ body {
 .nav {
   list-style-type: none;
   display: inline;
+  padding-left: 1.3rem;
 }
 
 .nav.pull-left li {
@@ -60,16 +61,24 @@ body {
   padding-right: 1rem;
 }
 
+#motif-search {
+  margin-left: 0.2rem;
+}
+
+.select-collection-container {
+  margin-left: 0.35rem;
+}
+
 #chosen-legend-container {
   height: 1.6rem;
-  border-top: 0.08rem solid black;
-  border-bottom: 0.08rem solid black;
-  background-color: #c3c3c3;
+  border-top: 0.08rem solid #ababab;
+  border-bottom: 0.08rem solid #ababab;
+  background-color: #e2e2e2;
   align-items: center;
 }
 
 #chosen-motif-list {
-  width: 35.5rem;
+  width: 36rem;
   max-height: 9rem;
   overflow-y: scroll;
   white-space: normal;
@@ -80,6 +89,7 @@ body {
   cursor: pointer;
   position: absolute;
   padding-bottom: 0.3rem;
+  margin-left: 0.5rem;
 }
 
 .chosen-legend-heading {
@@ -132,24 +142,35 @@ body {
 
 .chosen-in-search {
   box-sizing: border-box;
-  width: 50%;
-  margin: 0!important;
-  padding: 0!important;
+  width: 48.75%;
+  margin: 0 0 0.3rem 0.45rem!important;
+  background-color: #e2e2e2;
+  border: 0.08rem solid #ababab;
+  border-radius: 0.3rem;
+}
+
+.chosen-in-search:nth-of-type(1), .chosen-in-search:nth-of-type(2) {
+  margin-top: 0.3rem!important;
 }
 
 .chosen-in-search .close {
-  font-size: 1rem;
+  font-size: 0.9rem;
+}
+
+.chosen-in-search .hocomoco-info {
+  font-size: 0.8rem;
 }
 
 .chosen-in-search .close:hover {
-  background-color: #c3c3c3;
-  border-radius: 0.2rem;
+  background-color: #cdcdcd!important;
+  border-radius: 0.2rem!important;
 }
 
 #legend-container {
-  border-bottom: 0.08rem solid black;
+  border-bottom: 0.08rem solid #ababab;
+  border-radius: 0.5rem 0.5rem 0 0;
   height: 1.6rem;
-  background-color: #c3c3c3;
+  background-color: #e2e2e2;
 }
 
 .legend {
@@ -167,11 +188,18 @@ body {
 
 .suggestions {
   z-index: 2;
-  background-color: #d7d7d7;
+  margin-left: 0.7rem;
+  margin-top: 0.2rem;
+  background-color: #f1f1f1;
+  border: 0.08rem solid #ababab;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56);
+  -moz-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56);
+  box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.3);
 }
 
 #motif-list {
-  max-height: 17.5rem;
+  max-height: 17.42rem;
   overflow-y: scroll;
 }
 
@@ -180,7 +208,7 @@ body {
 }
 
 .hover-behavior:hover {
-  background-color: #c3c3c3;
+  background-color: #cdcdcd;
 }
 
 .feature {
@@ -190,6 +218,7 @@ body {
 
 .motif-title {
   width: 14.5rem;
+  margin-left: 0.5rem;
 }
 
 .motif-family {
@@ -211,8 +240,13 @@ body {
 
 #support-info {
   height: 2rem;
-  border-top: 0.08rem solid black;
-  background-color: #d7d7d7;
+  border-top: 0.08rem solid #ababab;
+  background-color: #e2e2e2;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.straight {
+  border-radius: 0 0 0 0!important;
 }
 
 .info {
