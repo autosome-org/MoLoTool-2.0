@@ -358,7 +358,7 @@ body {
   -webkit-box-sizing: border-box; /* ≤ iOS4, ≤ Android  2.3 */
   -moz-box-sizing: border-box; /* FF1+ */
   box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
-  background-color: #e4e4e4;
+  background-color: #e2e2e2;
 }
 
 .tab-result:first-of-type {
@@ -375,7 +375,7 @@ body {
 }
 
 .current-tab {
-  background-color: white;
+  background-color: #cdcdcd;
   z-index: 1;
 }
 
@@ -415,6 +415,10 @@ body {
   background-color: #cfcfcf;
 }
 
+.current-tab .material-icons:hover {
+  background-color: #dcdcdc;
+}
+
 .tab-result .close {
   font-size: 1.2rem;
 }
@@ -437,6 +441,10 @@ body {
   border-radius: 0.25rem;
   padding-left: 0.1rem;
   padding-right: 0.1rem;
+}
+
+.current-tab .mode-tab {
+  background-color: #d9d9d9;
 }
 
 .tab__row__sequence-title {
