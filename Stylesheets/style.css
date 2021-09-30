@@ -116,7 +116,7 @@ body {
   height: 3rem;
   max-width: 13rem;
   margin-bottom: 0.8rem;
-  margin-left: 0.8rem;
+  margin-right: 0.8rem;
   background-color: #e2e2e2;
   border-radius: 0.4rem;
 }
@@ -292,7 +292,7 @@ body {
   display: inline-block;
   float: left;
   height: 3rem;
-  margin-right: 0.4rem;
+  margin-right: 0.8rem;
 }
 
 .pvalue-input {
