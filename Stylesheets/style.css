@@ -39,8 +39,11 @@ body {
   font-size: 0.8rem;
 }
 
-.first-level-control {
+.first-level {
   margin-bottom: 2rem;
+}
+
+.second-level {
 }
 
 .nav {
@@ -97,55 +100,70 @@ body {
   width: 100%;
 }
 
-.chosen-motif {
-  display: inline-block;
-}
-
-.chosen-motif .motif-title {
-  font-size: 0.9rem;
-  display: inline;
-}
-
 .motif-title span {
   white-space: pre;
 }
 
-.chosen-in-control .motif-title {
-  display: block;
-  margin-top: 0.3rem;
+#second-level {
+  display: flex;
+  flex-flow: row wrap;
+  min-height: 4rem;
+  margin-left: 0.3rem;
+}
+
+.chosen-in-control {
+  box-sizing: border-box;
+  height: 3rem;
+  max-width: 13rem;
+  margin-bottom: 0.8rem;
+  margin-left: 0.8rem;
+  background-color: #e2e2e2;
+  border-radius: 0.4rem;
 }
 
 .chosen-in-control .close {
-  display: inline-block;
-  height: 1.15rem;
-  width: 1.1rem;
+  margin-top: 0.3rem;
+  margin-left: 0.3rem;
+  font-size: 1.18rem;
   border-radius: 0.25rem;
-  text-align: center;
 }
 
 .chosen-in-control .close:hover {
   background-color: #cfcfcf;
 }
 
-.description {
-  font-size: 0.9rem;
-  margin-left: 0.5rem;
+.sp-replacer {
+  background-color: white;
+  width: 1.75rem!important;
+  margin-top: -0.65rem;
+  margin-left: 0.4rem;
+  height: 1.05rem!important;
 }
 
-.chosen-motif .close {
-  display: inline;
-  float: top;
-  margin-right: 0.3em;
-  vertical-align: middle;
-  cursor: pointer;
+.sp-dd {
+  height: 1.05rem;
+  width: 0.4rem;
+}
+
+.description {
+  position: absolute;
+  margin-top: 0.26rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+
+.chosen-in-control .motif-title {
+  display: block;
+  font-size: 0.9rem;
 }
 
 .chosen-in-search {
+  display: inline-block;
   box-sizing: border-box;
   width: 48.75%;
-  margin: 0 0 0.3rem 0.45rem!important;
+  margin: 0 0 0.3rem 0.45rem;
+  padding-left: 0.3rem;
   background-color: #e2e2e2;
-  border: 0.08rem solid #ababab;
   border-radius: 0.4rem;
 }
 
@@ -154,7 +172,17 @@ body {
 }
 
 .chosen-in-search .close {
+  display: inline;
+  float: top;
   font-size: 0.9rem;
+  margin-right: 0.3em;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.chosen-in-search .motif-title {
+  font-size: 0.9rem;
+  display: inline;
 }
 
 .chosen-in-search :is(.hocomoco-info, span) {
@@ -255,32 +283,22 @@ body {
   margin-left: 0.5rem;
 }
 
-.model-collection{
+.model-collection {
   float: right;
   margin-right: 0.9rem;
 }
 
-.p-inputs, #chosen-motif-control {
+.p-inputs {
   display: inline-block;
-  height: 3.7rem;
-}
-
-#chosen-motif-control {
-  margin-left: 1.5rem;
-}
-
-.chosen-motif {
-  padding-left: 0.3rem;
-  margin-right: 1.2rem;
-}
-
-#chosen-motif-control {
-  /* overflow-x: scroll; */
+  float: left;
+  height: 3rem;
+  margin-right: 0.4rem;
 }
 
 .pvalue-input {
   font-size: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  width: 3rem;
 }
 
 #pvalue_slider {

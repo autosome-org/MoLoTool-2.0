@@ -445,13 +445,13 @@ Here are the basic themeable display options (colors, fonts, global widths)
 }
 .sp-dd {
     position: absolute;
-    font-size: 10px;
+    font-size: 0.5rem;
     right: 0;
     top: 0;
     bottom: 0;
-    padding: 0 2px;
-    line-height: 1.6rem;
-    background-color: white
+    padding: 0 4px 0 2px;
+    line-height: 1.2rem;
+    background-color: white;
 }
 .sp-preview {
     position:relative;

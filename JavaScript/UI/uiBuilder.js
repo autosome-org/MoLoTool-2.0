@@ -165,7 +165,7 @@ let uiBuilder = (function () {
       $motifContainerForControl.find('.motif-title span').remove();
       colorPicker.addTo($motifContainerForControl);
       $geneName.insertAfter( $motifContainerForControl.find('.sp-replacer') )
-      $motifContainerForControl.appendTo('#chosen-motif-control');
+      $motifContainerForControl.appendTo('#second-level');
 
       motifSearch.applySearch();
       if ( inputButton.isSubmitMode() )
@@ -177,7 +177,7 @@ let uiBuilder = (function () {
 
   let removeChosenMotifListComponent = function () {
 
-    $('#chosen-motif-control, #chosen-motif-list').on('click', '.close', function (event) {
+    $('#second-level, #chosen-motif-list').on('click', '.close', function (event) {
       let $motifContainer = $(event.target).parent();
       let motifName = $motifContainer.find('.hocomoco-info').text();
 
@@ -185,10 +185,10 @@ let uiBuilder = (function () {
 
       // $(event.target).qtip('hide');///hiding tooltip
 
-      $('#chosen-motif-control, #chosen-motif-list').find('[data-name="' + motifName + '"]').remove();
+      $('#second-level, #chosen-motif-list').find('[data-name="' + motifName + '"]').remove();
 
       if (motifPicker.getChosenMotifSet().size === 0) {
-        $('#chosen-motif-control, #chosen-motif-list, #chosen-legend-container').addClass('empty');
+        $('#chosen-motif-list, #chosen-legend-container').addClass('empty');
         $('#support-info').removeClass('straight');
       }
 
