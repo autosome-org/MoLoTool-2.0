@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#e2e2e2">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#e2e2e2">
     <link rel="stylesheet" href="Stylesheets/style.css">
     <link rel="stylesheet" href="Stylesheets/icon.css">
     <link rel="stylesheet" href="ExternalLibraries/spectrum-2.0.8/spectrum.css">
@@ -14,7 +18,7 @@
 <body>
 
 <div class="wrapper">
-    <nav class="first-level">
+    <nav id="first-level">
         <ul class="nav pull-left">
             <li class="search-container">
                 <label for="motif-search">Motif ID, Family or gene name</label>
@@ -42,8 +46,6 @@
                     <option value="mouse, full">Mouse, full</option>
                 </select>
             </li>
-        </ul>
-        <ul class="nav pull-right">
             <li>
                 <button id="demo-button">Demo</button>
             </li>

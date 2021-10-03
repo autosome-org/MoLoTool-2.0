@@ -150,7 +150,7 @@ let uiBuilder = (function () {
 
       if (motifPicker.getChosenMotifSet().size !== 0) {
         $('.chosen-motif-bar').removeClass('empty');
-        $('#support-info').addClass('straight');
+        $('#support-info').addClass('not-chosen');
       }
 
       $motifContainer.addClass('chosen-motif chosen-in-search').removeClass('hover-behavior suggestion');
@@ -189,7 +189,7 @@ let uiBuilder = (function () {
 
       if (motifPicker.getChosenMotifSet().size === 0) {
         $('#chosen-motif-list, #chosen-legend-container').addClass('empty');
-        $('#support-info').removeClass('straight');
+        $('#support-info').removeClass('not-chosen');
       }
 
       motifSearch.applySearch();

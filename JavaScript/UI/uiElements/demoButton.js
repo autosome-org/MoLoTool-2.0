@@ -47,7 +47,7 @@ let demoButton = ( function () {
 
     $pValueLog.val( defaultValueFor.pValueLog ).change();
     $collectionSelect.val( defaultValueFor.collection ).selectmenu('refresh').trigger("selectmenuchange");
-    $motifSearch.val( defaultValueFor.search ).change();
+    $motifSearch.val( defaultValueFor.search ).change().blur();
     $modeSelect.val( defaultValueFor.mode ).selectmenu('refresh');
     $inputTextarea.val( defaultValueFor.input );
 
@@ -62,6 +62,7 @@ let demoButton = ( function () {
     }
 
     $inputButton.click();
+    /*$pValueLog.focus();*/
   };
 
 

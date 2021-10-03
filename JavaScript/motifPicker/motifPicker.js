@@ -12,7 +12,7 @@ var motifPicker = (function () {
     var create = function (motifSummariesSource, objectsToDisable) {
         inputStateSwitcher.create(objectsToDisable);
 
-        _defaultMaxResultCount = 5;
+        _defaultMaxResultCount = 6;
         _maxResultCount = _defaultMaxResultCount;
 
         _motifSummariesSource = motifSummariesSource;
@@ -80,7 +80,9 @@ var motifPicker = (function () {
             $(".suggestions").hide();
         } else if ( $.isEmptyObject(topMotifs) ) {
             $("#legend-container").hide();
+            $("#support-info").addClass("not-found");
         } else {
+            $("#support-info").removeClass("not-found")
             $("#legend-container").show();
             $(".suggestions").show();
         } // ToDo optional
