@@ -4,6 +4,7 @@ let inputButton = ( function () {
       $inputTextarea = $('#input_textarea'),
       $outputTextarea = $('#output_textarea'),
       $inputButton = $('#input_button'),
+      $inputControl = $('#input_control'),
 
       isEditMode = true,
       sequences,
@@ -26,6 +27,7 @@ let inputButton = ( function () {
     switch ( $inputButton.text() ) {
       case 'Submit':
         if ( isNoSequenceErrors() ) {
+          $inputControl.hide();
           $outputTextarea.width($inputTextarea.width());
           changeRowsQuantity();
           $outputTextarea.height( $('.tab-result').length * 4 + 'rem' );
@@ -35,6 +37,7 @@ let inputButton = ( function () {
         } else sequenceLibrary.clear();
         break;
       case 'Edit':
+        $inputControl.show();
         sequenceLibrary.clear();
         renderTabs.clearTabs();
         comparisonMode.updateOutputView();

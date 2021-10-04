@@ -27,6 +27,7 @@ let uiBuilder = (function () {
 
     PValueInput.create(handleEvent);
     inputParsing.create();
+    fileUploader.create()
 
     let tabIdRange = {"min": 1, "max": 10};
     sequenceLibrary.create(tabIdRange);
@@ -67,17 +68,11 @@ let uiBuilder = (function () {
   };
 
 
-  let inputCallback = function (inputString /*, replaceCurrent */, status) {
+  let inputCallback = function (inputString, status) {
     inputErrors.clearErrorStatus();
 
     if ($.isEmptyObject( motifPicker.getRequestedMotifNames() )) {
       inputErrors.addToLog("motifListIsEmpty"); //1
-    }
-
-    if (status === "fileIsTooBig") {
-      inputErrors.addToLog("fileIsTooBig"); //2
-      inputErrors.showErrors();
-      return false;
     }
 
     let sequences = inputParsing.parseInput(inputString);//4
@@ -98,25 +93,11 @@ let uiBuilder = (function () {
 
     $("#input_textarea").val(inputParsedInto);
 
-    /* if (replaceCurrent === true) {
-      let scrollPosition = $("html").scrollTop();
-      sequenceLibrary.clear();
-    } */
-
     let libraryIds = $.map(sequences, sequenceLibrary.addTab);
     $.map(libraryIds, renderTabs.renderResult);
 
-    /* if (replaceCurrent === true) {
-      $("html").scrollTop(scrollPosition);
-    } */
-
     inputErrors.showErrors(status);
     handleEvent();
-
-
-    /* if (comparisonMode.getCurrentMode() === "Multiple") {
-      resultTabs.updateWidth("setToMaximum");
-    } */
 
     return inputErrors.checkIfNoImportantErrors();
   };

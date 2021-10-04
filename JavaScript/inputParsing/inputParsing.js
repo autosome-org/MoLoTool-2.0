@@ -6,9 +6,7 @@ var inputParsing = (function () {
         
         _seqCheck,
         _defaultParsedValues,
-        _generalDescription,
-
-        _rest = "";
+        _generalDescription;
 
 
     var create = function() {
@@ -20,13 +18,6 @@ var inputParsing = (function () {
             "title": "No title",
             "sequence": "None"
         });
-
-        inputDemo.create(
-            ">human SLAMF1 promoter\n" +
-            "CAAAAAAGTGATTTAAAGCCTCATGGGAGATGAGCAATCCTCAA\n" +
-            ">mouse SLAMF1 promoter\n" +
-            "TGATAAAGTGATTTAAAGCCTGATCATAAATGAGCAATCCTGGA\n"
-        );
 
         inputErrors.create(getSeqCheck());
     };
@@ -65,7 +56,7 @@ var inputParsing = (function () {
 
 
     var parseInput = function (rawInputString) {
-        var sequences = [];
+        var sequences;
 
         var inputString = $.trim(rawInputString);
 
@@ -112,8 +103,8 @@ var inputParsing = (function () {
             //if fasta, there MUST be at least ONE \n else it's error;
             titleIndex = sequenceWithTitle.indexOf("\n"),
 
-            title = "",
-            sequence = "";
+            title,
+            sequence;
 
         if (titleIndex === -1) {
             title = sequenceWithTitle;
@@ -225,7 +216,6 @@ var inputParsing = (function () {
     return {
         create: create,
         parseInput: parseInput,
-
         assembleParsedValues: assembleParsedValues
     };
 }());

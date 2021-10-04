@@ -46,8 +46,9 @@
                     <option value="mouse, full">Mouse, full</option>
                 </select>
             </li>
-            <li>
+            <li class="header-buttons">
                 <button id="demo-button">Demo</button>
+                <button id="help-button">About</button>
             </li>
         </ul>
     </nav>
@@ -86,6 +87,18 @@
             </tr>
             <tr>
                 <td id="sequence-window__tab-bar">
+                    <div id="input_control">
+                        <form id="upload-container" method="POST">
+                            <a href="#" class="lock link-button material-icons md-dark">file_upload</a>
+                            <div>
+                                <input id="file-input" type="file" name="file" multiple>
+                                <label for="file-input">Chose a file</label>
+                                <br>
+                                <span>Or drag it here</span>
+                            </div>
+                        </form>
+                        <button id="input_reset">Reset</button>
+                    </div>
                     <div id="tab-bar"></div>
                 </td>
                 <td>
@@ -108,17 +121,18 @@
 <script src="ExternalLibraries/clipboard.min.js"></script>
 <script src="ExternalLibraries/autosize.js"></script>
 <script src="JavaScript/UI/uiElements/inputButton.js"></script>
+<script src="JavaScript/UI/uiElements/resetInput.js"></script>
 <script src="JavaScript/UI/uiElements/zoomButton.js"></script>
 <script src="JavaScript/UI/uiElements/pValueInput.js"></script>
 <script src="JavaScript/inputParsing/inputParsing.js"></script>
-<script src="JavaScript/inputParsing/inputDemo.js"></script>
+<script src="JavaScript/inputParsing/fileUploader.js"></script>
 <script src="JavaScript/inputParsing/inputErrors.js"></script>
 <script src="JavaScript/renderOutput/digitGuidance.js"></script>
 <script src="JavaScript/motifPicker/motifPicker.js"></script>
 <script src="JavaScript/UI/uiElements/resetChosenMotifs.js"></script>
 <script src="JavaScript/motifPicker/inputState.js"></script>
 <script src="JavaScript/motifPicker/motifSearch.js"></script>
-<script src="JavaScript/UI/uiElements/uiButtons.js"></script>
+<script src="JavaScript/UI/uiButtons.js"></script>
 <script src="JavaScript/UI/uiElements/collectionSettingsButtons.js"></script>
 <script src="JavaScript/UI/uiElements/demoButton.js"></script>
 <script src="JavaScript/motifHandler/motifHandler.js"></script>
