@@ -111,11 +111,14 @@ let uiBuilder = (function () {
   let buildChosenMotifListComponent = function () {
 
     $('#motif-list').on('click', '.motif-container', function () {
+
       let $motifContainer = $(this).find('.suggestion').clone(),
           motifName = $motifContainer.find('.motif-title').text();
 
-      if ( motifIsChosen(motifName) )
+      if ( motifIsChosen(motifName) ) {
+        $(`.chosen-in-search[data-name="${motifName}"] .close`).click();
         return 0;
+      }
 
       motifPicker.addChosenMotifToSet(motifName);
       motifLibrary.addUnit(motifName);

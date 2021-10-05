@@ -233,6 +233,7 @@ body {
 
 .chosen-in-list {
   background-color: #b7b8b4;
+  cursor: pointer;
 }
 
 #legend-container {
