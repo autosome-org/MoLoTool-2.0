@@ -227,8 +227,12 @@ body {
 }
 
 .chosen-in-search .close:hover {
-  background-color: #cdcdcd!important;
+  background-color: #afafaf!important;
   border-radius: 0.2rem!important;
+}
+
+.chosen-in-list {
+  background-color: #b7b8b4;
 }
 
 #legend-container {

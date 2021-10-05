@@ -3,17 +3,11 @@ var motifPicker = (function () {
         _motifSummaries = [],
         _chosenMotifsSet = new Set(), //ToDo Change Set To Dictionary o(1)
 
-        _defaultMaxResultCount,
-        _maxResultCount,
-
         _motifSummariesSource = function () {};
 
 
     var create = function (motifSummariesSource, objectsToDisable) {
         inputStateSwitcher.create(objectsToDisable);
-
-        _defaultMaxResultCount = 6;
-        _maxResultCount = _defaultMaxResultCount;
 
         _motifSummariesSource = motifSummariesSource;
 
@@ -71,14 +65,13 @@ var motifPicker = (function () {
         var legendContainer = wrapLegendContainer();
         $('#legend-container').html(legendContainer);
 
-        var topMotifs = suggestedMotifs.slice(0, /*_maxResultCount*/),
-            motifContainers = $.map(topMotifs, wrapMotifInContainer).join(''),
+        var motifContainers = $.map(suggestedMotifs, wrapMotifInContainer).join(''),
             chosenMotifs = $('.chosen-in-search');
 
         $('#motif-list').html(motifContainers);
-        if ( $.isEmptyObject(topMotifs) && chosenMotifs.length === 0 ) {
+        if ( $.isEmptyObject(suggestedMotifs) && chosenMotifs.length === 0 ) {
             $(".suggestions").hide();
-        } else if ( $.isEmptyObject(topMotifs) ) {
+        } else if ( $.isEmptyObject(suggestedMotifs) ) {
             $("#legend-container").hide();
             $("#support-info").addClass("not-found");
         } else {
@@ -86,16 +79,6 @@ var motifPicker = (function () {
             $("#legend-container").show();
             $(".suggestions").show();
         } // ToDo optional
-
-        /* var ifMoreValue = ifMore(suggestedMotifs);
-        if (suggestedMotifs.length > _defaultMaxResultCount) {
-            var ifMoreString = wrapIfMoreValueInContainer(ifMoreValue, suggestedMotifs.length);
-            var ifMoreContainer = $('#ifMore-container');
-            ifMoreContainer.find("#show-more-button span").html(ifMoreString);
-            ifMoreContainer.removeClass("hidden");
-        } else {
-            $('#ifMore-container').addClass("hidden");
-        } */
 
         var motifCountString = wrapMotifCountValueInContainer(suggestedMotifs.length);
         $('.motif-count').html(motifCountString);
@@ -106,11 +89,6 @@ var motifPicker = (function () {
         var correctWord = length.toString().slice(-1) === "1" ? 'model' : 'models';
         return `Found <strong>${length}</strong> ${correctWord}`;
     }
-
-
-    var ifMore = function (suggestedMotifs) {
-        return (suggestedMotifs.length > _maxResultCount) ? (suggestedMotifs.length - _maxResultCount) : 0;
-    };
 
 
     var wrapLegendContainer = function () {
@@ -131,21 +109,18 @@ var motifPicker = (function () {
 
 
     var wrapSummaryPrimaryInformation = function (motifSummary) {
-        var name = motifSummary["full_name"],
+        let name = motifSummary["full_name"],
             family = motifSummary["motif_families"],
             geneName = motifSummary["gene_names"];
 
-        return '<div class="suggestion"' + ' id="' + name + '">' +
+        let ifMotifIsChosen = $(`#chosen-motif-list [data-name="${name}"]`).length !== 0,
+            ifChosenClass = ifMotifIsChosen ? ' chosen-in-list' : '';
+
+        return  '<div class="suggestion' + ifChosenClass + '" id="' + name + '">' +
             '<div class="motif-title feature">'+ name +'</div>' +
             '<div class="motif-family feature"><p>'+ family +'</p></div>' +
             '<div class="motif-gene feature">'+ geneName +'</div>' +
             '</div>';
-    };
-
-
-    var wrapIfMoreValueInContainer = function (ifMoreValue, length) {
-        var itemsShown = (length >= _maxResultCount) ? _maxResultCount : length;
-        return (length) + ' models found. ' + itemsShown + " shown.";
     };
 
 
@@ -219,21 +194,6 @@ var motifPicker = (function () {
     };
 
 
-    var getDefaultMaxResultCount = function () {
-        return _defaultMaxResultCount;
-    };
-
-
-    var setMaxResultCount = function (newMaxResultCount) {
-        _maxResultCount = parseInt(newMaxResultCount);
-    };
-
-
-    var getMaxResultCount = function () {
-        return _maxResultCount;
-    };
-
-
     return {
         create,
 
@@ -247,10 +207,6 @@ var motifPicker = (function () {
         getChosenMotifSet,
 
         setSuggestedMotifList,
-
-        getDefaultMaxResultCount,
-        getMaxResultCount,
-        setMaxResultCount,
 
         updateMotifSummaries
     };
