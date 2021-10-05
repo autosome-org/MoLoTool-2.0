@@ -38,6 +38,7 @@ let uiButtons = (function () {
     // showMoreButton.init();
     collectionSettingsButtons.init(collectionSwitchCallback);
     resetChosenMotifs.init();
+    helpButton.init();
   };
 
   let generateContent = function (mode) {
