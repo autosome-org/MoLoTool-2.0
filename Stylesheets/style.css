@@ -62,6 +62,7 @@ body {
 
 #first-level {
   width: 100vw;
+  height: 1.4rem;
   margin-left: -8px;
   margin-top: -8px;
   padding-top: 0.3rem;
@@ -76,21 +77,21 @@ body {
   padding-left: 1.3rem;
 }
 
-.nav.pull-left li {
+.nav li {
   display: inline;
   white-space: nowrap;
   padding-right: 1rem;
 }
 
-.nav.pull-right li {
-  display: inline;
+.header-buttons {
+  height: 1.4rem;
+  vertical-align: center;
   float: right;
-  padding-right: 1rem;
 }
 
-.header-buttons {
-  float: right;
-  margin-right: 1.3rem;
+.header-buttons button {
+  height: 1.4rem;
+  vertical-align: center;
 }
 
 #motif-search {
