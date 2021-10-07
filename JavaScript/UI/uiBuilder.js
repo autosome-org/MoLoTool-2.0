@@ -165,6 +165,7 @@ let uiBuilder = (function () {
       let $motifContainer = $(event.target).parent();
       let motifName = $motifContainer.find('.hocomoco-info').text();
 
+      colorPicker.removeFrom($motifContainer);
       motifPicker.deleteChosenMotifFromSet(motifName);
 
       // $(event.target).qtip('hide');///hiding tooltip

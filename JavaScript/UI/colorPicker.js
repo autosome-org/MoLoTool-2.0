@@ -1,44 +1,15 @@
 /**
  * Created by HOME on 01.02.2017.
  */
-var colorPicker = (function () {
-    var _fileName = "colorPicker",
-        _defaultColors =    [
-          "#F15854",
-          "#FAA43A",
-          '#DECF3F',
-          "#60BD68",//4
-
-          "#5DA5DA",
-          "#F17CB0",
-          "#B276B2",
-          "#B2912F",//4
-
-
-          "#ff0000",
-          "#FF9800",
-          "#4CAF50",
-          "#2196F3",
-          "#9C27B0",//5
-
-          "#E91E63",
-          "#f75c03",
-          "#5c8001",
-          "#3F51B5",
-          "#4e0250",//5
-
-          "#b02e0c",
-          "#FFC107",
-          "#134611",
-          "#0a2463",
-          "#9c3848",//5
-
-          "#ef7674",
-          "#795548",
-          "#0d160b",
-          "#607D8B",
-          "#c490d1"//5
-
+let colorPicker = (function () {
+    let _fileName = "colorPicker",
+        _defaultColors =    ["#F15854", "#FAA43A", '#DECF3F', "#60BD68",
+          "#5DA5DA", "#F17CB0", "#B276B2", "#B2912F",
+          "#ff0000", "#FF9800", "#4CAF50", "#2196F3",
+          "#9C27B0", "#E91E63", "#f75c03", "#5c8001",
+          "#3F51B5", "#4e0250", "#b02e0c", "#FFC107",
+          "#134611", "#0a2463", "#9c3848", "#ef7674",
+          "#795548", "#0d160b", "#607D8B", "#c490d1"
         ],
 
         _freeColorIndex = 0,
@@ -47,51 +18,42 @@ var colorPicker = (function () {
         };
 
 
-    var create = function (eventHandler) {
+    let create = function (eventHandler) {
         setEventHandlerTo(eventHandler);
     };
 
-    var setEventHandlerTo = function (eventHandler) {
+    let setEventHandlerTo = function (eventHandler) {
         _eventHandler = eventHandler;
     };
 
 
-    var lastFreeColor = function () {
+    let lastFreeColor = function () {
         return _defaultColors[_freeColorIndex];
     };
 
 
-    var getColorFromContainer = function ($motifContainer) {
-        var $picker = $motifContainer.children(".motif-color-picker");
+    let getColorFromContainer = function ($motifContainer) {
+        let $picker = $motifContainer.children(".motif-color-picker");
         return $picker.spectrum("get").toHexString();
     };
 
 
-    //add next default colorPicker to chosen motif
-    var addTo = function ($motifContainer) {
-        var $colorPicker = $('<input class="motif-color-picker">');
+    let addTo = function ($motifContainer) {
+        let $colorPicker = $('<input class="motif-color-picker">');
 
         $colorPicker.insertAfter($motifContainer.find('.close'));
         set($motifContainer.children(".motif-color-picker"));
     };
 
 
-    var removeFrom = function (motifContainer) {
+    let removeFrom = function (motifContainer) {
         motifContainer.children(".motif-color-picker").spectrum("destroy");
         motifContainer.children(".motif-color-picker").remove();
         _freeColorIndex -= 1;
     };
 
 
-    //by default the colorPicker is "input" element
-
-    var set = function (colorPicker) {
-        var firstLine = _defaultColors.slice(0, 8),
-            secondLine = _defaultColors.slice(8, 16);
-
-        // firstLine.push("#AAAAAA");
-        // secondLine.push("#4D4D4D");
-
+    let set = function (colorPicker) {
         colorPicker.spectrum(
             {
                 type: "color",
