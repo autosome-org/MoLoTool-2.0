@@ -618,7 +618,7 @@ body {
   background-color: #fff;
 }
 
-/* Chrome version 29 and above */
+/* Chrome */
 @media screen and (-webkit-min-device-pixel-ratio:0)
 and (min-resolution:.001dpcm) {
   #output_textarea{
