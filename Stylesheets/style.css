@@ -150,7 +150,9 @@ body {
 }
 
 .chosen-in-control {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* ≤ iOS4, ≤ Android  2.3 */
+  -moz-box-sizing: border-box; /* FF1+ */
+  box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
   height: 3rem;
   max-width: 13rem;
   margin-bottom: 0.8rem;
@@ -197,9 +199,11 @@ body {
 
 .chosen-in-search {
   display: inline-block;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* ≤ iOS4, ≤ Android  2.3 */
+  -moz-box-sizing: border-box; /* FF1+ */
+  box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
   width: 48.75%;
-  margin: 0 0 0.3rem 0.45rem;
+  margin: 0 0 0.3rem 1.25%;
   padding-left: 0.3rem;
   background-color: #e2e2e2;
   border-radius: 0.4rem;
