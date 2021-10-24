@@ -2,10 +2,9 @@ var inputErrors = (function () {
     var _fileName = "inputErrors",
 
         _errors,
-
         _seqRegExp,
-
-        _maxUnexpectedCharToShow;
+        _maxUnexpectedCharToShow,
+        $errorReport = $('#error-report');
 
 
     var create = function (regExp) {
@@ -173,14 +172,14 @@ var inputErrors = (function () {
         console.log(_errors);
 
 
-        var content, message;
+        var content, message, isNoErrors;
         if (_errors["errorsFound"].status === false) {
-            if(status === "demo"){
+
+            if(status === "demo") {
                 content = _errors["demo"].message;
                 message = "";
             } else {
-                content = _errors["errorsFound"].message;
-                message = "";
+                isNoErrors = true;
             }
         } else if (checkIfNoImportantErrors()){
             content = checkErrors().trim();
@@ -190,42 +189,46 @@ var inputErrors = (function () {
             message = "Error"
         }
 
-        $('#error-report').show().qtip({
+        if ( !isNoErrors )
+          $errorReport.show().qtip({
 
-            content: {
-                text: content,
-                title: {
-                    text: message
-                }
-            },
+              content: {
+                  text: content,
+                  title: {
+                      text: message
+                  }
+              },
 
-            style: {
-                tip: false,
-                classes: 'custom-tooltip'
-            },
+              style: {
+                  tip: false,
+                  classes: 'custom-tooltip'
+              },
 
-            position: {
-                my: 'top left',
-                at: 'bottom left',
-                adjust: {
-                    y: 5,
-                    x: -25,
-                    scroll: true
-                }
-            },
+              position: {
+                  my: 'top left',
+                  at: 'bottom left',
+                  adjust: {
+                      y: 5,
+                      x: -25,
+                      scroll: true
+                  }
+              },
 
-            show: {
-                event: "click",
-                delay: 100,
-                ready: true
-            },
+              show: {
+                  event: "click",
+                  delay: 100,
+                  ready: true
+              },
 
-            hide: {
-                delay: 100,
-                event: "click unfocus"
-            }
+              hide: {
+                  delay: 100,
+                  event: "click unfocus"
+              }
 
-        });
+          });
+        else
+            $errorReport.hide();
+
     };
 
 
