@@ -1,8 +1,6 @@
 var inputErrors = (function () {
     var _fileName = "inputErrors",
 
-        _commonErrors,
-
         _errors,
 
         _seqRegExp,
@@ -186,50 +184,48 @@ var inputErrors = (function () {
             }
         } else if (checkIfNoImportantErrors()){
             content = checkErrors().trim();
-            message = "Warning."
+            message = "Warning"
         } else {
             content = checkErrors().trim();
-            message = "Error."
+            message = "Error"
         }
 
+        $('#error-report').show().qtip({
 
-        /* $(".nav #motif-search").qtip({
-            //overwrite: false, // Make sure the tooltip won't be overridden once created
             content: {
                 text: content,
                 title: {
                     text: message
                 }
             },
-            style: {
-                tip: {
-                    corner: true
-                },
-                classes: 'qtip-dark qtip-rounded qtip-shadow customTooltipStyle'
 
-                //classes: 'qtip-tipsy qtip-shadow'
+            style: {
+                tip: false,
+                classes: 'custom-tooltip'
             },
+
             position: {
-                my: 'top left',  // Position my top left...
-                at: 'bottom left', // at the bottom right of...
+                my: 'top left',
+                at: 'bottom left',
                 adjust: {
                     y: 5,
                     x: -25,
                     scroll: true
                 }
             },
+
             show: {
-                event: false,
+                event: "click",
                 delay: 100,
-                //event: event.type,
-                //event: event.type, // Use the same show event as the one that triggered the event handler
-                ready: true // Show the tooltip as soon as it's bound, vital so it shows up the first time you hover!
+                ready: true
             },
+
             hide: {
                 delay: 100,
                 event: "click unfocus"
             }
-        }); */ // ToDo realize
+
+        });
     };
 
 

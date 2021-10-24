@@ -6,12 +6,13 @@ html {
   color: #3c3c3c;
   position: relative;
   max-width: 100vw;
-  max-height: 100vh;
+  height: 100vh;
 }
 
 body {
   margin: 8px;
   background-color: #f1f1f1;
+  height: 100vh;
 }
 
 .absolute {
@@ -23,9 +24,34 @@ body {
   display: none;
 }
 
+.custom-tooltip {
+  margin-top: 0.2rem;
+  margin-right: 0.4rem;
+  background-color: #f1f1f1!important;
+  border: 0.04rem solid #c1c1c1!important;
+  border-radius: 0.6rem;
+  color: #626363!important;
+  font-size: 0.7rem!important;
+  line-height: normal!important;
+  -webkit-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56)!important;
+  -moz-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56)!important;
+  box-shadow: 0 0.35rem 1rem 0.16rem rgba(0, 0, 0, 0.1)!important;
+}
+
+.custom-tooltip .qtip-titlebar {
+  background-color: #f1f1f1!important;
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+  color: #3c3c3c;
+  font-size: 0.8rem;
+}
+
 .link-button, .link-button:hover, .link-button:visited, .link-button:active {
   color: inherit;
   text-decoration: none;
+}
+
+.ui-button {
 }
 
 .ui-selectmenu-button {
@@ -170,7 +196,7 @@ body {
 }
 
 .chosen-in-control .close:hover {
-  background-color: #cfcfcf;
+  background-color: #afafaf;
 }
 
 .sp-replacer {
@@ -232,14 +258,18 @@ body {
   font-size: 0.8rem;
 }
 
-.chosen-in-search .close:hover {
+.chosen-in-search .close:is(:hover, :focus, :target, :active) {
   background-color: #afafaf!important;
   border-radius: 0.2rem!important;
 }
 
 .chosen-in-list {
-  background-color: #b7b8b4;
+  background-color: #cdcdcd;
   cursor: pointer;
+}
+
+.hocomoco-info {
+  color: #3c3c3c;
 }
 
 #legend-container {
@@ -283,8 +313,16 @@ body {
   height: 3.5rem;
 }
 
+.suggestion:target {
+
+}
+
 .hover-behavior:hover {
-  background-color: #cdcdcd;
+  background-color: #b7b8b4;
+}
+
+.chosen-in-list:hover {
+  background-color: #b7b8b4;
 }
 
 .feature {
@@ -343,6 +381,20 @@ body {
   margin-right: 0.9rem;
 }
 
+#error-report {
+  display: none;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  color: #bb433f;
+  padding: 0.05rem 0.05rem 0.01rem;
+  cursor: pointer;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 #second-level {
   display: flex;
   flex-flow: row wrap;
@@ -357,10 +409,23 @@ body {
   margin-right: 1.2rem;
 }
 
+.p-inputs label {
+  font-size: 0.9rem;
+}
+
 .pvalue-input {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   margin-bottom: 0.8rem;
-  width: 3rem;
+  width: 3.3rem;
+  padding: 0 0.2rem 0 0.2rem;
+  border: 0.08rem solid #9d9d9d;
+  border-radius: 0.3rem;
+  background-color: #f1f1f1;
+}
+
+#pvalue_log {
+  width: 1.7rem;
+  margin-right: 0.6rem;
 }
 
 #pvalue_slider {
@@ -430,7 +495,7 @@ body {
 
 #upload-container {
   text-align: center;
-  margin: 0 0 0 0.65rem;
+  margin: 0 auto;
   width: 8.5rem;
   height: 7rem;
   border: 0.12rem dashed #9d9d9d;
@@ -657,15 +722,18 @@ and (min-resolution:.001dpcm) {
 
 #motif-table {
   font-family: sans-serif;
+  font-size: 0.9rem;
   word-break: break-all;
   white-space: nowrap;
   overflow-x: scroll;
+  border-collapse: collapse;
+  border-spacing: 0;
+  min-height: 2.25rem;
 }
 
 #motif-table thead {
   word-break: normal;
 }
-
 
 #motif-table th {
   margin-top: 0!important;
@@ -673,9 +741,38 @@ and (min-resolution:.001dpcm) {
   padding-bottom: 0!important;
 }
 
+#motif-table_filter {
+  float: left;
+}
+
+#motif-table_filter input {
+  width: 12rem;
+  height: 1.1rem;
+  font-size: 0.8rem;
+  color: #3c3c3c;
+  margin-left: 0.5rem;
+  margin-top: 2rem;
+  padding-left: 0.2rem;
+  border: 0.08rem solid #9d9d9d;
+  border-radius: 0.3rem;
+  background-color: #f1f1f1;
+}
+
+#motif-table tbody {
+  overflow-x: hidden!important;
+}
+
+#motif-table tr {
+  overflow-x: hidden!important;
+}
+
 td > img {
   height: 1.67rem;
   width: 11.67rem;
+}
+
+.dataTable th {
+  font-size: 0.8rem;
 }
 
 td.details-control {

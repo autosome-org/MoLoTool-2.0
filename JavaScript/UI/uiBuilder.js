@@ -165,10 +165,11 @@ let uiBuilder = (function () {
       let $motifContainer = $(event.target).parent();
       let motifName = $motifContainer.find('.hocomoco-info').text();
 
-      colorPicker.removeFrom($motifContainer);
       motifPicker.deleteChosenMotifFromSet(motifName);
 
       // $(event.target).qtip('hide');///hiding tooltip
+      if ( $motifContainer.is(':last-child') )
+        colorPicker.removeFrom($motifContainer);
 
       $('#second-level, #chosen-motif-list').find('[data-name="' + motifName + '"]').remove();
 

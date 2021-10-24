@@ -152,7 +152,7 @@ var motifTable = (function () {
 
     var format = function (data) {
         var titles = getHiddenColumnsTitles(),
-            htmlBox = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+            htmlBox = '<table style="padding-left:50px;">';
 
         for (var i = 0; i < titles.length; i++) {
             htmlBox += '<tr>' +

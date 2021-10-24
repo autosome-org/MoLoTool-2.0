@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="ExternalLibraries/spectrum-2.0.8/spectrum.css">
     <link rel="stylesheet" href="ExternalLibraries/jQuery/jquery-ui.css">
     <link rel="stylesheet" href="ExternalLibraries/jQuery/dataTables/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="ExternalLibraries/qtip2/jquery.qtip.min.css">
     <title>Sequence Motif Location Tool (MoLoTool)</title>
 </head>
 <body>
@@ -47,6 +48,7 @@
                 </select>
             </li>
             <li class="header-buttons">
+                <i id="error-report" class="material-icons md-dark">report</i>
                 <button id="demo-button">Demo</button>
                 <button id="help-button">Help</button>
             </li>
@@ -54,7 +56,7 @@
     </nav>
     <div id="second-level">
         <div class="p-inputs">
-            <label for="pvalue_log">-log<sub>10</sub>(P-value)</label>
+            <label for="pvalue_log">–log<sub>10</sub>(P-value)</label>
             <input value="4" class="pvalue-input" id="pvalue_log">
             <label for="pvalue_linear">P-value</label>
             <input value="1.00e-4" class="pvalue-input" id="pvalue_linear">
@@ -109,7 +111,7 @@
         </table>
     </div>
 
-    <table id="motif-table"></table>
+    <table id="motif-table" class="display cell-border compact"></table>
 
 </div>
 
@@ -119,6 +121,7 @@
 <script src="ExternalLibraries/spectrum-2.0.8/spectrum.js"></script>
 <script src="ExternalLibraries/clipboard.min.js"></script>
 <script src="ExternalLibraries/autosize.js"></script>
+<script src="ExternalLibraries/qtip2/jquery.qtip.min.js"></script>
 <script src="JavaScript/UI/uiElements/inputButton.js"></script>
 <script src="JavaScript/UI/uiElements/zoomButton.js"></script>
 <script src="JavaScript/UI/uiElements/pValueInput.js"></script>
