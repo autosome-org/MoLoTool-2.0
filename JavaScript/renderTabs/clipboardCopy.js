@@ -3,20 +3,21 @@ var clipboardCopy = (function () {
         clipboard;
 
     var create = function () {
-        clipboard = new Clipboard('.copy-tab', {
+        clipboard = new Clipboard('.copy', {
             target: function(trigger) {
                 var tabId = trigger.getAttribute("data-tab");
-                return $(".tab-result-sequence[data-tab=" + tabId + "]").get(0);
+                alert(tabId);
+                return $(".tab-result-sequence[data-tab=" + tabId + "]")[0];
             }
         });
 
-        clipboard.on('success', function(e) {
-            console.info('Action:', e.action);
-            console.info('Text:', e.text);
-            console.info('Trigger:', e.trigger);
+        clipboard.on('success', function(event) {
+            console.info('Action:', event.action);
+            console.info('Text:', event.text);
+            console.info('Trigger:', event.trigger);
 
             setTimeout(function () {
-                e.clearSelection();
+                event.clearSelection();
             }, 150);
         });
     };

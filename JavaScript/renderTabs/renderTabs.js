@@ -49,7 +49,7 @@ let renderTabs = ( function () {
         $tab = $('<div class="tab-result">' +
             '<div class="tab__row tab__row--icons">' +
             '<a href="#" class="close link-button material-icons md-dark">close</a>' +
-            '<a href="#" class="copy link-button material-icons md-dark">content_copy</a>' +
+            '<a href="#" class="copy link-button material-icons md-dark" data-tab="'+ tabId + '">content_copy</a>' +
             '<a href="3" class="lock link-button material-icons md-dark">lock_open</a>' +
             '<a href="#" class="mode-tab link-button">' + comparisonMode.getCurrentMode() + '</a>' +
             '</div>' +
