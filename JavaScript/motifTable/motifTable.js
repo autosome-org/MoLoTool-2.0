@@ -21,13 +21,13 @@ var motifTable = (function () {
     var createTable = function () {
         var tableObject = function () {
             return {
-                "lengthMenu": [[10, 15, 50, -1], [10, 15, 50, "All"]],
-                "pageLength": 15,
-                columnDefs: [
-                    {targets: [2, 3, 4], width: "7%"}
-                ],
-                dom: 'Bftlip<"clear">',
+                bLengthChange: false,
+                bInfo: false,
+                bPaginate: false,
                 scrollX: true,
+                scrollY: "15rem",
+                scrollCollapse: true,
+                dom: 'Blfrtip',
                 columns: createColumns(),
                 buttons: createButtons()
             };
@@ -37,9 +37,9 @@ var motifTable = (function () {
             var unitDetails = [{
                     "title": 'Info',
                     "width": '2%',
-                    "className":      'details-control',
-                    "orderable":      false,
-                    "data":           null,
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
                     "defaultContent": ''
                 }],
 
@@ -47,13 +47,13 @@ var motifTable = (function () {
                     "Motif ID": "8%",
                     "Seq name": "8%",
 
-                    "-log10(P-value)": "3%",
+                    "-log10(P-value)": "4%",
                     "P-value": "3%",
                     "Start": "2%",
                     "End": "2%",
                     "Sequence": "8%",
 
-                    "Strand": "2%",
+                    "Strand": "1%",
                     "Logo":"4%",
                     "Uniprot ID":"6%",
                     "Family":"6%",
