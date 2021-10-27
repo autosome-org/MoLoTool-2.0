@@ -6,7 +6,6 @@ var clipboardCopy = (function () {
         clipboard = new Clipboard('.copy', {
             target: function(trigger) {
                 var tabId = trigger.getAttribute("data-tab");
-                alert(tabId);
                 return $(".tab-result-sequence[data-tab=" + tabId + "]")[0];
             }
         });
