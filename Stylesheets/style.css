@@ -590,9 +590,6 @@ body {
   text-overflow: ellipsis;
 }
 
-.tab__row--icons {
-}
-
 .tab-result .material-icons {
   display: inline-block;
   float: left;
@@ -661,8 +658,7 @@ body {
 }
 
 #output_textarea {
-  width: calc(100% - 0.04rem)!important;
-  position: relative;
+  max-width: calc(100% - 0.04rem)!important;
   white-space: pre;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -696,10 +692,27 @@ and (min-resolution:.001dpcm) {
 }
 
 .tab-result-sequence {
+  min-width: fit-content;
   height: 4rem;
   margin: 0;
   padding: 0;
-  z-index: -3;
+}
+
+.locked {
+  border-top-right-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+  position: sticky;
+  overflow: hidden;
+  left: 0;
+}
+
+.locked .digits {
+  position: absolute;
+}
+
+.locked .sequence {
+  position: absolute;
+  padding-top: 21px;
 }
 
 .flattened > .digits {
@@ -734,10 +747,6 @@ and (min-resolution:.001dpcm) {
 
 .dataTables_scrollHeadInner, .dataTables_scrollHeadInner .display {
   min-width: 100%!important;
-}
-
-.dataTables_emplty {
-  overflow-x: hidden;
 }
 
 #motif-table_wrapper {

@@ -1,8 +1,8 @@
 var comparisonMode = (function () {
     var _fileName = "comparisonMode",
 
+        $outputTextarea = $('#output_textarea'),
         _eventHandler = function() {},
-
         _defaultComparisonMode,
         _comparisonMode;
 
@@ -100,7 +100,6 @@ var comparisonMode = (function () {
 
         turnOffLocks();
         $(".lock").addClass("hidden");
-        $("#result-sequences").addClass("scrollable");
         $('#output_textarea').css('white-space', 'normal')
             .css('overflow-x','hidden');
         // resultTabs.updateWidth("reset");
@@ -126,7 +125,6 @@ var comparisonMode = (function () {
         $sequences.addClass("flattened");
 
         $(".lock").removeClass("hidden");
-        $("#result-sequences").removeClass("scrollable");
 
         $('#output_textarea').css('white-space', 'pre')
             .css('overflow-x','scroll');
@@ -158,16 +156,14 @@ var comparisonMode = (function () {
 
     var lockLine = function ($target) {
         var tabId = $target.parents(".tab-result").attr("data-tab"),
-            $tabToLock = $(".tab-result-sequence[data-tab="+ tabId + "]")/*,
+            $tabToLock = $(".tab-result-sequence[data-tab="+ tabId + "]"),
+            shift = $outputTextarea.scrollLeft()/*,
             seqShift = $("#result-sequences").width(),
             tabShift = parseFloat($("#result-tabs").css("width")),
             width = $("#result-sequences").css("width"); */
 
-        $tabToLock
-            .find(".sequence, .digits, .title").css({
-                "left": $tabToLock.position().left + "px"
-            })
-            .addClass("locked");
+        $tabToLock.addClass("locked");
+        $tabToLock.children().css('left', - shift);
 
         $target.html("lock");
     };
@@ -177,11 +173,7 @@ var comparisonMode = (function () {
         var tabId = $target.parents(".tab-result").attr("data-tab"),
             $tabToUnlock = $(".tab-result-sequence[data-tab="+ tabId + "]");
 
-        $tabToUnlock
-            .find(".sequence, .digits, .title").css({
-               "left": "unset"
-            })
-            .removeClass("locked");
+        $tabToUnlock.removeClass("locked");
 
         $target.html("lock_open");
     };

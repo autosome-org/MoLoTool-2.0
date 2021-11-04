@@ -71,7 +71,7 @@ let renderTabs = ( function () {
         closeTab(this);
         handleEvent();
       } else if ( getCurrentMode() === "Multiple" ) {
-        if ($target.parent().hasClass("lock")) {
+        if ($target.hasClass("lock")) {
           comparisonMode.switchLock($target);
         }
       } else if ( getCurrentMode() === "Single" ) {
