@@ -712,7 +712,6 @@ and (min-resolution:.001dpcm) {
 
 .locked .sequence {
   position: absolute;
-  padding-top: 21px;
 }
 
 .flattened > .digits {

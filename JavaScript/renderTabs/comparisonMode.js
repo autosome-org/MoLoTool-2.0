@@ -164,6 +164,7 @@ var comparisonMode = (function () {
 
         $tabToLock.addClass("locked");
         $tabToLock.children().css('left', - shift);
+        $tabToLock.find('.sequence').css('padding-top', $('.digits').css('line-height') );
 
         $target.html("lock");
     };
@@ -173,6 +174,7 @@ var comparisonMode = (function () {
         var tabId = $target.parents(".tab-result").attr("data-tab"),
             $tabToUnlock = $(".tab-result-sequence[data-tab="+ tabId + "]");
 
+        $tabToUnlock.find('.sequence').css('padding-top', 0);
         $tabToUnlock.removeClass("locked");
 
         $target.html("lock_open");

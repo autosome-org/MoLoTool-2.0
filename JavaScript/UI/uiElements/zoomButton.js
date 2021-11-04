@@ -36,7 +36,9 @@ var zoomButton = (function () {
     };
 
     var zoom = function (eventType) {
+        var $lockedSequences = $('.locked .sequence');
         var newFontSize = (eventType === "zoom_in") ? getNewFontSize("1px") : getNewFontSize("-1px");
+        $lockedSequences.css('padding-top', $('.digits').css("line-height") );
         $target.css({"font-size": newFontSize});
         comparisonMode.updateOutputView( comparisonMode.getCurrentMode() );
 
