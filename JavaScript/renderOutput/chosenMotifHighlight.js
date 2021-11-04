@@ -3,11 +3,15 @@
  */
 var chosenMotifHighlight = (function () {
     var _fileName = "chosenMotifHighlight",
-        _$hoveredMotifs = $("");
+
+        _$hoveredMotifs = $('');
 
 
     var create = function () {
-        addTo();
+        var $outputTextarea = $("#output_textarea");
+
+        $outputTextarea.on('mouseenter', ".segment", mouseInHandler);
+        $outputTextarea.on('mouseleave', ".segment", mouseOutHandler);
     };
 
 
@@ -33,21 +37,14 @@ var chosenMotifHighlight = (function () {
     };
 
 
-    var addTo = function () {
-        var $resultCmp = $("#output_textarea");
-
-        $resultCmp.on('mouseenter', ".segment", mouseInHandler);
-        $resultCmp.on('mouseleave', ".segment", mouseOutHandler);
-    };
-
-
     var mouseInHandler = function () {
         var tabId = $(this).parents(".tab-result-sequence").attr("data-tab"),
             segment = sequenceConstructor.findSegmentWith(this.getAttribute('data-start'), tabId),
-            $motifList = $("#motif-list-selected"), $motif;
+            $motifList = $("#second-level"), $motif;
 
         for (var i = 0; i < segment.sites.length; i++) {
-            $motif = $motifList.find(jq(segment.sites[i].motifName));
+            var name = jq(segment.sites[i].motifName).replace(/[#\\]/g, '');
+            $motif = $motifList.find(`[data-name="${name}"]`);
             addToHovered($motif);
         }
 

@@ -18,7 +18,7 @@ let uiBuilder = (function () {
     removeChosenMotifListComponent();
 
     colorPicker.create(handleEvent);
-    // chosenMotifHighlight.create();
+    chosenMotifHighlight.create();
 
     let motifFeatureTitles = motifLibrary.getTitlesForDisplayedFeatures(),
         motifFeaturesRequest = motifLibrary.getMotifFeaturesForTable,
