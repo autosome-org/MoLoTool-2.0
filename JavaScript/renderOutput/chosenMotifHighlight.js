@@ -62,28 +62,3 @@ var chosenMotifHighlight = (function () {
     };
 }());
 
-/*
-var mouseListener = (function () {
-    var _moduleName = "mouseListener",
-        isDown = false; // Tracks status of a mouse button
-
-    var create = function () {
-        $("#logSlider").mousedown(function() {
-            isDown = true;      // When mouse goes down, set isDown to true
-            console.log(isDown);
-        })
-            .mouseup(function() {
-                isDown = false;    // When mouse goes up, set isDown to false
-                console.log(isDown);
-            });
-    };
-
-    var isPressed = function () {
-        return isDown;
-    };
-    return {
-        create: create,
-        isPressed: isPressed
-    };
-}());*/
-
