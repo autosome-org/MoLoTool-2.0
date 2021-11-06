@@ -756,18 +756,12 @@ and (min-resolution:.001dpcm) {
   overflow-y: scroll!important;
 }
 
+.dataTable th {
+  white-space: nowrap!important;
+}
+
 #motif-table_wrapper {
   margin-top: 1rem;
-}
-
-#motif-table thead {
-  word-break: normal;
-}
-
-#motif-table th {
-  margin-top: 0!important;
-  padding-top: 0!important;
-  padding-bottom: 0!important;
 }
 
 #motif-table_filter {
@@ -799,18 +793,6 @@ and (min-resolution:.001dpcm) {
   border: 0.08rem solid #9d9d9d;
   border-radius: 0.3rem;
   background-color: #f1f1f1;
-}
-
-#motif-table tbody {
-  overflow-x: hidden!important;
-}
-
-#motif-table tr {
-  overflow-x: hidden!important;
-}
-
-#motif-table th {
-  height: 1.5rem;
 }
 
 td > img {
