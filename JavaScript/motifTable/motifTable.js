@@ -22,7 +22,6 @@ var motifTable = (function () {
         var tableObject = function () {
             return {
                 bLengthChange: false,
-                bAutoWidth: false,
                 bInfo: false,
                 bPaginate: false,
                 scrollX: true,
