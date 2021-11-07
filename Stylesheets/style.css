@@ -27,19 +27,19 @@ body {
 .custom-tooltip {
   margin-top: 0.2rem;
   margin-right: 0.4rem;
-  background-color: #f1f1f1!important;
-  border: 0.04rem solid #c1c1c1!important;
+  background-color: #f1f1f1 !important;
+  border: 0.04rem solid #c1c1c1 !important;
   border-radius: 0.6rem;
-  color: #626363!important;
-  font-size: 0.7rem!important;
-  line-height: normal!important;
-  -webkit-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56)!important;
-  -moz-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56)!important;
-  box-shadow: 0 0.35rem 1rem 0.16rem rgba(0, 0, 0, 0.1)!important;
+  color: #626363 !important;
+  font-size: 0.7rem !important;
+  line-height: normal !important;
+  -webkit-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56) !important;
+  -moz-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56) !important;
+  box-shadow: 0 0.35rem 1rem 0.16rem rgba(0, 0, 0, 0.1) !important;
 }
 
 .custom-tooltip .qtip-titlebar {
-  background-color: #f1f1f1!important;
+  background-color: #f1f1f1 !important;
   border-top-left-radius: 0.6rem;
   border-top-right-radius: 0.6rem;
   color: #3c3c3c;
@@ -56,16 +56,16 @@ body {
 
 .ui-selectmenu-button {
   height: 0.5rem;
-  padding: 0.1rem 0 0.6rem 0.5rem !important;
+  padding: 0.1rem 0 0.6rem 0.5rem  !important;
 }
 
 .ui-menu, .ui-selectmenu-menu {
-  border-bottom-left-radius: 0.4rem!important;
-  border-bottom-right-radius: 0.4rem!important;
+  border-bottom-left-radius: 0.4rem !important;
+  border-bottom-right-radius: 0.4rem !important;
   -webkit-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56);
   -moz-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.56);
   box-shadow: 0 0.35rem 1rem 0.16rem rgba(0, 0, 0, 0.1);
-  background-color: #e2e2e2!important;
+  background-color: #e2e2e2 !important;
 }
 
 .ui-selectmenu-text {
@@ -79,11 +79,11 @@ body {
 }
 
 .ui-state-active {
-  background-color: #cdcdcd!important;
+  background-color: #cdcdcd !important;
 }
 
 .ui-widget-content {
-  background-color: #cdcdcd!important;
+  background-color: #cdcdcd !important;
 }
 
 #first-level {
@@ -201,10 +201,10 @@ body {
 
 .sp-replacer {
   background-color: white;
-  width: 1.75rem!important;
+  width: 1.75rem !important;
   margin-top: -0.65rem;
   margin-left: 0.4rem;
-  height: 1.05rem!important;
+  height: 1.05rem !important;
 }
 
 .sp-dd {
@@ -237,7 +237,7 @@ body {
 }
 
 .chosen-in-search:nth-of-type(1), .chosen-in-search:nth-of-type(2) {
-  margin-top: 0.3rem!important;
+  margin-top: 0.3rem !important;
 }
 
 .chosen-in-search .close {
@@ -259,8 +259,8 @@ body {
 }
 
 .chosen-in-search .close:is(:hover, :focus, :target, :active) {
-  background-color: #afafaf!important;
-  border-radius: 0.2rem!important;
+  background-color: #afafaf !important;
+  border-radius: 0.2rem !important;
 }
 
 .chosen-in-list {
@@ -360,14 +360,14 @@ body {
 }
 
 .not-chosen {
-  border-bottom-left-radius: 0!important;
-  border-bottom-right-radius: 0!important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 .not-found {
-  border-top: 0!important;
-  border-top-left-radius: 0.548rem!important;
-  border-top-right-radius: 0.548rem!important;
+  border-top: 0 !important;
+  border-top-left-radius: 0.548rem !important;
+  border-top-right-radius: 0.548rem !important;
 }
 
 .info {
@@ -457,7 +457,7 @@ body {
 }
 
 .zoom-button {
-  margin-right: 0!important;
+  margin-right: 0 !important;
 }
 
 .zoom-button .material-icons {
@@ -481,7 +481,7 @@ body {
 
 #input_button {
   height: 1.5rem;
-  padding: 0!important;
+  padding: 0 !important;
   font-size: 1rem;
   width: 9rem;
   margin: 0.25rem;
@@ -658,7 +658,7 @@ body {
 }
 
 #output_textarea {
-  max-width: calc(100% - 0.04rem)!important;
+  max-width: calc(100% - 0.04rem) !important;
   white-space: pre;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -752,12 +752,12 @@ and (min-resolution:.001dpcm) {
   white-space: nowrap;
   border-spacing: 0;
   min-height: 2.25rem;
-  max-height: 5rem!important;
-  overflow-y: scroll!important;
+  max-height: 5rem !important;
+  overflow-y: scroll !important;
 }
 
 .dataTable th {
-  white-space: nowrap!important;
+  white-space: nowrap !important;
 }
 
 #motif-table_wrapper {
@@ -769,16 +769,16 @@ and (min-resolution:.001dpcm) {
 }
 
 #motif-table_filter input {
-  margin-top: 0!important;
+  margin-top: 0 !important;
 }
 
 .dt-buttons {
-  float: right!important;
+  float: right !important;
 }
 
 .dt-buttons a {
-  padding: 0.1rem 0.3rem 0 0.3rem!important;
-  font-size: 0.8rem!important;
+  padding: 0.1rem 0.3rem 0 0.3rem !important;
+  font-size: 0.8rem !important;
   height: 1.2rem;
 }
 
