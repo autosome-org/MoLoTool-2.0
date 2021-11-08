@@ -102,7 +102,6 @@ var comparisonMode = (function () {
         $(".lock").addClass("hidden");
         $('#output_textarea').css('white-space', 'normal')
             .css('overflow-x','hidden');
-        // resultTabs.updateWidth("reset");
         comparisonMode.updateOutputView('Single');
 
         return "Single";
@@ -129,7 +128,6 @@ var comparisonMode = (function () {
         $('#output_textarea').css('white-space', 'pre')
             .css('overflow-x','scroll');
 
-        // resultTabs.updateWidth("setToMaximum");
         comparisonMode.updateOutputView();
 
         return "Multiple";
@@ -137,10 +135,11 @@ var comparisonMode = (function () {
 
 
     var turnOffLocks = function () {
-        var $locks = $(".lock .material-icons");
-            $locks.each(function () {
+        var $locks = $(".lock.material-icons");
+
+        $locks.each(function () {
                 unlockLine($(this));
-            });
+        });
     };
 
 
@@ -176,6 +175,7 @@ var comparisonMode = (function () {
 
         $tabToUnlock.find('.sequence').css('padding-top', 0);
         $tabToUnlock.removeClass("locked");
+        $tabToUnlock.children().css('left', 'unset');
 
         $target.html("lock_open");
     };

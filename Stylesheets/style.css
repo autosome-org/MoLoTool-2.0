@@ -658,6 +658,7 @@ body {
 }
 
 #output_textarea {
+  position: relative;
   max-width: calc(100% - 0.04rem) !important;
   white-space: pre;
   overflow-x: scroll;
