@@ -225,6 +225,8 @@ body {
   position: absolute;
   padding-bottom: 0.3rem;
   margin-left: 0.5rem;
+  height: 0.8rem !important;
+  background-color: #f1f1f1;
 }
 
 .chosen-legend-heading {
