@@ -5,7 +5,7 @@ let helpButton = ( function () {
 
 
   let init = function () {
-    $helpButton.addClass('ui-button ui-corner-all').on('click', function () {
+    $helpButton.addClass('interface-button').on('click', function () {
       window.open('help', '_blank');
     });
   };

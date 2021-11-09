@@ -14,6 +14,8 @@ var motifTable = (function () {
         _dtTable = $(_tableID).DataTable(createTable());
         buildUIComponent();
 
+        $('.dt-button').addClass('interface-button');
+
         return _dtTable;
     };
 

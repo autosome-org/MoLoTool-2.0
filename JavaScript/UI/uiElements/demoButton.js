@@ -28,7 +28,7 @@ let demoButton = ( function () {
   let init = function (inputCallback) {
     _inputCallback = inputCallback;
 
-    $demoButton.addClass('ui-button ui-corner-all');
+    $demoButton.addClass('interface-button');
 
     $demoButton.on('click', function () {
 

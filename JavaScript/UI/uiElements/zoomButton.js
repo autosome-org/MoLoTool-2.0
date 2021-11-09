@@ -59,8 +59,8 @@ var zoomButton = (function () {
         // resultTabs.updateMarginForCurrentTab();
 
         var content =  '<span class="icon icon-medium">'+ getSettingsFor.default.title + defaultFontSize + '</span>' +
-            '<div class="zoom-group"><i class="material-icons md-dark ui-button ui-corner-all">' + getSettingsFor.default.zoomIn + '</i>\n' +
-            '<i class="material-icons md-dark ui-button ui-corner-all">' + getSettingsFor.default.zoomOut + '</i></div>\n';
+            '<div class="zoom-group"><i class="material-icons md-dark interface-button">' + getSettingsFor.default.zoomIn + '</i>\n' +
+            '<i class="material-icons md-dark interface-button">' + getSettingsFor.default.zoomOut + '</i></div>\n';
 
         $button
             .empty()

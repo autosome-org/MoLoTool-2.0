@@ -15,7 +15,7 @@ let inputButton = ( function () {
     digitGuidance.create(10000); // ToDo remove
     _inputCallBack = inputCallback;
 
-    $inputButton.addClass("ui-button ui-corner-all");
+    $inputButton.addClass("interface-button");
     $inputButton.on('click', function () {
         submitOrEdit();
     });

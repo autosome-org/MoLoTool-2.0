@@ -51,7 +51,7 @@ let renderTabs = ( function () {
             '<a href="#" class="close link-button material-icons md-dark">close</a>' +
             '<a href="#" class="copy link-button material-icons md-dark" data-tab="'+ tabId + '">content_copy</a>' +
             '<a href="3" class="lock link-button material-icons md-dark">lock_open</a>' +
-            '<a href="#" class="mode-tab link-button">' + comparisonMode.getCurrentMode() + '</a>' +
+            '<a href="#" class="mode-tab link-button interface-button">' + comparisonMode.getCurrentMode() + '</a>' +
             '</div>' +
             '<div class="tab__row tab__row--title">' +
             '<p class="tab__row__sequence-title"></p></div>' +
