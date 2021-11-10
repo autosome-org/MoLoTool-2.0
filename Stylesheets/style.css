@@ -320,7 +320,7 @@ body {
   font-size: 0.8rem;
 }
 
-.chosen-in-search .close:is(:hover, :focus, :target, :active) {
+.close.mouseover {
   background-color: #afafaf !important;
   border-radius: 0.2rem !important;
 }

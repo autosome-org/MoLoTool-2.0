@@ -151,6 +151,12 @@ let uiBuilder = (function () {
       $geneName.insertAfter( $motifContainerForControl.find('.sp-replacer') )
       $motifContainerForControl.appendTo('#second-level');
 
+      $motifContainer.find('.close').on('mouseover', function () {
+        $(this).addClass('mouseover');
+      }).on('mouseleave', function () {
+        $(this).removeClass('mouseover');
+      }); // Prevents bug when :hover doesn't work
+
       motifSearch.applySearch();
       if ( inputButton.isSubmitMode() )
         motifHandler.makeFullUpdate();
