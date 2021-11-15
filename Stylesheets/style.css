@@ -584,6 +584,7 @@ body {
 #upload-container a {
   font-size: 2.5rem;
   margin-top: 1.6rem;
+  text-decoration: none;
 }
 
 #upload-container label {
