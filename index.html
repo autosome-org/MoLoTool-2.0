@@ -20,7 +20,7 @@
 <div class="wrapper">
     <nav id="first-level">
         <ul class="nav">
-            <li class="search-container">
+            <li class="nav__left">
                 <label for="motif-search">Motif ID, Family or gene name</label>
                 <input id="motif-search" placeholder="Start typing here">
                 <div class="suggestions absolute" hidden>
@@ -37,19 +37,21 @@
                     <div id="chosen-motif-list" class="empty chosen-motif-bar"></div>
                 </div>
             </li>
-            <li class="select-collection-container">
+            <li class="nav__right">
+                <div class="header-collection">
                 <label for="collection-select">Collection</label>
-                <select id="collection-select">
-                    <option value="human, core">Human, core</option>
-                    <option value="human, full">Human, full</option>
-                    <option value="mouse, core">Mouse, core</option>
-                    <option value="mouse, full">Mouse, full</option>
-                </select>
-            </li>
-            <li class="header-buttons">
-                <i id="error-report" class="material-icons md-dark">report</i>
-                <button id="demo-button">Demo</button>
-                <button id="help-button">Help</button>
+                    <select id="collection-select">
+                        <option value="human, core">Human, core</option>
+                        <option value="human, full">Human, full</option>
+                        <option value="mouse, core">Mouse, core</option>
+                        <option value="mouse, full">Mouse, full</option>
+                    </select>
+                </div>
+                <div class="header-buttons">
+                    <i id="error-report" class="material-icons md-dark">report</i>
+                    <button id="demo-button">Demo</button>
+                    <button id="help-button">Help</button>
+                </div>
             </li>
         </ul>
     </nav>

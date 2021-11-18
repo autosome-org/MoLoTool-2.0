@@ -142,7 +142,7 @@ body {
 
 #first-level {
   width: 100vw;
-  height: 1.4rem;
+  height: fit-content;
   margin-left: -8px;
   margin-top: -8px;
   padding-top: 0.3rem;
@@ -154,23 +154,81 @@ body {
 .nav {
   list-style-type: none;
   display: inline;
-  padding-left: 1.3rem;
+  padding: 0;
 }
 
 .nav li {
-  display: inline;
-  white-space: nowrap;
-  padding-right: 1rem;
+  display: inline-block;
 }
 
-#collection-select-button {
-  background: #f1f1f1;
+@media only screen and (max-width: 843px) {
+  .nav li {
+    display: block;
+    width: calc(100% - 1rem) !important;
+    padding-left: 0.5rem !important;
+    padding-bottom: 0.2rem;
+  }
+
+  .header-buttons {
+    margin-top: -1.53rem;
+  }
+
+  #second-level {
+    margin: 0 !important;
+  }
+
+  #manual-text-input {
+    margin-left: -0.7rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .nav__left {
+    text-align: center;
+  }
+
+  .header-buttons {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .nav__left {
+    text-align: left;
+  }
+
+  .nav__left label {
+    display: none;
+    visibility: hidden;
+  }
+
+  .header-buttons {
+    margin-top: -1.53rem;
+  }
+}
+
+.nav__left {
+  width: 25rem;
+  padding-left: 1.3rem;
+}
+
+.nav__right {
+  width: calc(100% - 27.1rem);
+  padding-right: 0.5rem;
+}
+
+.nav__right * {
+  display: inline-block;
 }
 
 .header-buttons {
   height: 1.4rem;
   vertical-align: center;
   float: right;
+}
+
+#collection-select-button {
+  background: #f1f1f1;
 }
 
 .header-buttons button {
@@ -524,6 +582,7 @@ body {
 
 .zoom-button {
   margin-right: 0 !important;
+  white-space: nowrap;
 }
 
 .zoom-button .material-icons {
@@ -542,6 +601,13 @@ body {
   margin-right: 0.6rem;
 }
 
+@media only screen and (max-width: 540px) {
+  .zoom-button .icon {
+    display: none;
+    visibility: hidden;
+  }
+}
+
 #sequence-window__button-cell {
   text-align: center;
 }
@@ -553,6 +619,17 @@ body {
   width: 8.5rem;
   margin: 0.25rem;
   background-color: #fff;
+}
+
+@media only screen and (max-width: 720px) {
+  .sequence-window__label {
+    display: none;
+    visibility: hidden;
+  }
+
+  .right-tools-panel {
+    width: 100%;
+  }
 }
 
 #sequence-window__tab-bar {
@@ -845,6 +922,14 @@ and (min-resolution:.001dpcm) {
 .dt-buttons {
   float: right !important;
   margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 640px) {
+  .dt-buttons {
+    width: fit-content;
+    float: unset !important;
+    margin-bottom: 0;
+  }
 }
 
 .dt-button {
