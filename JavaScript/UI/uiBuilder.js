@@ -293,5 +293,3 @@ $(window).resize( function() {
 ["", "webkit", "moz", "ms"].forEach(
     prefix => document.addEventListener(prefix+"fullscreenchange", uiBuilder.resizeOutputTextarea, false)
 );
-
-//$('*').scroll(function(e) {alert($(e.target).attr('class'))})

@@ -103,7 +103,7 @@ body {
   background: none !important;
 }
 
-.ui-selectmenu-button:focus {
+.ui-selectmenu-button.ui-selectmenu-button-open {
   box-shadow: none;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
