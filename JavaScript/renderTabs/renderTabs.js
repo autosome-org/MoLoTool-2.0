@@ -66,8 +66,7 @@ let renderTabs = ( function () {
       event.preventDefault();
       let $target = $(event.target);
 
-      if ($target.hasClass("close")) {
-        // $target.qtip("hide");
+      if ( $target.hasClass("close") ) {
         closeTab(this);
         handleEvent();
       } else if ( getCurrentMode() === "Multiple" ) {
@@ -135,8 +134,6 @@ let renderTabs = ( function () {
 
 
       if (getCurrentMode() === "Single") {
-        // $resultSequence.addClass("hidden full-screen");
-        // $resultSequence.removeClass("flattened");
 
         if ($.isEmptyObject(resultTabsStates.getOpenedIds())) {
           setToCurrent(tabId);
@@ -153,7 +150,6 @@ let renderTabs = ( function () {
       }
 
       resultTabsStates.openId(tabId);
-      // updateHeight();
     }
   };
 
@@ -208,8 +204,6 @@ let renderTabs = ( function () {
     if (resultTabsStates.idIsOpened(tabId)) {
       let digits = digitGuidance.getDigitsFor(getDigitsLength(tabId)),
 
-          // title = sequenceLibrary.getItemById(tabId).seqValues.title,
-
           $resultLine = $(".tab-result-sequence[data-tab=" + tabId + "]"),
 
           $sequence = $resultLine.find(".sequence"),
@@ -218,7 +212,6 @@ let renderTabs = ( function () {
       $sequence.empty().html(content);
       $digits.empty().html(digits);
 
-      // updateMargin(tabId);
     } else {
       console.log(tabId);
       errorHandler.logError({"fileName": _fileName, "message": "tab cannot be updated it's not opened"});
@@ -244,11 +237,8 @@ let renderTabs = ( function () {
 
     $tab.remove();
     $(".tab-result-sequence[data-tab=" + tabId + "]").remove();
-    // updateHeight();
 
     if (getCurrentMode() === "Multiple" ) {
-      // updateWidth("reset");
-      // updateWidth("setToMaximum");
     } else if (getCurrentMode() === "Single" &&
         !$.isEmptyObject(resultTabsStates.getOpenedIds()) ) {
         let newCurrentTabId = $(".tab-result").first().attr("data-tab");

@@ -1,16 +1,25 @@
-var clipboardCopy = (function () {
-    var _fileName = "clipboardCopy",
+let clipboardCopy = (function () {
+    let _fileName = 'clipboardCopy',
         clipboard;
 
-    var create = function () {
+    let create = function () {
         clipboard = new Clipboard('.copy', {
             target: function(trigger) {
-                var tabId = trigger.getAttribute("data-tab");
-                return $(".tab-result-sequence[data-tab=" + tabId + "]")[0];
+                if ( comparisonMode.getCurrentMode() === 'Single' ) {
+                    let wrapper = singleModeTextGenerator.generateObjectToCopy();
+                    document.body.append(wrapper);
+
+                    return wrapper;
+                }
+
+                let tabId = trigger.getAttribute('data-tab');
+
+                return $(`.tab-result-sequence[data-tab=${tabId}]`)[0];
             }
         });
 
         clipboard.on('success', function(event) {
+            $('.object-to-copy').remove();
             console.info('Action:', event.action);
             console.info('Text:', event.text);
             console.info('Trigger:', event.trigger);
@@ -22,6 +31,6 @@ var clipboardCopy = (function () {
     };
 
     return {
-        create: create
+        create
     };
 } ());
