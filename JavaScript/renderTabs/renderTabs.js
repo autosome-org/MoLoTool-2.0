@@ -146,7 +146,7 @@ let renderTabs = ( function () {
       }
 
       if ($.isEmptyObject(resultTabsStates.getOpenedIds())) {
-        $("#output_textarea").removeClass("empty");
+        $outputTextarea.removeClass("empty");
       }
 
       resultTabsStates.openId(tabId);

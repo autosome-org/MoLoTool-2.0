@@ -147,7 +147,7 @@ body {
   margin-top: -8px;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   background-color: #e2e2e2;
 }
 
@@ -548,7 +548,7 @@ body {
 
 .pvalue-input {
   font-size: 0.7rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   width: 3.3rem;
   padding: 0 0.2rem 0 0.2rem;
   border: 0.08rem solid #9d9d9d;
@@ -561,14 +561,37 @@ body {
   margin-right: 0.6rem;
 }
 
+.slider label {
+  font-family: "Lucida Console", "Monospaced", monospace;
+  font-size: 0.65rem;
+  display: block;
+  width: 92.9%;
+  margin-left: 6.2%;
+  text-align: justify;
+  height: 0.65rem;
+}
+
+.slider label:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
 #pvalue_slider {
   width: 100%;
+  height: 0.8rem;
+}
+
+@media only screen and (max-width: 582px) {
+  .p-inputs {
+    margin-bottom: 0.8rem !important;
+  }
 }
 
 .sequence-window {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 0.75rem;
+  margin-top: 0;
 }
 
 .sequence-window td {
