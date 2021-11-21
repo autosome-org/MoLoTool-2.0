@@ -983,6 +983,98 @@ and (min-resolution:.001dpcm) {
   filter: none !important;
 }
 
+.dt-button-collection {
+  background-color: #f1f1f1 !important;
+  padding-top: 0.7rem !important;
+  border: 0.04rem solid #9d9d9d !important;
+  border-radius: 0.6rem !important;
+  -webkit-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.3) !important;
+  -moz-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.3) !important;
+}
+
+.dt-button-background {
+  background: none !important;
+}
+
+.buttons-columnVisibility {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 0.2rem !important;
+  color: #3c3c3c !important;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 0.7rem 0 0.7rem;
+  border: none !important;
+  border-radius: 0.25rem !important;
+  -webkit-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px;
+  -moz-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px;
+}
+
+.buttons-columnVisibility:first-of-type {
+  margin-top: 0.8rem !important;
+}
+
+.buttons-columnVisibility:nth-of-type(n + 5) {
+  top: 1.3rem !important;
+}
+
+.buttons-columnVisibility:nth-of-type(n + 10) {
+  top: 3rem !important;
+}
+
+.buttons-columnVisibility:nth-of-type(10) {
+  margin-top: -0.5rem !important;
+}
+
+.buttons-columnVisibility:nth-of-type(n + 11) {
+  top: 2.15rem !important;
+}
+
+/* It was the only way in CSS. Don't use this library */
+
+.buttons-columnVisibility:active {
+  background: none !important;
+}
+
+.buttons-columnVisibility:hover {
+  -webkit-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, #9d9d9d 0 0 0 1px !important;
+  -moz-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, #9d9d9d 0 0 0 1px !important;
+  box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, #9d9d9d 0 0 0 1px !important;
+}
+
+.buttons-columnVisibility.active {
+  background-color: #e2e2e2 !important;
+  -webkit-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px !important;
+  -moz-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px !important;
+  box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px !important;
+}
+
+.buttons-columnVisibility.active:hover {
+  -webkit-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, #9d9d9d 0 0 0 1px !important;
+  -moz-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, #9d9d9d 0 0 0 1px !important;
+  box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, #9d9d9d 0 0 0 1px !important;
+}
+
+.buttons-columnVisibility.active:active {
+  background: none !important;
+}
+
+.dt-button-info {
+  background-color: #f1f1f1 !important;
+  padding-top: 0.7rem !important;
+  border: 0.04rem solid #9d9d9d !important;
+  border-radius: 0.6rem !important;
+  -webkit-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.3) !important;
+  -moz-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.3) !important;
+}
+
+.dt-button-info h2 {
+  border: none !important;
+}
+
 #motif-table_filter input {
   width: 12rem;
   height: 1.1rem;
