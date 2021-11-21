@@ -36,16 +36,7 @@ var motifTable = (function () {
         };
 
         var createColumns = function () {
-            var unitDetails = [{
-                    "title": 'Info',
-                    "width": '2%',
-                    "className": 'details-control',
-                    "orderable": false,
-                    "data": null,
-                    "defaultContent": ''
-                }],
-
-                featuresWidth = {
+            var  featuresWidth = {
                     "Motif ID": "8%",
                     "Seq name": "8%",
 
@@ -71,7 +62,7 @@ var motifTable = (function () {
                     return {"data": feature, "title": feature, "visible": false, "width": featuresWidth[feature]};
 
                 });
-            return [].concat(unitDetails, featuresToShow, featuresToHide);
+            return [].concat(featuresToShow, featuresToHide);
         };
 
 
@@ -125,7 +116,7 @@ var motifTable = (function () {
 
     var buildUIComponent = function () {
         $('#motif-table').find('tbody')
-            .on('click', 'td.details-control', function () {
+            .on('click', function () {
                 var tr = $(this).closest('tr'),
                     row =_dtTable.row( tr );
 

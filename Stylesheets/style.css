@@ -984,8 +984,9 @@ and (min-resolution:.001dpcm) {
 }
 
 .dt-button-collection {
+  height: 6.8rem !important;
   background-color: #f1f1f1 !important;
-  padding-top: 0.7rem !important;
+  padding-top: 0.4rem !important;
   border: 0.04rem solid #9d9d9d !important;
   border-radius: 0.6rem !important;
   -webkit-box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.3) !important;
@@ -1012,24 +1013,16 @@ and (min-resolution:.001dpcm) {
   box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px;
 }
 
-.buttons-columnVisibility:first-of-type {
-  margin-top: 0.8rem !important;
+.buttons-columnVisibility:nth-of-type(n) {
+  top: 0.3rem !important;
 }
 
 .buttons-columnVisibility:nth-of-type(n + 5) {
-  top: 1.3rem !important;
+  top: 0.5rem !important;
 }
 
-.buttons-columnVisibility:nth-of-type(n + 10) {
-  top: 3rem !important;
-}
-
-.buttons-columnVisibility:nth-of-type(10) {
-  margin-top: -0.5rem !important;
-}
-
-.buttons-columnVisibility:nth-of-type(n + 11) {
-  top: 2.15rem !important;
+.buttons-columnVisibility:nth-of-type(n + 9) {
+  top: 0.5rem !important;
 }
 
 /* It was the only way in CSS. Don't use this library */
