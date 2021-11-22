@@ -65,8 +65,13 @@ var motifPicker = (function () {
         var legendContainer = wrapLegendContainer();
         $('#legend-container').html(legendContainer);
 
-        var motifContainers = $.map(suggestedMotifs, wrapMotifInContainer).join(''),
+        /*var motifContainers = $.map(suggestedMotifs, wrapMotifInContainer).join(''),
+            chosenMotifs = $('.chosen-in-search');*/
+        var motifContainers = "",
             chosenMotifs = $('.chosen-in-search');
+
+        for ( let i = 0; i < suggestedMotifs.length; i++ )
+           motifContainers += wrapMotifInContainer(suggestedMotifs[i], i);
 
         $('#motif-list').html(motifContainers);
         if ( $.isEmptyObject(suggestedMotifs) && chosenMotifs.length === 0 ) {
@@ -98,11 +103,11 @@ var motifPicker = (function () {
     };
 
 
-    var wrapMotifInContainer = function (suggestedMotif) {
+    var wrapMotifInContainer = function (suggestedMotif, index) {
         var summary = suggestedMotif[0],
             primaryInfo = wrapSummaryPrimaryInformation(summary);
 
-        return '<div class="motif-container hover-behavior">' +
+        return '<div class="motif-container hover-behavior" tabindex="' + index + '">' +
             primaryInfo +
             '</div>';
     };

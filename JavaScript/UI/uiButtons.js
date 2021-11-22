@@ -39,6 +39,8 @@ let uiButtons = (function () {
     collectionSettingsButtons.init(collectionSwitchCallback);
     resetChosenMotifs.init();
     helpButton.init();
+
+    keyboardNavigation.init();
   };
 
   let generateContent = function (mode) {

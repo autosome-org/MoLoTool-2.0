@@ -109,14 +109,14 @@ let uiBuilder = (function () {
 
 
   let buildChosenMotifListComponent = function () {
-
     $('#motif-list').on('click', '.motif-container', function () {
-
       let $motifContainer = $(this).find('.suggestion').clone(),
-          motifName = $motifContainer.find('.motif-title').text();
+          motifName = $motifContainer.find('.motif-title').text(),
+          tabindex = $(this).attr('tabindex');
 
       if ( motifIsChosen(motifName) ) {
         $(`.chosen-in-search[data-name="${motifName}"] .close`).click();
+        $(`.motif-container[tabindex=${tabindex}]`).focus();
         return 0;
       }
 
@@ -160,7 +160,9 @@ let uiBuilder = (function () {
       motifSearch.applySearch();
       if ( inputButton.isSubmitMode() )
         motifHandler.makeFullUpdate();
-    })
+
+      $(`.motif-container[tabindex=${tabindex}]`).focus();
+    });
 
   };
 
@@ -173,7 +175,6 @@ let uiBuilder = (function () {
 
       motifPicker.deleteChosenMotifFromSet(motifName);
 
-      // $(event.target).qtip('hide');///hiding tooltip
       if ( $motifContainer.is(':last-child') )
         colorPicker.removeFrom($motifContainer);
 
@@ -196,7 +197,7 @@ let uiBuilder = (function () {
   }
 
 
-  let buildExternalTableComponent = function (table) {
+  /*let buildExternalTableComponent = function (table) {
     let $motifTableTBody = $('#motif-table').find('tbody'),
         $result = $('#sequence-window__tab-bar, #output_textarea');
 
@@ -259,7 +260,7 @@ let uiBuilder = (function () {
           }
         });
 
-  };
+  };*/
 
 
   $('#motif-search').on('input', () => {

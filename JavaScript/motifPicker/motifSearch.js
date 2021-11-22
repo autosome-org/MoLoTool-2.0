@@ -21,9 +21,10 @@ var motifSearch = (function () {
         });
 
         $('body').on('click', function(e) {
-            if ( !$(e.target).is('.search-container, .motif-container, .chosen-in-search') &&
+            if ( !$(e.target).is('.search-container, .motif-container, .chosen-in-search, #motif-search') &&
                 $(e.target).parents('.search-container, .motif-container, .chosen-in-search').length === 0 ) {
                 $suggestions.hide();
+                console.log(0)
             }
         });
 

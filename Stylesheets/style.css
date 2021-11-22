@@ -446,16 +446,13 @@ body {
   height: 3.5rem;
 }
 
-.suggestion:target {
-
+.hover-behavior:focus {
+  background-color: #b7b8b4;
+  outline: none;
 }
 
-.hover-behavior:hover {
-  background-color: #b7b8b4;
-}
-
-.chosen-in-list:hover {
-  background-color: #b7b8b4;
+.hover-behavior:focus .chosen-in-list {
+  background-color: #b7b8b4 !important;
 }
 
 .feature {
