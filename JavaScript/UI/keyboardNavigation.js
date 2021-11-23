@@ -1,16 +1,23 @@
 let keyboardNavigation = ( function () {
   let _fileName = "keyboardNavigation",
 
-      $motifList = $('#motif-list');
+      $motifList = $('#motif-list'),
+      $motifSearch = $('#motif-search'),
+      $suggestions = $('.suggestions');
+
 
   let init = function () {
-    $('#motif-search').on('keyup', function (event) {
+    $motifSearch.on('keyup', function (event) {
 
       if ( event.code === 'ArrowDown' ) {
         $(event.target).blur();
         let $firstMotifContainer = $( $('.motif-container')[0] );
         $firstMotifContainer.focus().hover();
-      }
+      } else if ( event.code === 'Escape' )
+        $suggestions.hide();
+      else if ( event.code === 'Enter' )
+        $suggestions.show();
+
 
     });
 
@@ -44,6 +51,11 @@ let keyboardNavigation = ( function () {
           $(`.motif-container[tabindex=${+$motifContainer.attr('tabindex') - 1}]`).focus();
         else
           $('#motif-search').focus();
+      }
+
+      else if ( event.code === 'Escape' ) {
+        $motifSearch.focus();
+        $suggestions.hide();
       }
 
     });

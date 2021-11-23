@@ -396,11 +396,6 @@ body {
   border-radius: 0.2rem !important;
 }
 
-.chosen-in-list {
-  background-color: #cdcdcd;
-  cursor: pointer;
-}
-
 .hocomoco-info {
   color: #3c3c3c;
 }
@@ -451,8 +446,16 @@ body {
   outline: none;
 }
 
+.chosen-in-list {
+  background-color: #cdcdcd;
+  cursor: pointer;
+}
+
 .hover-behavior:focus .chosen-in-list {
-  background-color: #b7b8b4 !important;
+  -webkit-box-shadow: inset 0 0 0 0.3rem #b7b8b4;
+  -moz-box-shadow: inset 0 0 0 0.3rem #b7b8b4;
+  box-shadow: inset 0 0 0 0.3rem #b7b8b4;
+  background-color: #cdcdcd;
 }
 
 .feature {
