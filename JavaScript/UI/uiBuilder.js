@@ -23,7 +23,7 @@ let uiBuilder = (function () {
     let motifFeatureTitles = motifLibrary.getTitlesForDisplayedFeatures(),
         motifFeaturesRequest = motifLibrary.getMotifFeaturesForTable,
         table = motifTable.create(motifFeatureTitles, motifFeaturesRequest);
-    // buildExternalTableComponent(table);
+    buildExternalTableComponent(table);
 
     PValueInput.create(handleEvent);
     inputParsing.create();
@@ -197,49 +197,56 @@ let uiBuilder = (function () {
   }
 
 
-  /*let buildExternalTableComponent = function (table) {
+  let buildExternalTableComponent = function (table) {
     let $motifTableTBody = $('#motif-table').find('tbody'),
-        $result = $('#sequence-window__tab-bar, #output_textarea');
+        $result = $('#tab-bar, #output_textarea');
 
     //highlight sequence
     $motifTableTBody
-        .on('mouse' + 'enter', 'td', function () {
-          let rowData = table.row(this).data(),
-              $resultTab = $result.children('.current-tab'),
+        .on('mouseenter', 'tr', function () {
+          let rowData = getRowData(this);
+
+          if ( rowData === 0 )
+            return 0
+
+          let $resultTab = $result.children('.current-tab'),
               resultTabId = $resultTab.attr('data-tab'),
-              $resultSequence = $result.find(`.tab-result-sequence[data-tab=${resultTabId}]`);
+              $resultSequence = $result
+                  .find(`.tab-result-sequence[data-tab=${resultTabId}] .sequence`);
 
-          if (rowData !== undefined) {
-            let start = rowData['Start Position'], finish = rowData['Finish Position'],
-                $segment,
-                firstID = start,
-                lastID;
+          let start = rowData['Start'], finish = rowData['End'],
+              $segment,
+              firstID = start,
+              lastID;
 
-            while (start <= finish) {
-              $segment = $resultSequence.children('[data-start=' + start + ']');
-              $segment.addClass('highlighted');
-              if ((finish - start + 1) === $segment.text().length) {
-                break
-              } else {
-                start = $segment.next().attr('data-start')
-              }
-            }
-            lastID = start;
-
-            $('#' + firstID).addClass('first');
-            $('#' + lastID).addClass('last');
+          while (+start <= +finish) {
+            $segment = $resultSequence.children('.segment[data-start=' + start + ']');
+            $segment.addClass('highlighted');
+            if ( (finish - start + 1) === $segment.text().length )
+              break
+            else
+              start = $segment.next().attr('data-start')
           }
+
+          lastID = start;
+
+          $('#' + firstID).addClass('first');
+          $('#' + lastID).addClass('last');
         });
 
     $motifTableTBody
-        .on('mouse' + 'leave', 'td', function () {
-          let rowData = table.row(this).data(),
-              $resultTab = $result.children('.current-tab'),
-              resultTabId = $resultTab.attr('data-tab'),
-              $resultSequence = $result.find(`.tab-result-sequence[data-tab=${resultTabId}]`);
+        .on('mouseleave', 'tr', function () {
+          let rowData = getRowData(this);
 
-          if (rowData !== undefined) {
-            let start = rowData['Start Position'], finish = rowData['Finish Position'],
+          if ( rowData === 0 )
+            return 0
+
+          let $resultTab = $result.children('.current-tab'),
+              resultTabId = $resultTab.attr('data-tab'),
+              $resultSequence = $result
+                  .find(`.tab-result-sequence[data-tab=${resultTabId}] .sequence`);
+
+            let start = rowData['Start'], finish = rowData['End'],
                 $segment,
                 firstID = start,
                 lastID;
@@ -247,20 +254,31 @@ let uiBuilder = (function () {
             while (start <= finish) {
               $segment = $resultSequence.children('[data-start=' + start + ']');
               $segment.removeClass('highlighted');
-              if ((finish - start + 1) === $segment.text().length) {
+              if ( (finish - start + 1) === $segment.text().length )
                 break
-              } else {
+              else
                 start = $segment.next().attr('data-start');
-              }
             }
+
             lastID = start;
 
             $('#' + firstID).removeClass('first');
             $('#' + lastID).removeClass('last');
-          }
         });
 
-  };*/
+    let getRowData = function (tableRow) {
+      if ( comparisonMode.getCurrentMode() !== 'Single' )
+        return 0;
+
+      let rowData = table.row(tableRow).data();
+
+      if ( !rowData )
+        return 0;
+
+      return rowData;
+    };
+
+  };
 
 
   $('#motif-search').on('input', () => {
