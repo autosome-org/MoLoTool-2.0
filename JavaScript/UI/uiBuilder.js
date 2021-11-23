@@ -308,6 +308,7 @@ uiBuilder.buildUI();
 motifHandler.handleMotifs();
 $(window).resize( function() {
   uiBuilder.resizeOutputTextarea();
+  $('#motif-table').resize();
 });
 ["", "webkit", "moz", "ms"].forEach(
     prefix => document.addEventListener(prefix+"fullscreenchange", uiBuilder.resizeOutputTextarea, false)
