@@ -4,7 +4,6 @@ let uiBuilder = (function () {
       _eventHandler,
       _motifSummariesSource =
           "https://hocomoco11.autosome.ru/human/mono.json?summary=true&full=false",
-      lastWidth = $(window).width(),
       $searchInput = $(".search-container").find("input");
 
 
@@ -201,7 +200,6 @@ let uiBuilder = (function () {
     let $motifTableTBody = $('#motif-table').find('tbody'),
         $result = $('#tab-bar, #output_textarea');
 
-    //highlight sequence
     $motifTableTBody
         .on('mouseenter', 'tr', function () {
           let rowData = getRowData(this);
@@ -286,30 +284,10 @@ let uiBuilder = (function () {
   });
 
 
-  let resizeOutputTextarea = function () {
-
-    if( $(window).width() !== lastWidth ) {
-      let $outputTextarea = $('#output_textarea');
-
-      $outputTextarea.width( $outputTextarea.width() + $(window).width() - lastWidth );
-      $('html').width( $(window).width() );
-      lastWidth = $(window).width();
-    }
-
-  }
-
   return {
-    buildUI,
-    resizeOutputTextarea
+    buildUI
   };
 }());
 
 uiBuilder.buildUI();
 motifHandler.handleMotifs();
-$(window).resize( function() {
-  uiBuilder.resizeOutputTextarea();
-  $('#motif-table').resize();
-});
-["", "webkit", "moz", "ms"].forEach(
-    prefix => document.addEventListener(prefix+"fullscreenchange", uiBuilder.resizeOutputTextarea, false)
-);

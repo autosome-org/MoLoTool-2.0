@@ -840,7 +840,7 @@ body {
 
 #output_textarea {
   position: relative;
-  max-width: calc(100% - 0.04rem) !important;
+  width: calc(100% - 0.04rem) !important;
   white-space: pre;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -941,6 +941,7 @@ and (min-resolution:.001dpcm) {
   word-break: break-all;
   white-space: nowrap;
   border-spacing: 0;
+  max-width: 100% !important;
   min-height: 2.25rem;
   max-height: 5rem !important;
   overflow-y: scroll !important;
