@@ -61,13 +61,16 @@ let colorPicker = (function () {
                 color: lastFreeColor(),
                 showInput: true,
                 showAlpha: false,
+                showInitial: true,
                 showSelectionPalette: false,
                 showButtons: false,
                 allowEmpty: false,
                 clickoutFiresChange: true,
                 preferredFormat: "hex",
                 move: function (color) {},
-                show: function () {},
+                show: function () {
+                  $('.sp-initial').appendTo('.sp-palette-container');
+                },
                 beforeShow: function () {},
                 hide: function () {},
                 change: function (){_eventHandler("COLOR")},
@@ -93,7 +96,7 @@ let colorPicker = (function () {
                   ["#F15854", "#FAA43A", "#DECF3F", "#60BD68",
                     "#5DA5DA", "#0072B2", "#B276B2", "#F17CB0"],
 
-                  /* ["#B2912F", "#aaa", "#4d4d4d"],*/
+                  ["#795548", "#0d160b", "#607D8B", "#c490d1"]
                 ]
             });
         _freeColorIndex += 1;
