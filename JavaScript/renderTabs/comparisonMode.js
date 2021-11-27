@@ -156,14 +156,17 @@ var comparisonMode = (function () {
     var lockLine = function ($target) {
         var tabId = $target.parents(".tab-result").attr("data-tab"),
             $tabToLock = $(".tab-result-sequence[data-tab="+ tabId + "]"),
-            shift = $outputTextarea.scrollLeft()/*,
-            seqShift = $("#result-sequences").width(),
-            tabShift = parseFloat($("#result-tabs").css("width")),
-            width = $("#result-sequences").css("width"); */
+            shift = $outputTextarea.scrollLeft(),
+            fontSize = parseInt( $tabToLock.css('font-size') );
 
         $tabToLock.addClass("locked");
         $tabToLock.children().css('left', - shift);
         $tabToLock.find('.sequence').css('padding-top', $('.digits').css('line-height') );
+
+        if ( fontSize % 5 === 3 || fontSize % 5 === 4 ) {
+            $tabToLock.addClass('prevent-bug');
+        }
+            // The bug occurs when font size is 5n-2 or 5n-1
 
         $target.html("lock");
     };
@@ -174,7 +177,7 @@ var comparisonMode = (function () {
             $tabToUnlock = $(".tab-result-sequence[data-tab="+ tabId + "]");
 
         $tabToUnlock.find('.sequence').css('padding-top', 0);
-        $tabToUnlock.removeClass("locked");
+        $tabToUnlock.removeClass("locked prevent-bug");
         $tabToUnlock.children().css('left', 'unset');
 
         $target.html("lock_open");
