@@ -13,6 +13,7 @@ let keyboardNavigation = ( function () {
         $(event.target).blur();
         let $firstMotifContainer = $( $('.motif-container')[0] );
         $firstMotifContainer.focus().hover();
+        $motifList.addClass('arrow-navigation');
       } else if ( event.code === 'Escape' )
         $suggestions.hide();
       else if ( event.code === 'Enter' )
@@ -21,7 +22,7 @@ let keyboardNavigation = ( function () {
 
     });
 
-    $motifList.on('mouseover', function (event) {
+    $(document).on('mouseover', '#motif-list:not(.arrow-navigation) .suggestion', function (event) {
 
       if ( $(event.target).parents().hasClass('motif-container') ) {
         let $hoveredMotifContainer = $(event.target).parents('.motif-container');
@@ -34,6 +35,10 @@ let keyboardNavigation = ( function () {
 
     });
 
+    $(document).on('mousemove', '#motif-list.arrow-navigation', function () {
+      $(this).removeClass('arrow-navigation');
+    });
+
     addHandlerToMotifList();
   };
 
@@ -43,14 +48,17 @@ let keyboardNavigation = ( function () {
       event.preventDefault();
 
       if ( event.code === 'ArrowDown' ) {
-        $(`[tabindex=${ +$motifContainer.attr('tabindex') + 1 }]`).focus();
+        $(`[tabindex=${ +$motifContainer.attr('tabindex') + 1 }]`).focus().hover();
+        $motifList.addClass('arrow-navigation');
       }
 
       else if ( event.code === 'ArrowUp' ) {
         if ($motifContainer.attr('tabindex') !== '0')
-          $(`.motif-container[tabindex=${+$motifContainer.attr('tabindex') - 1}]`).focus();
+          $(`.motif-container[tabindex=${+$motifContainer.attr('tabindex') - 1}]`).focus().hover();
         else
           $('#motif-search').focus();
+
+        $motifList.addClass('arrow-navigation');
       }
 
       else if ( event.code === 'Escape' ) {
