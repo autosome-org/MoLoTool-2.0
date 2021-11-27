@@ -896,9 +896,13 @@ and (min-resolution:.001dpcm) {
   position: absolute;
 }
 
-.locked.prevent-bug .sequence {
-  margin-top: -1px;
-} /* The bug occurs when font size is 5n-2 or 5n-1 */
+@media not all and (min-resolution:.001dpcm) {
+  @media {
+    .locked.prevent-bug-in-safari .sequence {
+      margin-top: -1px;
+    } /* The bug occurs in Safari when font size is 5n-2 or 5n-1 */
+  }
+}
 
 .flattened > .digits {
   line-height: 1.7rem;

@@ -164,9 +164,9 @@ var comparisonMode = (function () {
         $tabToLock.find('.sequence').css('padding-top', $('.digits').css('line-height') );
 
         if ( fontSize % 5 === 3 || fontSize % 5 === 4 ) {
-            $tabToLock.addClass('prevent-bug');
+            $tabToLock.addClass('prevent-bug-in-safari');
         }
-            // The bug occurs when font size is 5n-2 or 5n-1
+            // The bug occurs in Safari when font size is 5n-2 or 5n-1
 
         $target.html("lock");
     };
@@ -177,7 +177,7 @@ var comparisonMode = (function () {
             $tabToUnlock = $(".tab-result-sequence[data-tab="+ tabId + "]");
 
         $tabToUnlock.find('.sequence').css('padding-top', 0);
-        $tabToUnlock.removeClass("locked prevent-bug");
+        $tabToUnlock.removeClass("locked prevent-bug-in-safari");
         $tabToUnlock.children().css('left', 'unset');
 
         $target.html("lock_open");
