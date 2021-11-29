@@ -694,6 +694,12 @@ body {
   }
 }
 
+@media only screen and (max-width: 597px) {
+  #tab-bar .mode-tab {
+    margin-right: -0.3rem !important;
+  }
+}
+
 .sequence-window {
   width: 100%;
   border-collapse: collapse;
