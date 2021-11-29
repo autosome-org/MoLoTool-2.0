@@ -187,6 +187,10 @@ body {
   background-color: #cdcdcd !important;
 }
 
+.sp-container {
+  top: 0.5rem;
+}
+
 .sp-initial {
   margin-top: -1.05rem;
   margin-left: 5.05rem;
@@ -909,7 +913,7 @@ body {
 
 #output_textarea {
   position: relative;
-  width: calc(100% - 0.04rem) !important;
+  width: calc(100vw - 10rem - 16px) !important;
   white-space: pre;
   overflow-x: scroll;
   overflow-y: hidden;
