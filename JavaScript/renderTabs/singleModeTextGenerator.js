@@ -33,7 +33,7 @@ let singleModeTextGenerator = ( function () {
         lineNumber = Math.ceil(digitsText.length / lineLength);
 
     for ( let i = 0; i < lineNumber; i++ )
-      digitsLines[i] = $('<span>').html( digitsText.slice( lineLength * i, lineLength * (i+1) ) )
+      digitsLines[i] = $('<p>').html( digitsText.slice( lineLength * i, lineLength * (i+1) ) )
           .css({'font-family': fontFamily, 'font-size': fontSize});
 
     return digitsLines;
@@ -41,7 +41,7 @@ let singleModeTextGenerator = ( function () {
 
 
   let splitSequence = function ($rawSequence, lineLength) {
-    let sequenceLines = [$('<span>')],
+    let sequenceLines = [$('<p>')],
         fontFamily = $rawSequence.css('font-family');
 
     for ( let i = 0, lineNumber = 0, currentSequenceLength = 0; i < $rawSequence.length; i++ ) {
