@@ -208,6 +208,10 @@ body {
   border: 0.04rem solid #9d9d9d !important;
 }
 
+.sp-palette-row {
+  width: 10rem !important;
+}
+
 .sp-initial {
   margin-top: -1.05rem;
   margin-left: 5.05rem;
@@ -269,6 +273,10 @@ body {
 
   #manual-text-input {
     margin-left: -0.7rem;
+  }
+
+  #output_textarea.sequence-window__textarea {
+    width: calc(100vw - 9.3rem - 16px) !important;
   }
 
   .tab-result {

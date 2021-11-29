@@ -70,8 +70,6 @@ let colorPicker = (function () {
                 move: function (color) {},
                 show: function () {
                   $('.sp-initial').appendTo('.sp-palette-container');
-                  let $spContainer = $('.sp-container');
-                  $spContainer.css('top', parseInt( $spContainer.css('top') ) + 4 + 'px');
                 },
                 beforeShow: function () {},
                 hide: function () {},
