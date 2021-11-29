@@ -784,6 +784,35 @@ body {
   }
 }
 
+@media only screen and (max-width: 415px) {
+  .mode-select-container label {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 373px) {
+  .zoom-button, .header-collection label {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 344px) {
+  .p-inputs label:nth-of-type(2) {
+    display: none;
+    visibility: hidden;
+  }
+
+  .header-buttons {
+    margin-top: 0;
+  }
+
+  .nav__left {
+    text-align: center;
+  }
+}
+
 #sequence-window__tab-bar {
   width: 10rem;
   vertical-align: top;
