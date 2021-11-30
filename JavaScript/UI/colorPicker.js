@@ -69,7 +69,10 @@ let colorPicker = (function () {
                 preferredFormat: "hex",
                 move: function (color) {},
                 show: function () {
-                  $('.sp-initial').appendTo('.sp-palette-container');
+                  /*let $spInitial = $('.sp-initial');
+                  $spInitial.appendTo(
+                      $spInitial.parents('.sp-container').find('.sp-palette-container')
+                  );*/
                 },
                 beforeShow: function () {},
                 hide: function () {},
@@ -96,7 +99,8 @@ let colorPicker = (function () {
                   ["#F15854", "#FAA43A", "#DECF3F", "#60BD68",
                     "#5DA5DA", "#0072B2", "#B276B2", "#F17CB0"],
 
-                  ["#795548", "#0d160b", "#607D8B", "#c490d1"]
+                  ["#c04000", "#b06500", "#795548", "#0d160b",
+                    "#607D8B", "#b4b4b4", "#004D40", "#D81B60"]
                 ]
             });
         _freeColorIndex += 1;
