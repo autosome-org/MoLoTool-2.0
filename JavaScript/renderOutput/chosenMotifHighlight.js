@@ -4,7 +4,8 @@
 var chosenMotifHighlight = (function () {
     var _fileName = "chosenMotifHighlight",
 
-        _$hoveredMotifs = $('');
+        _$hoveredMotifs = $(''),
+        $motifTable = $('#motif-table');
 
 
     var create = function () {
@@ -43,17 +44,36 @@ var chosenMotifHighlight = (function () {
             $motifList = $("#second-level"), $motif;
 
         for (var i = 0; i < segment.sites.length; i++) {
-            var name = jq(segment.sites[i].motifName).replace(/[#\\]/g, '');
+            var name = jq(segment.sites[i].motifName).replace(/[#\\]/g, ''),
+                siteId = tabId + '-' + i;
             $motif = $motifList.find(`[data-name="${name}"]`);
             addToHovered($motif);
+            highlightTableRow(siteId);
         }
 
         highlightHoveredMotifs();
     };
 
 
+    var highlightTableRow = function (siteId) {
+        let motifTable = $motifTable.DataTable();
+
+        let indexes = motifTable.rows().eq( 0 ).filter( function (rowIndex) {
+            return motifTable.cell(rowIndex, 13).data() === siteId;
+        } );
+
+        motifTable.rows( indexes ).nodes().to$().addClass( 'highlighted-row' );
+    };
+
+
+    var cleanHighlightedTableRows = function () {
+        $motifTable.find('.highlighted-row').removeClass('highlighted-row');
+    };
+
+
     var mouseOutHandler = function () {
         cleanHoveredMotifs();
+        cleanHighlightedTableRows();
     };
 
 

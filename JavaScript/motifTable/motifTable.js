@@ -162,7 +162,7 @@ var motifTable = (function () {
     var redrawTableWithUpdates = function(tabsUpdate) {
         clearTable();
 
-        for(var i = 0; i < tabsUpdate.length; i++) {
+        for( var i = 0; i < tabsUpdate.length; i++ ) {
             _dtTable.rows.add(getRows(tabsUpdate[i]));
         }
 
@@ -172,11 +172,18 @@ var motifTable = (function () {
 
     var getRows = function(tabUpdate) {
         var sites = tabUpdate.sites,
-            tabId = tabUpdate.tabId;
+            tabId = tabUpdate.tabId,
+            tabFeatures = [];
 
-        return $.map(sites, function(site) {
+        /*return $.map(sites, function(site) {
             return features.getFrom(site, tabId);
-        });
+        });*/
+
+        for ( let i = 0; i < sites.length; i++ ) {
+            tabFeatures[i] = features.getFrom(sites[i], tabId, i);
+        }
+
+        return tabFeatures;
     };
 
 

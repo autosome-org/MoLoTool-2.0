@@ -1057,6 +1057,7 @@ and (min-resolution:.001dpcm) {
   position: absolute;
   word-break: break-all;
   z-index: 1;
+  pointer-events: none;
 }
 
 .full-screen > .sequence {
@@ -1070,6 +1071,10 @@ and (min-resolution:.001dpcm) {
   -webkit-box-shadow: 0 0 0 0.16rem #86a4e7;
   -moz-box-shadow: 0 0 0 0.16rem #86a4e7;
   box-shadow: 0 0 0 0.16rem #86a4e7;
+}
+
+.highlighted-row td {
+  background-color: #d4dff7 !important;
 }
 
 .segment:hover {

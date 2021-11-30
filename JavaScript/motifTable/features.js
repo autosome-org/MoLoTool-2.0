@@ -16,7 +16,7 @@ var features = (function () {
 
 
     var setFeatures = function (motifFeatureTitles) {
-        var allFeatures = [].concat(motifFeatureTitles, ["Motif ID", "-log10(P-value)", "Seq name", "Sequence",
+        var allFeatures = [].concat(motifFeatureTitles, ["SiteId", "Motif ID", "-log10(P-value)", "Seq name", "Sequence",
             "P-value", "Start", "End", "Strand"]),
             toShow = ["Motif ID", "-log10(P-value)", "Seq name", "Sequence", "Logo",
                 "P-value", "Start", "End", "Strand"],
@@ -44,9 +44,9 @@ var features = (function () {
     };
 
 
-    var getFrom = function (site, tabId) {
+    var getFrom = function (site, tabId, siteId) {
         var motifName = site.motifName;
-        return $.extend({}, motifFeatures(motifName), siteFeatures(site, tabId));
+        return $.extend({}, motifFeatures(motifName), siteFeatures(site, tabId, siteId));
     };
 
 
@@ -55,7 +55,7 @@ var features = (function () {
     };
 
 
-    var siteFeatures = function (site, tabId) {
+    var siteFeatures = function (site, tabId, siteId) {
         return {
             "Motif ID": getMotifNameWithUrl(site.motifName),
             "-log10(P-value)": site.strength,
@@ -64,7 +64,8 @@ var features = (function () {
             "End": site.scorePosition + site.siteLength - 1,
             "Sequence": site.motifSequence,
             "Seq name": sequenceLibrary.getItemById(tabId).seqValues.title,
-            "Strand": site.strand
+            "Strand": site.strand,
+            "SiteId": tabId + "-" + siteId
         };
     };
 
