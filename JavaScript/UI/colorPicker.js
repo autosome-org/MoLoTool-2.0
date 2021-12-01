@@ -103,12 +103,17 @@ let colorPicker = (function () {
     };
 
 
-    return {
-        create: create,
-        addTo: addTo,
-        removeFrom: removeFrom,
+    let resetColorIndex = function () {
+      _freeColorIndex = 0;
+    };
 
-        getColorFromContainer: getColorFromContainer
+
+    return {
+        create,
+        addTo,
+        removeFrom,
+        getColorFromContainer,
+        resetColorIndex
     };
 }());
 

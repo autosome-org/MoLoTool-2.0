@@ -19,9 +19,9 @@ var motifSearch = (function () {
             }
         });
 
-        $('body').on('click', function(e) {
-            if ( !$(e.target).is('.suggestions .motif-container, .chosen-in-search, #motif-search') &&
-                $(e.target).parents('.motif-container, .chosen-in-search').length === 0 ) {
+        $('body').on('click', function(event) {
+            if ( !$(event.target).is('.suggestions .motif-container, .chosen-in-search, #motif-search') &&
+                $(event.target).parents('.suggestions, .motif-container, .chosen-in-search').length === 0 ) {
                 $suggestions.hide();
             }
         });

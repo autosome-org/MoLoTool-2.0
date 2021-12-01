@@ -6,8 +6,9 @@ let resetChosenMotifs = ( function () {
   let init = function () {
     $resetChosenButton.on('click', function () {
       $('.chosen-in-control .close').click();
-      $('#motif-search').val('');
-      motifSearch.applySearch();
+      // $('#motif-search').val('');
+      // motifSearch.applySearch();
+      $('.suggestions').show();
     });
   };
 

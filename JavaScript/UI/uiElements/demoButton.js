@@ -44,6 +44,7 @@ let demoButton = ( function () {
     }
 
     $resetButton.click();
+    colorPicker.resetColorIndex();
 
     $pValueLog.val( defaultValueFor.pValueLog ).change();
     $collectionSelect.val( defaultValueFor.collection ).selectmenu('refresh').trigger("selectmenuchange");
