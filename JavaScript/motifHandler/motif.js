@@ -98,7 +98,8 @@ var motif = (function () {
                     "A" : "T", 'a': "t",
                     "C" : "G", 'c': "g",
                     "G" : "C", 'g': "c",
-                    "T" : "A", 't': "a"
+                    "T" : "A", 't': "a",
+                    "N" : "N", 'n': "n"
                 };
 
             for (var i = sequence.length - 1; i >= 0; i--) {
