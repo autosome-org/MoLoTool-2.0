@@ -18,9 +18,15 @@ let keyboardNavigation = ( function () {
         $suggestions.hide();
       else if ( event.code === 'Enter' )
         $suggestions.show();
-
-
     });
+
+    /*$motifSearch.on('keydown', function (event) {
+      if ( event.code === 'Tab' ) {
+        event.preventDefault();
+        $suggestions.hide();
+        $collectionSelectButton.addClass();
+      }
+    });*/
 
     $(document).on('mouseover', '#motif-list:not(.arrow-navigation) .suggestion', function (event) {
 

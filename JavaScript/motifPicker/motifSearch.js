@@ -6,33 +6,32 @@ var motifSearch = (function () {
     var create = function() {
         _keysToTest = ["full_name", "motif_families", "gene_names"];
 
-        var $search = $('#motif-search');
         var $suggestions = $('.suggestions');
-        var $searchContainer = $('.search-container');
+        var $motifSearch = $('#motif-search');
 
-        $search.val("");
+        $motifSearch.val("");
 
-        $search.on('input', applySearch);
+        $motifSearch.on('input', applySearch);
 
-        $searchContainer.on('focusout', function () {
-            if ( !$searchContainer.is(':hover') ) {
+        $motifSearch.on('focusout', function () {
+            if ( !$motifSearch.is(':hover') && !$suggestions.focusin() ) {
                 $suggestions.hide();
             }
         });
 
         $('body').on('click', function(e) {
-            if ( !$(e.target).is('.search-container, .motif-container, .chosen-in-search, #motif-search') &&
-                $(e.target).parents('.search-container, .motif-container, .chosen-in-search').length === 0 ) {
+            if ( !$(e.target).is('.suggestions .motif-container, .chosen-in-search, #motif-search') &&
+                $(e.target).parents('.motif-container, .chosen-in-search').length === 0 ) {
                 $suggestions.hide();
             }
         });
 
-        $search.on("focus", function () {
+        $motifSearch.on("focus", function () {
             if ( $suggestions.find('#motif-list').html() )
                 $suggestions.show();
         });
 
-        $search.on("click", function () {
+        $motifSearch.on("click", function () {
             if ( $suggestions.find('#motif-list').html() )
                 $suggestions.show();
         });
@@ -100,7 +99,7 @@ var motifSearch = (function () {
 
 
     var testMotif = function (motifSummary, regExpsToTest) {
-        var motifName = motifSummary["full_name"];
+        // var motifName = motifSummary["full_name"];
 
         /* if (motifPicker.ifMotifIsChosen(motifName)) {
             return 0;
