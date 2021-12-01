@@ -917,6 +917,10 @@ body {
   overflow: hidden;
 }
 
+.tab__row--icons a {
+  margin-top: 0.2rem !important;
+}
+
 .tab__row--title p {
   max-width: 9.5rem;
   margin-top: 0.6rem;

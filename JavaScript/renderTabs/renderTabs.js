@@ -48,10 +48,10 @@ let renderTabs = ( function () {
     let title = sequenceLibrary.getItemById(tabId).seqValues.title,
         $tab = $('<div class="tab-result">' +
             '<div class="tab__row tab__row--icons">' +
-            '<a href="#" class="close link-button material-icons md-dark">close</a>' +
-            '<a href="#" class="copy link-button material-icons md-dark" data-tab="'+ tabId + '">content_copy</a>' +
-            '<a href="3" class="lock link-button material-icons md-dark">lock_open</a>' +
-            '<a href="#" class="mode-tab link-button interface-button">' + comparisonMode.getCurrentMode() + '</a>' +
+            '<a href="#" class="close link-button material-icons md-dark" title="Close this tab">close</a>' +
+            '<a href="#" class="copy link-button material-icons md-dark" title="Copy sequence with markup" data-tab="'+ tabId + '">content_copy</a>' +
+            '<a href="3" class="lock link-button material-icons md-dark" title="Lock scroll for sequence">lock_open</a>' +
+            '<a href="#" class="mode-tab link-button interface-button" title="Switch mode">' + comparisonMode.getCurrentMode() + '</a>' +
             '</div>' +
             '<div class="tab__row tab__row--title">' +
             '<p class="tab__row__sequence-title"></p></div>' +
