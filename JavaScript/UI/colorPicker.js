@@ -5,11 +5,12 @@ let colorPicker = (function () {
     let _fileName = "colorPicker",
         _defaultColors =    ["#F15854", "#FAA43A", '#DECF3F', "#60BD68",
           "#5DA5DA", "#F17CB0", "#B276B2", "#B2912F",
+          "#D81B60", "#607D8B", "#c04000", "#0d160b",
           "#ff0000", "#FF9800", "#4CAF50", "#2196F3",
           "#9C27B0", "#E91E63", "#f75c03", "#5c8001",
           "#3F51B5", "#4e0250", "#b02e0c", "#FFC107",
           "#134611", "#0a2463", "#9c3848", "#ef7674",
-          "#795548", "#0d160b", "#607D8B", "#c490d1"
+          "#795548", "#0d160b", "#607D8B", "#c490d1",
         ],
 
         _freeColorIndex = 0,
@@ -68,12 +69,7 @@ let colorPicker = (function () {
                 clickoutFiresChange: true,
                 preferredFormat: "hex",
                 move: function (color) {},
-                show: function () {
-                  /*let $spInitial = $('.sp-initial');
-                  $spInitial.appendTo(
-                      $spInitial.parents('.sp-container').find('.sp-palette-container')
-                  );*/
-                },
+                show: function () {},
                 beforeShow: function () {},
                 hide: function () {},
                 change: function (){_eventHandler("COLOR")},
@@ -100,7 +96,7 @@ let colorPicker = (function () {
                     "#5DA5DA", "#0072B2", "#B276B2", "#F17CB0"],
 
                   ["#c04000", "#b06500", "#795548", "#0d160b",
-                    "#607D8B", "#b4b4b4", "#004D40", "#D81B60"]
+                    "#607D8B", "#b4b4b4", "#D81B60", "#004D40"]
                 ]
             });
         _freeColorIndex += 1;

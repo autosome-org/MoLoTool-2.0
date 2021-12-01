@@ -42,7 +42,8 @@ let singleModeTextGenerator = ( function () {
 
   let splitSequence = function ($rawSequence, lineLength) {
     let sequenceLines = [$('<p>')],
-        fontFamily = $rawSequence.css('font-family');
+        fontFamily = $rawSequence.css('font-family'),
+        fontSize = $rawSequence.css('font-size');
 
     for ( let i = 0, lineNumber = 0, currentSequenceLength = 0; i < $rawSequence.length; i++ ) {
       let $segment = $($rawSequence[i]),
@@ -57,8 +58,14 @@ let singleModeTextGenerator = ( function () {
             $firstSegment = $(`<span class="segment">${segmentText.slice(0,lineBreakPoint)}</span>`),
             $secondSegment = $firstSegment.clone().html(segmentText.slice(lineBreakPoint));
 
-        $firstSegment.attr('style', style).css('font-family', fontFamily);
-        $secondSegment.attr('style', style).css('font-family', fontFamily);
+        $firstSegment.attr('style', style).css({
+          'font-family': fontFamily,
+          'font-size': fontSize
+        });
+        $secondSegment.attr('style', style).css({
+          'font-family': fontFamily,
+          'font-size': fontSize
+        });
 
         sequenceLines[lineNumber].append( $('<div>').append($firstSegment.clone()).html());
         sequenceLines[lineNumber + 1] = $('<p>')
@@ -66,7 +73,10 @@ let singleModeTextGenerator = ( function () {
         lineNumber++;
       } else {
         sequenceLines[lineNumber].append( $('<div>').append($segment.clone()
-            .css('font-family', fontFamily)).html() );
+            .css({
+              'font-family': fontFamily,
+              'font-size': fontSize
+            })).html() );
       }
 
     }
