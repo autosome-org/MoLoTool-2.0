@@ -4,7 +4,7 @@ let uiBuilder = (function () {
       _eventHandler,
       _motifSummariesSource =
           "https://hocomoco11.autosome.ru/human/mono.json?summary=true&full=false",
-      $searchInput = $(".search-container").find("input");
+      $motifSearch = $("#motif-search");
 
 
   let buildUI = function () {
@@ -52,7 +52,7 @@ let uiBuilder = (function () {
 
 
   let getObjectsToDisable = function () {
-    return $searchInput;
+    return $motifSearch;
   };
 
 

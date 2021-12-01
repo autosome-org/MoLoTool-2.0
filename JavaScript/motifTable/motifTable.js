@@ -150,7 +150,7 @@ var motifTable = (function () {
         for (var i = 0; i < titles.length; i++) {
             htmlBox += '<tr>' +
                 '<td>' + titles[i] + ':</td>' +
-                '<td>' + data[titles[i]] + '</td>' +
+                '<td>' + data?.titles[i] + '</td>' +
                 '</tr>';
         }
 
