@@ -167,6 +167,21 @@ var motifTable = (function () {
         }
 
         _dtTable.draw();
+
+        /*$('.logo-button').on('click', function (event) {
+            event.preventDefault();
+
+            let $logo = $(event.target).siblings('img'),
+                source = $logo.attr('src'),
+                newSource;
+
+            if ( /direct/.test(source) )
+                newSource = $logo.attr('src').replace('direct', 'revcomp');
+            else
+                newSource = $logo.attr('src').replace('revcomp', 'direct');
+
+            $logo.attr('src', newSource);
+        });*/
     };
 
 
@@ -192,9 +207,24 @@ var motifTable = (function () {
     };
 
 
+    let revertModel = function (element) {
+        let $logo = $(element).siblings('img'),
+            source = $logo.attr('src'),
+            newSource;
+
+        if ( /direct/.test(source) )
+            newSource = $logo.attr('src').replace('direct', 'revcomp');
+        else
+            newSource = $logo.attr('src').replace('revcomp', 'direct');
+
+        $logo.attr('src', newSource);
+    };
+
+
     return {
         clearTable: clearTable,
         redrawTableWithUpdates: redrawTableWithUpdates,
-        create: create
+        create: create,
+        revertModel
     };
 }());
