@@ -168,20 +168,7 @@ var motifTable = (function () {
 
         _dtTable.draw();
 
-        /*$('.logo-button').on('click', function (event) {
-            event.preventDefault();
-
-            let $logo = $(event.target).siblings('img'),
-                source = $logo.attr('src'),
-                newSource;
-
-            if ( /direct/.test(source) )
-                newSource = $logo.attr('src').replace('direct', 'revcomp');
-            else
-                newSource = $logo.attr('src').replace('revcomp', 'direct');
-
-            $logo.attr('src', newSource);
-        });*/
+        invertModelsForInvertedStrands(_dtTable);
     };
 
 
@@ -189,10 +176,6 @@ var motifTable = (function () {
         var sites = tabUpdate.sites,
             tabId = tabUpdate.tabId,
             tabFeatures = [];
-
-        /*return $.map(sites, function(site) {
-            return features.getFrom(site, tabId);
-        });*/
 
         for ( let i = 0; i < sites.length; i++ ) {
             tabFeatures[i] = features.getFrom(sites[i], tabId, i);
@@ -204,6 +187,19 @@ var motifTable = (function () {
 
     var clearTable = function () {
         _dtTable.clear().draw();
+    };
+
+
+    let invertModelsForInvertedStrands = function (motifTable) {
+        motifTable.rows().every(function() {
+            if ( this.data()['Strand'] === '-' ) {
+                let rowIndex = this.index(),
+                    $cellWithLogo = motifTable.cell(rowIndex, 4).nodes().to$(),
+                    buttonToClick = $cellWithLogo.find('a')[0];
+
+                invertModel(buttonToClick);
+            }
+        });
     };
 
 
