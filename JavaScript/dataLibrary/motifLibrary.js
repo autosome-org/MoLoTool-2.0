@@ -99,8 +99,9 @@ var motifLibrary = (function () {
                     logoFullUrl = _logoBaseUrl + motif[jsonFeature];
                     valuesToDisplay[displayedFeature] =
                         '<a class="material-icons md-dark interface-button logo-button" ' +
-                        'onclick="motifTable.revertModel(this)" title="Click to invert model">sync</a>' +
-                        '<img src="'+logoFullUrl+'" />';
+                        'onclick="motifTable.invertModel(this)" title="Click to invert model">sync</a>' +
+                        `<img class="direct" src="${logoFullUrl}"/>` +
+                        `<img class="inverted hidden" src="${logoFullUrl.replace('direct', 'revcomp')}"/>`;
                 }
 
                 else if (displayedFeature === "Uniprot ID") {

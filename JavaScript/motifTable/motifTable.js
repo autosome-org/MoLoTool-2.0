@@ -207,17 +207,12 @@ var motifTable = (function () {
     };
 
 
-    let revertModel = function (element) {
-        let $logo = $(element).siblings('img'),
-            source = $logo.attr('src'),
-            newSource;
+    let invertModel = function (element) {
+        let $directLogo = $(element).siblings('.direct'),
+            $invertedLogo = $(element).siblings('.inverted');
 
-        if ( /direct/.test(source) )
-            newSource = $logo.attr('src').replace('direct', 'revcomp');
-        else
-            newSource = $logo.attr('src').replace('revcomp', 'direct');
-
-        $logo.attr('src', newSource);
+        $directLogo.toggleClass('hidden');
+        $invertedLogo.toggleClass('hidden');
     };
 
 
@@ -225,6 +220,6 @@ var motifTable = (function () {
         clearTable: clearTable,
         redrawTableWithUpdates: redrawTableWithUpdates,
         create: create,
-        revertModel
+        invertModel
     };
 }());
