@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="ExternalLibraries/jQuery/dataTables/jquery.dataTables.min.css">
     <link rel="stylesheet" href="ExternalLibraries/qtip2/jquery.qtip.min.css">
     <link rel="stylesheet" href="ExternalLibraries/dataTables/buttons/buttons.dataTables.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <title>Sequence Motif Location Tool (MoLoTool)</title>
 </head>
 <body>
@@ -20,7 +21,11 @@
     <nav id="first-level">
         <ul class="nav">
             <li class="nav__left">
-                <label for="motif-search">Motif ID, Family or gene name</label>
+                <div class="molotool-container">
+                    <span>MoLoTool</span>
+                    <img src="MoLoTool.png" alt="MoLoTool">
+                </div>
+                <label for="motif-search">ID, family or gene</label>
                 <input id="motif-search" placeholder="Start typing here">
                 <div class="suggestions absolute" hidden>
                     <div id="legend-container"></div>
