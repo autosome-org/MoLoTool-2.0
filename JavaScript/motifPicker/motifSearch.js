@@ -20,8 +20,8 @@ var motifSearch = (function () {
         });
 
         $('body').on('click', function(event) {
-            if ( !$(event.target).is('.suggestions .motif-container, .chosen-in-search, #motif-search') &&
-                $(event.target).parents('.suggestions, .motif-container, .chosen-in-search').length === 0 ) {
+            if ( !$(event.target).is('.suggestions, .motif-container, .chosen-in-search, #motif-search, #motif-list') &&
+                $(event.target).parents('.suggestions, .motif-container, .chosen-in-search, #motif-list').length === 0 ) {
                 $suggestions.hide();
             }
         });
