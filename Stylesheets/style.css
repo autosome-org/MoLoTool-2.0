@@ -55,14 +55,13 @@ body {
 }
 
 .custom-tooltip {
-  margin-top: 0.2rem;
-  margin-right: 0.4rem;
+  margin-top: 0.2rem !important;
   background-color: #f1f1f1 !important;
   border: 0.04rem solid #c1c1c1 !important;
   border-radius: 0.6rem;
   color: #626363 !important;
   font-size: 0.7rem !important;
-  line-height: normal !important;
+  line-height: 1rem !important;
   -webkit-box-shadow: 0 0.35rem 1rem 0.16rem rgba(0, 0, 0, 0.1) !important;
   -moz-box-shadow: 0 0.35rem 1rem 0.16rem rgba(0, 0, 0, 0.1) !important;
   box-shadow: 0 0.35rem 1rem 0.16rem rgba(0, 0, 0, 0.1) !important;
@@ -74,6 +73,58 @@ body {
   border-top-right-radius: 0.6rem;
   color: #3c3c3c;
   font-size: 0.8rem;
+  padding: 5px 0 0 0 !important;
+  text-align: center;
+}
+
+.custom-tooltip .qtip-content {
+  height: fit-content !important;
+}
+
+.qtip-close {
+  color: #656565 !important;
+  width: 0.9rem !important;
+  height: 0.9rem !important;
+  left: 0.2rem !important;
+  top: 0.78rem !important;
+  border: none !important;
+}
+
+.qtip-close:hover {
+  background-color: #afafaf !important;
+  border-radius: 0.2rem !important;
+}
+
+.qtip-close span {
+  display: block;
+  margin-left: -1px !important;
+  margin-top: -2px !important;
+  height: 1.5rem !important;
+  visibility: hidden;
+  font-size: 1rem !important;
+  font-family: 'Material Icons' !important;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.2rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.qtip-close span:after {
+  margin-top: -0.5rem !important;
+  display: block;
+  visibility: visible;
+  content: 'close';
+}
+
+.custom-tooltip.molotool-info {
+  left: 0.2rem !important;
+  margin-top: 0.16rem !important;
+}
+
+.custom-tooltip.error-info {
+  margin-top: 0.4rem !important;
+  right: 0.2rem !important;
 }
 
 .link-button, .link-button:hover, .link-button:visited, .link-button:active {
@@ -107,18 +158,6 @@ body {
 
 .material-icons.md-dark {
   color: rgba(101, 101, 101, 1);
-}
-
-.material-icons.md-light {
-  color: rgba(255, 255, 255, 1);
-}
-
-.material-icons.md-light.md-inactive {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.material-icons.md-18 {
-  font-size: 1rem;
 }
 
 .interface-button:active {
@@ -323,16 +362,16 @@ body {
 }
 
 @media only screen and (max-width: 492px) {
-  .molotool-container {
+  #molotool-container {
     width: 2rem !important;
   }
 
-  .molotool-container span {
+  #molotool-container span {
     display: none;
     visibility: hidden;
   }
 
-  .molotool-container img {
+  #molotool-container img {
     position: relative;
     margin-top: -1.4rem !important;
   }
@@ -353,7 +392,7 @@ body {
   }
 }
 
-.molotool-container {
+#molotool-container {
   display: inline-block;
   height: 2rem;
   width: 7rem;
@@ -364,18 +403,23 @@ body {
   -webkit-box-sizing: border-box; /* ≤ iOS4, ≤ Android  2.3 */
   -moz-box-sizing: border-box; /* FF1+ */
   box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+  user-select: none;
+  -ms-user-select:none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout: none;
   cursor: pointer;
 }
 
-.molotool-container:hover {
+#molotool-container:hover {
   border: 0.08rem solid black;
 }
 
-.molotool-container:active {
+#molotool-container:active {
   background-color: inherit;
 }
 
-.molotool-container span {
+#molotool-container span {
   display: block;
   color: #6f13c1;
   margin-top: 0.4rem;
@@ -383,7 +427,7 @@ body {
   float: left;
 }
 
-.molotool-container img {
+#molotool-container img {
   height: 1.5rem;
   width: 1.5rem;
   margin-top: 0.2rem;
@@ -392,12 +436,12 @@ body {
 }
 
 .nav__left {
-  width: 26.4rem;
+  width: 28.4rem;
   padding-left: 8px;
 }
 
 .nav__right {
-  width: calc(100% - 27.9rem);
+  width: calc(100% - 29.9rem);
   padding-left: 0.4rem;
   padding-right: 0.3rem;
 }
@@ -429,7 +473,7 @@ body {
 }
 
 #motif-search {
-  width: 10rem;
+  width: 12rem;
   font-size: 0.8rem;
   color: #3c3c3c;
   margin-left: 0.2rem;
@@ -562,7 +606,8 @@ body {
 
 .chosen-in-search .motif-title {
   font-size: 0.9rem;
-  display: inline;
+  display: inline-block;
+  margin-top: -0.2rem;
 }
 
 .chosen-in-search :is(.hocomoco-info, span) {
@@ -700,10 +745,7 @@ body {
   padding: 0.05rem 0.05rem 0.01rem;
   cursor: pointer;
   text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+
 }
 
 #second-level {
@@ -1039,7 +1081,7 @@ body {
 }
 
 .tab-result .material-icons:hover {
-  background-color: #cfcfcf;
+  background-color: #afafaf;
 }
 
 .current-tab .material-icons:hover {

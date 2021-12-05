@@ -20,6 +20,8 @@ let uiButtons = (function () {
 
 
   let setupButtons = function (inputCallback, collectionSwitchCallback) {
+    moLoToolInfo.init();
+
     modeSwitcher.init();
     // showTableButton.init();
 

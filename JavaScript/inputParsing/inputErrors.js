@@ -23,7 +23,7 @@ var inputErrors = (function () {
                 "status": false,
                 "value": false,
                 "message": "The TFBS model list is empty. Please pre-select a desired set" +
-                " of TFBS models by searching the interactive catalogue.<br><br>"
+                " of TFBS models by searching the interactive catalogue."
             },
 
 
@@ -171,7 +171,6 @@ var inputErrors = (function () {
     var showErrors = function (status) {
         console.log(_errors);
 
-
         var content, message, isNoErrors;
         if (_errors["errorsFound"].status === false) {
 
@@ -195,13 +194,14 @@ var inputErrors = (function () {
               content: {
                   text: content,
                   title: {
-                      text: message
+                      text: message,
+                      button: true,
                   }
               },
 
               style: {
                   tip: false,
-                  classes: 'custom-tooltip'
+                  classes: 'custom-tooltip error-info'
               },
 
               position: {
@@ -217,12 +217,20 @@ var inputErrors = (function () {
               show: {
                   event: "click",
                   delay: 100,
-                  ready: true
+                  ready: true,
               },
 
               hide: {
                   delay: 100,
-                  event: "click unfocus"
+                  event: "close"
+              },
+
+              events: {
+                  render: {
+                      function() {
+                          $('.qtip-close').hide();
+                      }
+                  }
               }
 
           });
