@@ -342,6 +342,10 @@ body {
     margin-left: 0.5rem !important;
   }
 
+  .tab__row__sequence-title {
+    min-width: 8rem !important;
+  }
+
   .tab__row--title p {
     max-width: 8rem !important;
   }
@@ -1116,6 +1120,8 @@ body {
 
 .tab__row__sequence-title {
   margin: 0.6rem 0 0;
+  display: block;
+  min-width: 9.5rem;
 }
 
 .sequence-window__textarea {
