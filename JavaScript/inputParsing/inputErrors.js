@@ -188,54 +188,56 @@ var inputErrors = (function () {
             message = "Error"
         }
 
-        if ( !isNoErrors )
-          $errorReport.show().qtip({
+        if ( !isNoErrors ) {
+            $('.error-info .qtip-close').click();
+            $errorReport.show().qtip({
 
-              content: {
-                  text: content,
-                  title: {
-                      text: message,
-                      button: true,
-                  }
-              },
+                content: {
+                    text: content,
+                    title: {
+                        text: message,
+                        button: true,
+                    }
+                },
 
-              style: {
-                  tip: false,
-                  classes: 'custom-tooltip error-info'
-              },
+                style: {
+                    tip: false,
+                    classes: 'custom-tooltip error-info'
+                },
 
-              position: {
-                  my: 'top left',
-                  at: 'bottom left',
-                  adjust: {
-                      y: 5,
-                      x: -25,
-                      scroll: true
-                  }
-              },
+                position: {
+                    my: 'top left',
+                    at: 'bottom left',
+                    adjust: {
+                        y: 5,
+                        x: -25,
+                        scroll: true
+                    }
+                },
 
-              show: {
-                  event: "click",
-                  delay: 100,
-                  ready: true,
-              },
+                show: {
+                    event: "click",
+                    delay: 100,
+                    ready: true,
+                },
 
-              hide: {
-                  delay: 100,
-                  event: "close"
-              },
+                hide: {
+                    delay: 100,
+                    event: "close"
+                },
 
-              events: {
-                  render: {
-                      function() {
-                          $('.qtip-close').hide();
-                      }
-                  }
-              }
+                events: {
+                    render: {
+                        function() {
+                            $('.qtip-close').hide();
+                        }
+                    }
+                }
 
-          });
+            });
+        }
         else
-            $errorReport.hide();
+            $('.error-info .qtip-close').click();
 
     };
 
