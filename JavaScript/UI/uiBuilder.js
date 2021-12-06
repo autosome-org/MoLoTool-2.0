@@ -161,6 +161,8 @@ let uiBuilder = (function () {
         motifHandler.makeFullUpdate();
 
       $(`.motif-container[tabindex=${tabindex}]`).focus();
+      inputErrors.clearErrorStatus();
+      inputErrors.showErrors();
     });
 
   };

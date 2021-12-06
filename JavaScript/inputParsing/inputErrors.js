@@ -236,8 +236,10 @@ var inputErrors = (function () {
 
             });
         }
-        else
+        else {
             $('.error-info .qtip-close').click();
+            $('#error-report').hide();
+        }
 
     };
 
