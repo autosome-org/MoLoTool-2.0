@@ -31,22 +31,22 @@ var inputErrors = (function () {
             "sequenceListIsEmpty" : {
                 "status": false,
                 "value": false,
-                "message": "The submitted list of sequences is empty.<br><br>"
+                "message": "The submitted list of sequences is empty."
             },
             "sequenceCharacterError" : {
                 "status": false,
                 "value": false,
-                "message": "Invalid characters.<br><br>"
+                "message": "Invalid characters."
             },
             "sequenceCountExceeded" : {
                 "status": false,
                 "value": false,
-                "message": ["Too many sequences submitted (", "), please input ", " or less.<br><br>"]
+                "message": ["Too many sequences submitted (", "), please input ", " or less."]
             },
             "fileIsTooBig" : {
                 "status": false,
                 "value": false,
-                "message": "Error: too big file uploaded (> 20 kb).<br><br>"
+                "message": "Error: too big file uploaded (> 20 kb)."
             },
 
 
@@ -138,7 +138,7 @@ var inputErrors = (function () {
 
     var getSequenceCharacterErrorMessage = function (errorValue) {
         return "Invalid characters " + getUnexpectedCharactersToShow(errorValue.characters[0]) +
-            " in sequence #" + errorValue.sequenceNo + ".<br><br>";
+            " in sequence #" + errorValue.sequenceNo + ".";
     };
 
 
