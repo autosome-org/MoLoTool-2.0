@@ -146,6 +146,11 @@ body {
   -webkit-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px;
   -moz-box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px;
   box-shadow: rgba(9, 30, 66, 0.25) 0 1px 0, rgba(9, 30, 66, 0.13) 0 0 1px 1px;
+  user-select: none;
+  -ms-user-select:none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout: none;
 }
 
 .interface-button .material-icons {
@@ -515,6 +520,10 @@ body {
   white-space: normal;
 }
 
+#chosen-motif-list.subfamily-shown {
+  width: 54rem !important;
+}
+
 .reset-chosen-motifs {
   display: inline-block;
   cursor: pointer;
@@ -599,6 +608,15 @@ body {
   margin-top: 0.3rem !important;
 }
 
+.subfamily-shown .chosen-in-search {
+  width: 32.5% !important;
+  margin: 0 0 0.3rem 0.8%;
+}
+
+.subfamily-shown .chosen-in-search:nth-of-type(3) {
+  margin-top: 0.3rem !important;
+}
+
 .chosen-in-search .close {
   display: inline;
   float: top;
@@ -649,6 +667,7 @@ body {
 
 .suggestions {
   z-index: 2;
+  width: 36.5rem;
   margin-left: 0.7rem;
   margin-top: 0.5rem;
   background-color: #f1f1f1;
@@ -659,8 +678,12 @@ body {
   box-shadow: 0 0.7rem 2rem 0.32rem rgba(0, 0, 0, 0.3);
 }
 
+.suggestions.subfamily-shown {
+  width: 54.5rem !important;
+}
+
 #motif-list {
-  max-height: 20.92rem;
+  max-height: 24.42rem;
   overflow-y: scroll;
 }
 
@@ -695,21 +718,33 @@ body {
   margin-left: 0.5rem;
 }
 
-.motif-family {
+.motif-title.subfamily-shown {
+  width: 15rem !important;
+}
+
+.motif-family, .motif-subfamily {
   width: 14rem;
   max-width: 14rem;
   vertical-align: top;
   padding-right: 0.5rem;
 }
 
-.motif-family p {
+.motif-family p, .motif-subfamily p {
   width: 14rem;
   margin: 0;
   white-space: normal;
 }
 
+.motif-subfamily.hidden {
+  position: absolute;
+}
+
 .motif-gene {
   width: 7rem;
+}
+
+.motif-gene.subfamily-shown {
+  width: 10rem;
 }
 
 #support-info {
@@ -717,6 +752,27 @@ body {
   border-top: 0.04rem solid #9d9d9d;
   background-color: #e2e2e2;
   border-radius: 0 0 0.6rem 0.6rem;
+  text-align: center;
+}
+
+.info {
+  display: inline-block;
+  margin-top: 0.35rem;
+  margin-left: 0.5rem;
+}
+
+#subfamily-button {
+  position: relative;
+  float: left;
+  width: 8.5rem;
+  margin-top: 0.35rem;
+  margin-left: 0.5rem;
+  background-color: #f1f1f1;
+}
+
+.model-collection {
+  float: right;
+  margin-right: 0.9rem;
 }
 
 .not-chosen {
@@ -728,17 +784,6 @@ body {
   border-top: 0 !important;
   border-top-left-radius: 0.548rem !important;
   border-top-right-radius: 0.548rem !important;
-}
-
-.info {
-  display: inline-block;
-  margin-top: 0.35rem;
-  margin-left: 0.5rem;
-}
-
-.model-collection {
-  float: right;
-  margin-right: 0.9rem;
 }
 
 #error-report {

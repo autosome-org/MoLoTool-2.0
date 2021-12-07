@@ -97,9 +97,13 @@ var motifPicker = (function () {
 
 
     var wrapLegendContainer = function () {
-        return '<div class="motif-title legend">Motif ID</div>' +
+        let hiddenState = subfamilyButton.isShown() ? '' : 'hidden',
+            subfamilyShown = subfamilyButton.isShown() ? 'subfamily-shown' : '';
+
+        return '<div class="motif-title legend ' + subfamilyShown + '">Motif ID</div>' +
         '<div class="motif-family legend">Family</div>' +
-        '<div class="motif-gene legend">Gene Name</div>';
+        '<div class="motif-subfamily legend ' + hiddenState + '">Subfamily</div>' +
+        '<div class="motif-gene legend '+ subfamilyShown +'">Gene Name</div>';
     };
 
 
@@ -116,15 +120,19 @@ var motifPicker = (function () {
     var wrapSummaryPrimaryInformation = function (motifSummary) {
         let name = motifSummary["full_name"],
             family = motifSummary["motif_families"],
-            geneName = motifSummary["gene_names"];
+            subfamily = motifSummary["motif_subfamilies"],
+            geneName = motifSummary["gene_names"],
+            hiddenState = subfamilyButton.isShown() ? '' : 'hidden',
+            subfamilyShown = subfamilyButton.isShown() ? 'subfamily-shown' : '';
 
         let ifMotifIsChosen = $(`#chosen-motif-list [data-name="${name}"]`).length !== 0,
             ifChosenClass = ifMotifIsChosen ? ' chosen-in-list' : '';
 
         return  '<div class="suggestion' + ifChosenClass + '" id="' + name + '">' +
-            '<div class="motif-title feature">'+ name +'</div>' +
+            '<div class="motif-title feature ' + subfamilyShown +'">'+ name +'</div>' +
             '<div class="motif-family feature"><p>'+ family +'</p></div>' +
-            '<div class="motif-gene feature">'+ geneName +'</div>' +
+            '<div class="motif-subfamily feature ' + hiddenState + '"><p>' + subfamily + '</p></div>' +
+            '<div class="motif-gene feature ' + subfamilyShown + '">'+ geneName +'</div>' +
             '</div>';
     };
 
@@ -188,7 +196,7 @@ var motifPicker = (function () {
 
 
     var RegExpEscape = function (value) {
-        return value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
+        return value.replace(/[\-\[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     };
 
 

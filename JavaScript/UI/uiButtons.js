@@ -40,6 +40,7 @@ let uiButtons = (function () {
     // showMoreButton.init();
     collectionSettingsButtons.init(collectionSwitchCallback);
     resetChosenMotifs.init();
+    subfamilyButton.init();
     helpButton.init();
 
     keyboardNavigation.init();

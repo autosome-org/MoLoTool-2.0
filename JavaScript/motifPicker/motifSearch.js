@@ -1,13 +1,16 @@
 var motifSearch = (function () {
     var _fileName = "motifSearch",
+
+        $subfamilyButton = $('#subfamily-button'),
         _keysToTest;
 
 
     var create = function() {
         _keysToTest = ["full_name", "motif_families", "gene_names"];
 
-        var $suggestions = $('.suggestions');
-        var $motifSearch = $('#motif-search');
+        var $suggestions = $('.suggestions'),
+            $motifSearch = $('#motif-search');
+
 
         $motifSearch.val("");
 
@@ -42,11 +45,17 @@ var motifSearch = (function () {
         //ToDo binary search
         $('#motif-search').focus();
 
+        if ( subfamilyButton.isShown() )
+            _keysToTest = ["full_name", "motif_families", "motif_subfamilies", "gene_names"];
+        else
+            _keysToTest = ["full_name", "motif_families", "gene_names"];
+
         var motifSummaries = motifPicker.getMotifSummaries(), //probably must be in picker
             regExpsToCheck = getRegExpsToCheck(),
             motifsToSuggest = getMotifsToSuggest(motifSummaries, regExpsToCheck);
 
         motifPicker.setSuggestedMotifList(motifsToSuggest);
+        console.log(motifsToSuggest[0]);
     };
 
 
@@ -94,7 +103,7 @@ var motifSearch = (function () {
 
 
     var RegExpEscape = function( value ) {
-        return value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
+        return value.replace(/[\-\[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     };
 
 
