@@ -103,7 +103,7 @@ var motifSearch = (function () {
 
 
     var RegExpEscape = function( value ) {
-        return value.replace(/[\-\[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+        return value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
     };
 
 
