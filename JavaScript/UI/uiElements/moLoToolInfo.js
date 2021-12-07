@@ -1,16 +1,24 @@
 let moLoToolInfo = (function () {
   let _fileName = 'moLoToolInfo',
 
-      $molotool = $('#molotool-container');
+      $molotool = $('#molotool-container'),
+      $suggestions = $('.suggestions');
 
   let init = function () {
     $molotool.on('mouseenter', function () {
       if ( !$('.molotool-info').hasClass('qtip-focus') ) {
 
         let showInfo = setTimeout(function () {
-          if ($molotool.is(':hover') && !$('.molotool-info').hasClass('qtip-focus'))
-            $molotool.click();
-        }, 1000);
+
+          if ($molotool.is(':hover') && !$('.molotool-info').hasClass('qtip-focus')) {
+            toggleVisibility();
+
+            $molotool.one('mouseleave', function () {
+              toggleVisibility();
+            });
+
+          }
+        }, 700);
 
         $molotool.one('mouseleave', () => clearTimeout(showInfo));
 
@@ -53,8 +61,15 @@ let moLoToolInfo = (function () {
     }
 
   });
-  };
+};
 
+  let toggleVisibility = function () {
+    if ( !$suggestions.is(':hidden') ) {
+      $molotool.click();
+      $suggestions.show();
+    } else
+      $molotool.click();
+  };
 
   return {
     init
