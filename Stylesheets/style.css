@@ -666,7 +666,7 @@ body {
 }
 
 .suggestions {
-  z-index: 2;
+  z-index: 11;
   width: 36.5rem;
   margin-left: 0.7rem;
   margin-top: 0.5rem;
