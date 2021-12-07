@@ -128,7 +128,7 @@ let uiBuilder = (function () {
           $geneName = $('<span class="description">' + geneName + '</span>');
 
       let hocomocoRef = 'https://hocomoco11.autosome.ru/motif/' + motifName,
-          titleWithRef = `<div class="motif-title"><a class="hocomoco-info link-button" href="${hocomocoRef}" target=_blank>` +
+          titleWithRef = `<div class="motif-title"><a class="hocomoco-info" href="${hocomocoRef}" target=_blank>` +
               `${motifName}</a><span>  (${geneName})<span></div>`;
 
       if (motifPicker.getChosenMotifSet().size !== 0) {

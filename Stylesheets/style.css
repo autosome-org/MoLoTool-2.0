@@ -589,6 +589,7 @@ body {
 .chosen-in-control .motif-title {
   display: block;
   font-size: 0.9rem;
+  color: #180ea4;
 }
 
 .chosen-in-search {
@@ -602,6 +603,11 @@ body {
   background-color: #e2e2e2;
   border-radius: 0.4rem;
   border: 0.04rem solid #9d9d9d;
+}
+
+.chosen-in-search .hocomoco-info {
+  color: #180ea4;
+  text-decoration: none;
 }
 
 .chosen-in-search:nth-of-type(1), .chosen-in-search:nth-of-type(2) {
@@ -642,7 +648,8 @@ body {
 }
 
 .hocomoco-info {
-  color: #3c3c3c;
+  color: #180ea4;
+  text-decoration: none;
 }
 
 #legend-container {
