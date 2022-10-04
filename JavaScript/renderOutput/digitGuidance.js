@@ -11,7 +11,7 @@ var digitGuidance = ( function () {
     var generateDigitsString = function (maxSequenceLength) {
         var digitsString = "", separator = "-", charsBetween = 10;
 
-        for ( var i = 0, toAdd; i < maxSequenceLength; i += toAdd.length ) {
+        for (var i = 0, toAdd; i < maxSequenceLength; i += toAdd.length) {
             toAdd = (digitsString.length % charsBetween === 0) ? i.toString() : separator;
             digitsString += toAdd;
         }
@@ -23,7 +23,7 @@ var digitGuidance = ( function () {
     var getDigitsFor = function (length) {
         var correctedLength = length;
 
-        while ( _digitsString[correctedLength] !== "-" ) {
+        while (_digitsString[correctedLength] !== "-") {
             correctedLength++;
         }
 

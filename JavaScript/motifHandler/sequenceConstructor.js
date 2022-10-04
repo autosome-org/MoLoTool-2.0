@@ -60,15 +60,15 @@ var sequenceConstructor = (function () {
             commonBackgroundColor = "#BEC5AD", commonColor = "#ffffff",
             emptyBackgroundColor = "#ffffff", emptyColor = "#000000";
 
-        for ( var i = 0; i < segments.length; i++ ) {
+        for (var i = 0; i < segments.length; i++) {
             positionInSequence += segments[i].finish - segments[i].start + 1;
             motifs = motifsInSegment(segments[i]);
             motifCount = motifs.length;
 
-            if ( motifCount > 1 ) {
+            if (motifCount > 1) {
                 color = commonColor;
                 backgroundColor = commonBackgroundColor;
-            } else if ( motifCount === 1 ) {
+            } else if (motifCount === 1) {
                 color = commonColor;
                 $motifContainer = motifPicker.getChosenMotifContainer(motifs[0]);
                 backgroundColor = colorPicker.getColorFromContainer($motifContainer);

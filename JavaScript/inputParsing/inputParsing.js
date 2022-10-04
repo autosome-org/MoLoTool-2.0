@@ -1,5 +1,6 @@
 /**
  * Created by HOME on 18.01.2017.
+ * Modified by nikonovxyz: added support of degenerate code
  */
 var inputParsing = (function () {
     var _fileName = "inputParsing",
@@ -12,7 +13,7 @@ var inputParsing = (function () {
     var create = function() {
         setGeneralDescription("");
 
-        setSeqCheck(new RegExp('[^ATGCNatgcn]+'));
+        setSeqCheck(new RegExp('[^ATGCNWSMKRYBDHVatgcnwsmkrybdhv]+'));
 
         setDefaultParsedValues({
             "title": "No title",

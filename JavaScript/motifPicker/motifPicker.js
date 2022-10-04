@@ -70,11 +70,11 @@ var motifPicker = (function () {
         var motifContainers = "",
             chosenMotifs = $('.chosen-in-search');
 
-        for ( let i = 0; i < suggestedMotifs.length; i++ )
+        for (let i = 0; i < suggestedMotifs.length; i++)
            motifContainers += wrapMotifInContainer(suggestedMotifs[i], i);
 
         $('#motif-list').html(motifContainers);
-        if ( $.isEmptyObject(suggestedMotifs) && chosenMotifs.length === 0 ) {
+        if ($.isEmptyObject(suggestedMotifs) && chosenMotifs.length === 0) {
             $(".suggestions").hide();
         } else if ( $.isEmptyObject(suggestedMotifs) ) {
             $("#legend-container").hide();

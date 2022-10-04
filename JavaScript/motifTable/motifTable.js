@@ -10,11 +10,10 @@ var motifTable = (function () {
 
     var create = function(motifFeatureTitles, motifFeaturesRequest) {
         features.create(motifFeatureTitles, motifFeaturesRequest);
-
         _dtTable = $(_tableID).DataTable(createTable());
         buildUIComponent();
-
         $('.dt-button').addClass('interface-button');
+        $.fn.dataTableExt.errMode = 'ignore';
 
         return _dtTable;
     };
@@ -177,7 +176,7 @@ var motifTable = (function () {
             tabId = tabUpdate.tabId,
             tabFeatures = [];
 
-        for ( let i = 0; i < sites.length; i++ ) {
+        for (let i = 0; i < sites.length; i++) {
             tabFeatures[i] = features.getFrom(sites[i], tabId, i);
         }
 
@@ -192,7 +191,7 @@ var motifTable = (function () {
 
     let invertModelsForInvertedStrands = function (motifTable) {
         motifTable.rows().every(function() {
-            if ( this.data()['Strand'] === '-' ) {
+            if (this.data()['Strand'] === '-') {
                 let rowIndex = this.index(),
                     $cellWithLogo = motifTable.cell(rowIndex, 4).nodes().to$(),
                     buttonToClick = $cellWithLogo.find('a')[0];

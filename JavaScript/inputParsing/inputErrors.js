@@ -137,7 +137,7 @@ var inputErrors = (function () {
 
 
     var getSequenceCharacterErrorMessage = function (errorValue) {
-        return "Invalid characters " + getUnexpectedCharactersToShow(errorValue.characters[0]) +
+        return " Invalid characters " + getUnexpectedCharactersToShow(errorValue.characters[0]) +
             " in sequence #" + errorValue.sequenceNo + ".";
     };
 
@@ -188,7 +188,7 @@ var inputErrors = (function () {
             message = "Error"
         }
 
-        if ( !isNoErrors ) {
+        if (!isNoErrors) {
             $('.error-info .qtip-close').click();
             $errorReport.show().qtip({
 

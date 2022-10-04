@@ -1,5 +1,6 @@
 /**
  * Created by Sing on 06.11.2016.
+ * Modified by nikonovxyz: added support of degenerate notation.
  */
 var motif = (function () {
     var _fileName = "motif",
@@ -22,8 +23,9 @@ var motif = (function () {
 
 
     /**
-     *Flip motif pvm matrix from [[A, C, G, T], ...] to [T, G, C, A], ...]
-     *and the entire motif from [0, 1, 2] to [2, 1, 0] according to inverse direction.
+     * Flip motif pvm matrix from [[A, C, G, T, M, K, R, Y, B, D, H, V], ...] to
+     * [T, G, C, A, K, M, Y, R, V, H, D, B], ...]
+     * and the entire motif from [0, 1, 2] to [2, 1, 0] according to inverse direction.
      * @param pwmMatrix     :motif pwm matrix
      * @returns {Array.<*>} :flipped motifPwm
      */
@@ -38,13 +40,19 @@ var motif = (function () {
 
     var getNucleotideIndex = function(nucleotideCharacter) {
         var nucleotideIndex = {
-            "A" : 0, 'a': 0,
-            "C" : 1, 'c': 1,
-            "G" : 2, 'g': 2,
-            "T" : 3, 't': 3
+            "A" : 0, "C" : 1, "G" : 2, "T" : 3,
         };
         return nucleotideIndex[nucleotideCharacter];
     };
+
+
+    var getIndexForDegenerateNotation = function(nucleotideCharacter) {
+        var nucleotideIndex = {
+            "W" : [0, 3], "S" : [1, 2], "M" : [0, 1], "K" : [2, 3], "R" : [0, 2], "Y" : [1, 3],
+            "B" : [1, 2, 3], "D": [0, 2, 3], "H": [0, 1, 3], "V": [0, 1, 2]
+        }
+        return nucleotideIndex[nucleotideCharacter];
+    }
 
 
     var findSites = function(sequence, pValueMax) {
@@ -68,7 +76,7 @@ var motif = (function () {
 
         if (n === 0) {
             throw new Error("The array cannot be empty");
-        } else if ((n === 1) || (score <= _thresholdList[0][0])) {
+        } else if ( (n === 1) || (score <= _thresholdList[0][0]) ) {
             return _thresholdList[0][1];
         } else if (score >= _thresholdList[n - 1][0]) {
             return _thresholdList[n - 1][1];
@@ -95,11 +103,21 @@ var motif = (function () {
         if (condition) {
             var flippedReversedSequence = "",
                 nucleotideFlipsInto = {
-                    "A" : "T", 'a': "t",
-                    "C" : "G", 'c': "g",
-                    "G" : "C", 'g': "c",
-                    "T" : "A", 't': "a",
-                    "N" : "N", 'n': "n"
+                    "A" : "T", "a": "t",
+                    "C" : "G", "c": "g",
+                    "G" : "C", "g": "c",
+                    "T" : "A", "t": "a",
+                    "W" : "W", "w": "w",
+                    "S" : "S", "s": "s",
+                    "M" : "K", "m": "k",
+                    "K" : "M", "k": "m",
+                    "R" : "Y", "r": "y",
+                    "Y" : "R", "y": "r",
+                    "B" : "V", "b": "v",
+                    "V" : "B", "v": "b",
+                    "D" : "H", "d": "h",
+                    "H" : "D", "h": "D",
+                    "N" : "N", "n": "n",
                 };
 
             for (var i = sequence.length - 1; i >= 0; i--) {
@@ -148,7 +166,8 @@ var motif = (function () {
 
 
     /**
-     * Get scores for motif in position of i in sequence, for inverted direction we invert pwm matrix instead
+     * Get scores for motif in position of i in sequence,
+     * for inverted direction we invert pwm matrix instead
      * @param sequence  :initial sequence
      * @param direction :direction of dna strand
      * @returns {Array} :array of weight sums for position i, if motif starts in position i
@@ -164,17 +183,31 @@ var motif = (function () {
             positionInMotif, positionInSequence, currentPosition, letter;
 
         //counting sum of weights for position i
-        for (positionInSequence = 0; positionInSequence < seqLen - motifLen + 1; positionInSequence++){
+        for (positionInSequence = 0; positionInSequence < seqLen - motifLen + 1; positionInSequence++) {
             scoreList[positionInSequence] = 0;
 
-            for (positionInMotif = 0; positionInMotif < motifLen; positionInMotif++){
+            for (positionInMotif = 0; positionInMotif < motifLen; positionInMotif++) {
                 currentPosition = positionInSequence + positionInMotif;
 
-                letter = sequence[currentPosition];
+                letter = sequence[currentPosition].toUpperCase();
                 if (letter === "N" || letter === "n") {
-                    scoreList[positionInSequence] += 0;
+                    const mean = (array) => array.reduce((a, b) => a + b) / array.length;
+                    var meanScore = mean(pwmMatrix[positionInMotif])
+                    scoreList[positionInSequence] += meanScore;
+                } else if ("WSMKRYBDHV".indexOf(letter) !== -1) {
+                    var indexList = getIndexForDegenerateNotation(letter)
+                    var meanCharacterScore = 0
+
+                    for (var i = 0; i < indexList.length; i++) {
+                        var index = indexList[i];
+                        meanCharacterScore += pwmMatrix[positionInMotif][index]
+                    }
+
+                    meanCharacterScore /= indexList.length
+                    scoreList[positionInSequence] += meanCharacterScore
                 } else {
-                    scoreList[positionInSequence] += pwmMatrix[positionInMotif][ getNucleotideIndex(letter) ];
+                    scoreList[positionInSequence] +=
+                        pwmMatrix[positionInMotif][ getNucleotideIndex(letter) ];
                 }
             }
         }
@@ -183,7 +216,7 @@ var motif = (function () {
 
 
     var getLength = function () {
-        return (typeof _length === 'undefined') ?  0 : _length;
+        return ( typeof _length === "undefined" ) ?  0 : _length;
     };
 
 

@@ -9,7 +9,7 @@ let collectionSettingsButtons = (function () {
       let species = this.value.split(', ')[0];
       let collection = this.value.split(', ')[1];
       updatedURL =
-          'https://hocomoco11.autosome.ru/' + species +
+          'https://hocomoco11.autosome.org/' + species +
           '/mono.json?summary=true&full=' + ( collection === 'full' );
       $('.model-collection').html('Collection: ' + this.value);
       collectionSwitchCallback(updatedURL);

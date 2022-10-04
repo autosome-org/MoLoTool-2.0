@@ -3,7 +3,7 @@ let uiBuilder = (function () {
 
       _eventHandler,
       _motifSummariesSource =
-          "https://hocomoco11.autosome.ru/human/mono.json?summary=true&full=false",
+          "https://hocomoco11.autosome.org/human/mono.json?summary=true&full=false",
       $motifSearch = $("#motif-search");
 
 
@@ -15,6 +15,8 @@ let uiBuilder = (function () {
     motifPicker.create(getMotifSummariesSource, getObjectsToDisable());
     buildChosenMotifListComponent();
     removeChosenMotifListComponent();
+
+    modelAssembler.create();
 
     colorPicker.create(handleEvent);
     chosenMotifHighlight.create();
@@ -70,7 +72,8 @@ let uiBuilder = (function () {
   let inputCallback = function (inputString, status) {
     inputErrors.clearErrorStatus();
 
-    if ($.isEmptyObject( motifPicker.getRequestedMotifNames() )) {
+    if ($.isEmptyObject( motifPicker.getRequestedMotifNames() ) &&
+        $.isEmptyObject( modelAssembler.getModels() ) ) {
       inputErrors.addToLog("motifListIsEmpty"); //1
     }
 
@@ -84,7 +87,7 @@ let uiBuilder = (function () {
       return false;
     }
 
-    if ( checkValue !== false ) {
+    if (checkValue !== false) {
       inputParsedInto = inputParsing.assembleParsedValues(sequences, checkValue.rawSequence);
     } else {
       inputParsedInto = inputParsing.assembleParsedValues(sequences, "");
@@ -127,11 +130,11 @@ let uiBuilder = (function () {
       let geneName = $motifContainer.find('.motif-gene').html(),
           $geneName = $('<span class="description">' + geneName + '</span>');
 
-      let hocomocoRef = 'https://hocomoco11.autosome.ru/motif/' + motifName,
+      let hocomocoRef = 'https://hocomoco11.autosome.org/motif/' + motifName,
           titleWithRef = `<div class="motif-title"><a class="hocomoco-info" href="${hocomocoRef}" target=_blank>` +
               `${motifName}</a><span>  (${geneName})<span></div>`;
 
-      if (motifPicker.getChosenMotifSet().size !== 0) {
+      if (motifPicker.getChosenMotifSet().size !== 0 && modelAssembler.getModels().length !== 0) {
         $('.chosen-motif-bar').removeClass('empty');
         $('#support-info').addClass('not-chosen');
       }
@@ -140,7 +143,7 @@ let uiBuilder = (function () {
       $motifContainer.removeAttr('id').attr("data-name", motifName);
       $motifContainer.find('.motif-gene, .motif-family, .motif-title, .motif-subfamily').remove();
       $motifContainer.append($closeButton);
-      $motifContainer.append( $(titleWithRef));
+      $motifContainer.append( $(titleWithRef) );
       $motifContainer.appendTo('#chosen-motif-list');
 
       let $motifContainerForControl = $motifContainer.clone();
@@ -206,7 +209,7 @@ let uiBuilder = (function () {
         .on('mouseenter', 'tr', function () {
           let rowData = getRowData(this);
 
-          if ( rowData === 0 )
+          if (rowData === 0)
             return 0
 
           let $resultTab = $result.children('.current-tab'),
@@ -222,7 +225,7 @@ let uiBuilder = (function () {
           while (+start <= +finish) {
             $segment = $resultSequence.children('.segment[data-start=' + start + ']');
             $segment.addClass('highlighted');
-            if ( (finish - start + 1) === $segment.text().length )
+            if ((finish - start + 1) === $segment.text().length)
               break
             else
               start = $segment.next().attr('data-start')
@@ -238,7 +241,7 @@ let uiBuilder = (function () {
         .on('mouseleave', 'tr', function () {
           let rowData = getRowData(this);
 
-          if ( rowData === 0 )
+          if (rowData === 0)
             return 0
 
           let $resultTab = $result.children('.current-tab'),
@@ -254,7 +257,7 @@ let uiBuilder = (function () {
             while (start <= finish) {
               $segment = $resultSequence.children('[data-start=' + start + ']');
               $segment.removeClass('highlighted');
-              if ( (finish - start + 1) === $segment.text().length )
+              if ((finish - start + 1) === $segment.text().length)
                 break
               else
                 start = $segment.next().attr('data-start');
@@ -267,12 +270,12 @@ let uiBuilder = (function () {
         });
 
     let getRowData = function (tableRow) {
-      if ( comparisonMode.getCurrentMode() !== 'Single' )
+      if (comparisonMode.getCurrentMode() !== 'Single')
         return 0;
 
       let rowData = table.row(tableRow).data();
 
-      if ( !rowData )
+      if (!rowData)
         return 0;
 
       return rowData;

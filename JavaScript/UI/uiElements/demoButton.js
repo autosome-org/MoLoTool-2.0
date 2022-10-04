@@ -39,6 +39,8 @@ let demoButton = ( function () {
 
 
   let showDemo = function () {
+    modelAssembler.reset();
+
     if ( inputButton.isSubmitMode() ) {
       $inputButton.click();
     }
@@ -58,7 +60,7 @@ let demoButton = ( function () {
     $motifSearch.val('');
     motifSearch.applySearch();
 
-    if ( comparisonMode.getCurrentMode() === 'Single' ) {
+    if (comparisonMode.getCurrentMode() === 'Single') {
       modeSwitcher.switchMode();
     }
 
