@@ -33,6 +33,12 @@ var motifHandler = (function () {
 
 
     var makeFullUpdate = function () {
+        let customMotifs = modelAssembler.getModels();
+
+        for (let i = 0; i < customMotifs.length; i ++) {
+            motifLibrary.addCustomMotif(customMotifs[i]);
+        }
+
         setRequestedPvalue();
         setRequestedMotifs();
 
@@ -93,7 +99,7 @@ var motifHandler = (function () {
 
 
     var updateTable = function (tabsUpdate) {
-        if ( getTableState() === "active" ) {
+        if (getTableState() === "active") {
             motifTable.redrawTableWithUpdates(tabsUpdate);
         }
     };

@@ -49,9 +49,9 @@ var comparisonMode = (function () {
         var newMode = "",
             currentMode = getCurrentMode();
 
-        if ( currentMode === "Single") {
+        if (currentMode === "Single") {
             newMode = switchToMultipleMode();
-        } else if ( currentMode === "Multiple") {
+        } else if (currentMode === "Multiple") {
             newMode = switchToSingleMode();
         } else {
             errorHandler.logError({"fileName": _fileName, "message": "comparisonMode is undefined"});
@@ -66,9 +66,9 @@ var comparisonMode = (function () {
     var applyMode = function () {
         var currentMode = getCurrentMode();
 
-        if ( currentMode === "Single" )
+        if (currentMode === "Single")
             switchToSingleMode();
-        else if ( currentMode === "Multiple" )
+        else if (currentMode === "Multiple")
             switchToMultipleMode();
         else
             errorHandler.logError({"fileName": _fileName, "message": "comparisonMode is undefined"});
@@ -163,7 +163,7 @@ var comparisonMode = (function () {
         $tabToLock.children().css('left', - shift);
         $tabToLock.find('.sequence').css('padding-top', $('.digits').css('line-height') );
 
-        if ( fontSize % 5 === 3 || fontSize % 5 === 4 ) {
+        if (fontSize % 5 === 3 || fontSize % 5 === 4) {
             $tabToLock.addClass('prevent-bug-in-safari');
         }
             // The bug occurs in Safari when font size is 5n-2 or 5n-1
@@ -201,12 +201,12 @@ var comparisonMode = (function () {
         $digits.css('line-height', newLineHeight);
         $inputTextarea.css('line-height', 'normal');
 
-        if ( event === 'Single' ) {
+        if (event === 'Single') {
             let tabId = $('.current-tab').data('tab'),
                 sequenceHeight = $sequences.eq(tabId - 1).height(),
                 tabBarHeight = $('#tab-bar').height();
 
-            if ( sequenceHeight > tabBarHeight )
+            if (sequenceHeight > tabBarHeight)
                 $outputTextarea.height(sequenceHeight);
             else
                 $outputTextarea.height(tabBarHeight);

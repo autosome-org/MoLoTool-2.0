@@ -5,7 +5,7 @@ let clipboardCopy = (function () {
     let create = function () {
         clipboard = new Clipboard('.copy', {
             target: function(trigger) {
-                if ( comparisonMode.getCurrentMode() === 'Single' ) {
+                if (comparisonMode.getCurrentMode() === 'Single') {
                     let wrapper = singleModeTextGenerator.generateObjectToCopy();
                     document.body.append(wrapper);
 

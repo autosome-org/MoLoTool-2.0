@@ -9,26 +9,26 @@ let keyboardNavigation = ( function () {
   let init = function () {
     $motifSearch.on('keyup', function (event) {
 
-      if ( event.code === 'ArrowDown' ) {
+      if (event.code === 'ArrowDown') {
         $(event.target).blur();
         let $firstMotifContainer = $( $('.motif-container')[0] );
         $firstMotifContainer.focus().hover();
         $motifList.addClass('arrow-navigation');
-      } else if ( event.code === 'Escape' )
+      } else if (event.code === 'Escape')
         $suggestions.hide();
-      else if ( event.code === 'Enter' )
+      else if (event.code === 'Enter')
         $suggestions.show();
     });
 
     /*$motifSearch.on('keydown', function (event) {
-      if ( event.code === 'Tab' ) {
+      if (event.code === 'Tab') {
         event.preventDefault();
         $suggestions.hide();
         $collectionSelectButton.addClass();
       }
     });*/
 
-    $(document).on('mouseover', '#motif-list:not(.arrow-navigation) .suggestion', function (event) {
+    $suggestions.on('mouseover', '#motif-list:not(.arrow-navigation) .suggestion', function (event) {
 
       if ( $(event.target).parents().hasClass('motif-container') ) {
         let $hoveredMotifContainer = $(event.target).parents('.motif-container');
@@ -41,7 +41,7 @@ let keyboardNavigation = ( function () {
 
     });
 
-    $(document).on('mousemove', '#motif-list.arrow-navigation', function () {
+    $suggestions.on('mousemove', '#motif-list.arrow-navigation', function () {
       $(this).removeClass('arrow-navigation');
     });
 
@@ -53,12 +53,12 @@ let keyboardNavigation = ( function () {
     $motifContainer.on('keyup', function (event) {
       event.preventDefault();
 
-      if ( event.code === 'ArrowDown' ) {
+      if (event.code === 'ArrowDown') {
         $(`[tabindex=${ +$motifContainer.attr('tabindex') + 1 }]`).focus().hover();
         $motifList.addClass('arrow-navigation');
       }
 
-      else if ( event.code === 'ArrowUp' ) {
+      else if (event.code === 'ArrowUp') {
         if ($motifContainer.attr('tabindex') !== '0')
           $(`.motif-container[tabindex=${+$motifContainer.attr('tabindex') - 1}]`).focus().hover();
         else
@@ -67,7 +67,7 @@ let keyboardNavigation = ( function () {
         $motifList.addClass('arrow-navigation');
       }
 
-      else if ( event.code === 'Escape' ) {
+      else if (event.code === 'Escape') {
         $motifSearch.focus();
         $suggestions.hide();
       }
@@ -77,7 +77,7 @@ let keyboardNavigation = ( function () {
     $motifContainer.on('keydown', function (event) {
       event.preventDefault();
 
-      if ( event.code === 'Enter' )
+      if (event.code === 'Enter')
         $motifContainer.click();
     });
 

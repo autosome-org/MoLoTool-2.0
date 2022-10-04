@@ -41,7 +41,7 @@ let chosenMotifHighlight = (function () {
 
 
     let mouseInHandler = function () {
-        if ( $(this).css('background-color') === 'rgb(255, 255, 255)' ) {
+        if ($(this).css('background-color') === 'rgb(255, 255, 255)') {
             $(this).addClass('empty-segment');
             return 0;
         }
@@ -81,7 +81,7 @@ let chosenMotifHighlight = (function () {
     let mouseInTableHandler = function () {
         let siteId = $motifTable.DataTable().row(this).data()?.SiteId;
 
-        if ( !siteId )
+        if (!siteId)
             return 0;
 
         let tabId = siteId.slice(0, siteId.indexOf('-') ),
@@ -98,7 +98,7 @@ let chosenMotifHighlight = (function () {
         addToHovered($motif);
         highlightHoveredMotifs();
 
-        for ( let i = 0; i < $segmentsToHighlight.length; i++ ) {
+        for (let i = 0; i < $segmentsToHighlight.length; i++) {
             $($segmentsToHighlight[i]).addClass('highlighted');
         }
     };

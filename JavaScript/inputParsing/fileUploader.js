@@ -16,7 +16,7 @@ let fileUploader = (function () {
 
 
   let ifSupported = function () {
-    if ( window.File && window.FileReader && window.FileList && window.Blob ) {
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
       return true;
     } else {
       alert('The File APIs are not fully supported in this browser.');

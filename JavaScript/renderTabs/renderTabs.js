@@ -69,14 +69,14 @@ let renderTabs = ( function () {
       if ( $target.hasClass("close") ) {
         closeTab(this);
         handleEvent();
-      } else if ( getCurrentMode() === "Multiple" ) {
+      } else if (getCurrentMode() === "Multiple") {
         if ($target.hasClass("lock")) {
           comparisonMode.switchLock($target);
         }
-      } else if ( getCurrentMode() === "Single" ) {
+      } else if (getCurrentMode() === "Single") {
         let tabId = $(this).attr('data-tab');
 
-        if ( getCurrentTabId()[0] !== tabId ) {
+        if (getCurrentTabId()[0] !== tabId) {
           setToCurrent(tabId);
           handleEvent();
           comparisonMode.updateOutputView('Single');

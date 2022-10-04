@@ -9,7 +9,7 @@ var motifLibrary = (function () {
         _library = {},
         _featuresForTableLibrary = {}, //created to speed up requests when building table
 
-        _logoBaseUrl = "https://hocomoco11.autosome.ru";
+        _logoBaseUrl = "https://hocomoco11.autosome.org";
 
 
     var create = function (eventHandler) {
@@ -67,7 +67,7 @@ var motifLibrary = (function () {
         return new Promise(function (resolve) {
             var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
             var xhr = new XHR();
-            var motifSource = "https://hocomoco11.autosome.ru/motif/" + motifName + ".json?with_matrices=true&with_thresholds=true";
+            var motifSource = "https://hocomoco11.autosome.org/motif/" + motifName + ".json?with_matrices=true&with_thresholds=true";
 
             xhr.open('GET', motifSource, true);
             xhr.send();
@@ -188,6 +188,18 @@ var motifLibrary = (function () {
     };
 
 
+    var addCustomMotif = function (motif) {
+        let motifName = motif["full_name"];
+
+        _library[motifName] = motif;
+    };
+
+
+    let deleteCustomMotif = function (motifName) {
+        delete _library[motifName];
+    };
+
+
     var showLibrary = function () {
         console.log(_library);
     };
@@ -198,6 +210,9 @@ var motifLibrary = (function () {
 
         create: create,
         addUnit: addUnit,
+        addCustomMotif: addCustomMotif,
+        deleteCustomMotif: deleteCustomMotif,
+
         getUserRequestedMotifUnits: getUserRequestedUnits,
 
         getMotifFeaturesForTable: getMotifFeaturesForTable,

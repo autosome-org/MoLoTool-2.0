@@ -18,7 +18,7 @@ let singleModeTextGenerator = ( function () {
         sequenceLines = splitSequence(linesToSplit[1], lineLength),
         $objectToCopy = $('<div class="object-to-copy">');
 
-    for ( let i = 0; i < digitsLines.length; i++ )
+    for (let i = 0; i < digitsLines.length; i++)
       $objectToCopy.append(digitsLines[i], sequenceLines[i]);
 
     return $objectToCopy[0];
@@ -32,7 +32,7 @@ let singleModeTextGenerator = ( function () {
         fontSize = $digits.css('font-size'),
         lineNumber = Math.ceil(digitsText.length / lineLength);
 
-    for ( let i = 0; i < lineNumber; i++ )
+    for (let i = 0; i < lineNumber; i++)
       digitsLines[i] = $('<p>').html( digitsText.slice( lineLength * i, lineLength * (i+1) ) )
           .css({'font-family': fontFamily, 'font-size': fontSize});
 
@@ -45,13 +45,13 @@ let singleModeTextGenerator = ( function () {
         fontFamily = $rawSequence.css('font-family'),
         fontSize = $rawSequence.css('font-size');
 
-    for ( let i = 0, lineNumber = 0, currentSequenceLength = 0; i < $rawSequence.length; i++ ) {
+    for (let i = 0, lineNumber = 0, currentSequenceLength = 0; i < $rawSequence.length; i++) {
       let $segment = $($rawSequence[i]),
           segmentText = $segment.html();
 
       currentSequenceLength += segmentText.length;
 
-      if ( currentSequenceLength > (lineNumber + 1) * lineLength ) {
+      if (currentSequenceLength > (lineNumber + 1) * lineLength) {
         let lineBreakPoint =
                 segmentText.length - currentSequenceLength + (lineNumber + 1) * lineLength,
             style = $segment.attr('style'),
@@ -98,7 +98,7 @@ let singleModeTextGenerator = ( function () {
 
     let lineLength = lineWidth / letterWidth + 1;
 
-    if ( lineLength >= 60.9 )
+    if (lineLength >= 60.9)
       lineLength++;
 
     return Math.trunc(lineLength);

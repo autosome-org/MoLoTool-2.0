@@ -24,7 +24,7 @@ var motifSearch = (function () {
 
         $('body').on('click', function(event) {
             if ( !$(event.target).is('.suggestions, .motif-container, .chosen-in-search, #motif-search, #motif-list') &&
-                $(event.target).parents('.suggestions, .motif-container, .chosen-in-search, #motif-list').length === 0 ) {
+                $(event.target).parents('.suggestions, .motif-container, .chosen-in-search, #motif-list').length === 0) {
                 $suggestions.hide();
             }
         });
@@ -126,7 +126,7 @@ var motifSearch = (function () {
     var testKeysWithRegExps = function (key, regExpsToTest) {
         var testString = keyToString(key);
 
-        for ( var i = 0; i < regExpsToTest.length; i++) {
+        for (var i = 0; i < regExpsToTest.length; i++) {
             if (!regExpsToTest[i].test(testString)) {
                 return 0;
             }

@@ -43,6 +43,8 @@ let uiButtons = (function () {
     subfamilyButton.init();
     helpButton.init();
 
+    customPwmInput.init();
+
     keyboardNavigation.init();
   };
 
