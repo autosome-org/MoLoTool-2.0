@@ -3,7 +3,7 @@ let uiBuilder = (function () {
 
       _eventHandler,
       _motifSummariesSource =
-          "https://hocomoco11.autosome.ru/human/mono.json?summary=true&full=false",
+          "https://hocomoco11.autosome.org/human/mono.json?summary=true&full=false",
       $motifSearch = $("#motif-search");
 
 
@@ -127,7 +127,7 @@ let uiBuilder = (function () {
       let geneName = $motifContainer.find('.motif-gene').html(),
           $geneName = $('<span class="description">' + geneName + '</span>');
 
-      let hocomocoRef = 'https://hocomoco11.autosome.ru/motif/' + motifName,
+      let hocomocoRef = 'https://hocomoco11.autosome.org/motif/' + motifName,
           titleWithRef = `<div class="motif-title"><a class="hocomoco-info" href="${hocomocoRef}" target=_blank>` +
               `${motifName}</a><span>  (${geneName})<span></div>`;
 

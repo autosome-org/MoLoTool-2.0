@@ -71,7 +71,7 @@ var features = (function () {
 
 
     var getMotifNameWithUrl = function (motifName) {
-        var  hocomocoRef = "https://hocomoco11.autosome.ru/motif/" + motifName;
+        var  hocomocoRef = "https://hocomoco11.autosome.org/motif/" + motifName;
         return "<a href=\"" + hocomocoRef + "\" class=\"hocomoco-info\" target=\"_blank\">" +
             motifName + "</a>";
     };
