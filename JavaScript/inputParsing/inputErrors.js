@@ -23,7 +23,7 @@ var inputErrors = (function () {
                 "status": false,
                 "value": false,
                 "message": "The TFBS model list is empty. Please pre-select a desired set" +
-                " of TFBS models by searching the interactive catalogue."
+                " of TFBS models by searching models in the interactive catalogue."
             },
 
 
@@ -36,7 +36,7 @@ var inputErrors = (function () {
             "sequenceCharacterError" : {
                 "status": false,
                 "value": false,
-                "message": "Invalid characters."
+                "message": "Submitted sequences contain invalid characters."
             },
             "sequenceCountExceeded" : {
                 "status": false,
@@ -46,7 +46,7 @@ var inputErrors = (function () {
             "fileIsTooBig" : {
                 "status": false,
                 "value": false,
-                "message": "Error: too big file uploaded (> 20 kb)."
+                "message": "The file to upload must be less than 20 kb."
             },
 
 

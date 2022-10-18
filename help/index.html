@@ -122,36 +122,68 @@
         </p>
     </section>
     <section>
-        <h2>Sequence Tabs & Controls</h2>
+        <h2>Sequence Tabs & Motif Controls</h2>
         <p>
             If there are no parsing errors, one Sequence Tab is created for each sequence.
             Sequences with markup and highlighting of the motif entry appear in the Output Window,
             as in the demo above.
         </p>
-        <img id="output" src="../img/output.png">
+        <p>You can always change selected sequence colour using Colour Picker. Click on the box with
+            the selected color in the upper left corner of Motif Control
+            to open Colour Picker. It's recommended to use the default colour palette
+            in the last two rows to improve your visual experience.
+            Newly added motifs use the default color palette.
+        </p>
+        <img id="colour" src="../img/colour.png" alt="Colour Picker">
+        <p>Each Sequence Tab contains additional controls.</p>
+        <img id="output" src="../img/output.png" alt="Output demo">
         <ul>
             <li>
                 <i>Close Sequence Tab:</i>
                 click<span class="material-icons tab-button">close</span>to hide
-                the sequence data from the Output Window and the Entry Table.
+                the sequence data from the Output Window and Entry Table.
             </li>
             <li>
                 <i>Copy sequence:</i>
-                click<span class="material-icons tab-button">content_copy</span>to copy sequence
+                click <span class="material-icons tab-button">content_copy</span> to copy sequence
                 with markup and highlighting of motif entry. It remains when pasted into
                 popular text editors such as Pages, Word, and LibreOffice.
             </li>
             <li>
                 <i>Lock scroll:</i>
-                click<span class="material-icons tab-button">lock_open</span>to lock to
+                click <span class="material-icons tab-button">lock_open</span> to lock to
                 the horizontal scroll at the current position. Click it again to unlock it.
             </li>
         </ul>
         <p>
-            Horizontal scroll is only available in the Multiple Mode. So there is no
-            button<span class="material-icons tab-button">lock_open</span>in the Single Mode.
+            Horizontal scroll is only available in the Multiple Mode. Therefore, there is no
+            button <span class="material-icons tab-button">lock_open</span> in the Single Mode.
             Read more about View Modes below.
         </p>
+    </section>
+    <section>
+        <h2>Entry Highlighting</h2>
+        <p>
+            Entry highlighting is a special feature that allows you to better navigate the output
+            and significantly improve visual experience. It visualizes the relationship between data
+            from Motif Controls, the Output Window, and the Entry Table.
+            Hover over the following elements to trigger Entry Highlighting.
+        </p>
+        <img id="highlighting" src="../img/highlighting.png" alt="Motif highlighting demo">
+        <ul>
+            <li><i>Motif Control</i>:
+                highlight entries of this motif both in the Output Window and Entry Table.
+            </li>
+            <li><i>Output Window</i>:
+                hover over a coloured entry in the sequence to highlight
+                the corresponding rows in the Entry Table and found model entry's Motif Control.
+            </li>
+            <li>
+                <i>Entry Table</i>:
+                hover over a row to highlight this entry in the Output Window
+                and corresponding Motif Control.
+            </li>
+        </ul>
     </section>
     <section>
         <h2>View Modes</h2>
@@ -199,9 +231,13 @@
         </p>
         <img id="entry-table" src="../img/entry_table.png" alt="Entry Table">
         <p>
+            Click<span class="material-icons tab-button">sync</span>to invert logo.
+        </p>
+        <img id="logo" src="../img/logo.png" alt="Logo">
+        <p>
             The Entry Table has additional controls.
-            <button class="example-button export-button">Select Columns</button>
-            can be used to select information to be displayed on the table.
+            Click <button class="example-button export-button">Select Columns</button>
+            to select information to be displayed on the table.
             Selected columns are coloured with white.
         </p>
         <img id="select_columns" src="../img/select_columns.png" alt="Column Selection">

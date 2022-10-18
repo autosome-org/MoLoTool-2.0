@@ -227,7 +227,7 @@ button.export-button {
   text-align: center;
 }
 
-img#demo, img#entry-table, img#output {
+img#demo, img#entry-table, img#output, img#highlighting {
   display: block;
   width: calc(70vw + 100px);
   max-width: 800px;
@@ -257,7 +257,7 @@ img#mode-switcher {
   border-radius: 0.5rem;
 }
 
-img#export-buttons {
+img#export-buttons, img#logo {
   width: 20rem;
   border-radius: 0.5rem;
 }
@@ -265,4 +265,9 @@ img#export-buttons {
 img#single-tabs {
   height: 7rem;
   border-radius: 0.6rem 0 0 0.6rem;
+}
+
+img#colour {
+  width: 20rem;
+  border-radius: 0.35rem;
 }
