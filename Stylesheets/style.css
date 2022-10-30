@@ -690,17 +690,17 @@ body {
 }
 
 #motif-list {
-  max-height: 24.42rem;
+  max-height: 24.92rem;
   overflow-y: scroll;
-  -ms-overflow-style: none;  /* IE 10+ */
-  scrollbar-width: none; /* Firefox */
-  overflow: -moz-scrollbars-none;
+  /*-ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: -moz-scrollbars-none;*/
 }
 
-#motif-list::-webkit-scrollbar { /* Webkit */
-  width: 0;  /* ширина scrollbar'a */
-  background: transparent;  /* опционально */
-}
+/*#motif-list::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}*/
 
 .suggestion {
   height: 3.5rem;
@@ -755,7 +755,7 @@ body {
 }
 
 .motif-gene {
-  width: 7rem;
+  width: 6rem;
 }
 
 .motif-gene.subfamily-shown {
