@@ -16,35 +16,35 @@
 <div class="wrapper">
     <h1><img id="molotool" src="../img/MoLoTool.png" alt="MoLoTool logo">MoLoTool User Guide</h1>
     <section>
-        <h2>Demo & reset</h2>
+        <h2>Demo & Reset</h2>
         <ul>
             <li><i>Show a Demo Example:</i> click the Demo button
                 <button class="example-button">Demo</button>
                 in the upper right corner.
             </li>
             <li>
-                <i>Clear input and revert changes:</i> reload the page.
+                <i>Clear input and reset selected motifs:</i> reload the page.
             </li>
         </ul>
         <img id="demo" src="../img/demo.png" alt="Demo">
         <p>
-            This Demo Example is taken from <a href="">Schwartz et al. 2017</a>.
+            This Demo example is taken from <a href="">Schwartz et al. 2016</a>.
             It shows EBF1 (COE1) TF binding site present in SLAMF1 human promoter
             but absent in the respective orthologous mouse promoter.
         </p>
     </section>
     <section>
-        <h2>Select models</h2> <!-- Select or add in beta -->
+        <h2>Select Motifs</h2> <!-- Select or add in beta -->
         <p>
-            Transcription Factor Binding Sites (TFBS) models are taken from
-            Human Comprehensive Model Collection (HOCOMOCO). TFBS models can be added
-            to the Model List using search
+            Transcription Factor Binding Sites (TFBS) motifs are taken from
+            HOCOMOCO. TFBS motifs can be added
+            to the list of selected models using search
             <input id="motif-search" placeholder="SP1 or TBP-related factors">.
             The placeholder displays the available input example.
         </p>
         <ol>
             <li>
-                <i>Select collection:</i> the required collection of TFBS models can be selected
+                <i>Select collection:</i> the motif collection can be selected
                 using Collection Select Menu
                 <button class="example-button" id="collection-select">Human, core
                     <span class="ui-selectmenu-icon ui-icon ui-icon-triangle-1-s"></span>
@@ -52,38 +52,38 @@
                 near the search window.
             </li>
             <li>
-                <i>Select model:</i> TFBS models can be found by motif ID, family,
-                subfamily and gene.
+                <i>Select motif:</i> TF binding motifs can be searched by motif ID, family,
+                subfamily and gene symbol.
             </li>
         </ol>
     </section>
     <section>
         <h2>Enter sequences</h2>
         <p>
-            Sequence can be entered both directly and in FASTA format.
-            Multiple sequences can only be entered as FASTA.
+            The sequences can be entered both i plain text and in FASTA format.
+            Multiple sequences can only be entered in FASTA format.
         </p>
         <ul>
             <li>
-                <i>Enter sequences manually:</i> input sequence or FASTA in text field in the centre
-                then click <button class="example-button submit-button">Submit</button>.
+                <i>Enter sequences manually:</i> input sequence or FASTA in the text field in the cenerr and
+                click <button class="example-button submit-button">Submit</button>.
             </li>
             <li>
                 <i>Upload a file:</i> click
-                <span style="color: #555; font-size: 0.8rem"><b>Chose a file </b></span>
-                in Upload Container (shown bellow) or drag a file directly into it, then the mode will be
+                <span style="color: #555; font-size: 0.8rem"><b>Choose a file </b></span>
+                in the Upload Container (shown below) or drag a file directly into it, then the mode will be
                 automatically changed to the View Mode.
             </li>
         </ul>
         <form id="upload-container">
             <a class="material-icons">file_upload</a>
             <div>
-                <span><b>Chose a file</b></span>
+                <span><b>Click and choose a file</b></span>
                 <br>
-                <span>Or drag it here</span>
+                <span>or drag&amp;drop it here</span>
             </div>
         </form>
-        <p>Then, View Mode will be activated. Click
+        <p>The View Mode will be activated. Click
             <button class="example-button submit-button">Edit</button>
             to return to the Input Mode. The data you entered will be displayed in the text field
             ready for editing.
@@ -92,113 +92,110 @@
     <section>
         <h2>Adjust P-Value</h2>
         <p>
-            P-value is shown in both
+            The desired P-value threshold is shown in both
             linear and logarithmic scale and restricted to the [ 1.00e-6, 5.00e-2 ] interval.
-            There are three ways to set the desired P-value.
+            There are three ways to set the desired P-value threshold.
         </p>
         <ul>
             <li>
-                <i>Enter precise value:</i> you can enter desired P-value directly into the area
+                <i>Enter precise value:</i> you can enter the desired P-value directly into the textarea
                 where it is shown.
                 <ul>
                     <li>
                         <i>Enter logarithmic P-value</i>:
-                        value entered on the right will be -log<sub>10</sub>(P-value).
+                        the value entered on the right will be -log<sub>10</sub>(P-value).
                     </li>
                     <li>
                         <i>Enter linear P-value:</i>
-                        value entered on the left will be exact P-value.
+                        the value entered on the left will be the exact P-value.
                     </li>
                 </ul>
             </li>
             <li>
                 <i>Drag P-slider:</i>
-                the scale of P-Slider is logarithmic, -log<sub>10</sub>(P-value).
+                the scale of the P-Slider is logarithmic, -log<sub>10</sub>(P-value).
             </li>
         </ul>
         <img id="p-slider" src="../img/p-slider.png" alt="P-Slider">
         <p>
-            You may experience a minor slowdown when visualizing TFBS for long sequences (100bp+).
+            Note, that at lower thresholds you may experience a minor slowdown when visualizing multiple TFBS in long sequences (100bp+).
         </p>
     </section>
     <section>
         <h2>Sequence Tabs & Motif Controls</h2>
         <p>
             If there are no parsing errors, one Sequence Tab is created for each sequence.
-            Sequences with markup and highlighting of the motif entry appear in the Output Window,
-            as in the demo above.
+            Sequences with markup and highlighting of the motif hits appear in the Output Window,
+            as in the Demo example above.
         </p>
-        <p>You can always change selected sequence colour using Colour Picker. Click on the box with
+        <p>You can always change the selected sequence color with the Color Picker. Click on the box with
             the selected color in the upper left corner of Motif Control
-            to open Colour Picker. It's recommended to use the default colour palette
-            in the last two rows to improve your visual experience.
-            Newly added motifs use the default color palette.
+            to open Color Picker. Newly added motifs use the default color palette.
         </p>
         <img id="colour" src="../img/colour.png" alt="Colour Picker">
-        <p>Each Sequence Tab contains additional controls.</p>
         <img id="output" src="../img/output.png" alt="Output demo">
         <ul>
             <li>
                 <i>Close Sequence Tab:</i>
                 click<span class="material-icons tab-button">close</span>to hide
-                the sequence data from the Output Window and Entry Table.
+                the sequence data from the Output Window and the Motif Hits Table.
             </li>
             <li>
                 <i>Copy sequence:</i>
-                click <span class="material-icons tab-button">content_copy</span> to copy sequence
-                with markup and highlighting of motif entry. It remains when pasted into
-                popular text editors such as Pages, Word, and LibreOffice.
+                click <span class="material-icons tab-button">content_copy</span> to copy the sequence
+                with markup and highlighting of motif hits. It remains colored when pasted into
+                popular text editors such as Pages, MS Word, and LibreOffice.
             </li>
             <li>
                 <i>Lock scroll:</i>
-                click <span class="material-icons tab-button">lock_open</span> to lock to
-                the horizontal scroll at the current position. Click it again to unlock it.
+                click <span class="material-icons tab-button">lock_open</span> to lock
+                the horizontal scroll at the current position. Click it again to unlock.
             </li>
         </ul>
         <p>
-            Horizontal scroll is only available in the Multiple Mode. Therefore, there is no
-            button <span class="material-icons tab-button">lock_open</span> in the Single Mode.
-            Read more about View Modes below.
+            Horizontal scroll is only available in the Multiple Mode. Therefore, there is no 
+            <span class="material-icons tab-button">lock_open</span> button in the Single Mode.
+            Read more about the View Modes below.
         </p>
     </section>
     <section>
-        <h2>Entry Highlighting</h2>
+        <h2>Motif Hits Highlighting</h2>
         <p>
-            Entry highlighting is a special feature that allows you to better navigate the output
-            and significantly improve visual experience. It visualizes the relationship between data
-            from Motif Controls, the Output Window, and the Entry Table.
-            Hover over the following elements to trigger Entry Highlighting.
+            Motif hit highlighting is a special feature that allows you to better navigate the output
+            and improves the visual experience. It highlights the relationship between the data
+            from Motif Controls, the Output Window, and the Motif Hits Table.
+            Hover over the following elements to trigger the Motif Hits Highlighting.
         </p>
         <img id="highlighting" src="../img/highlighting.png" alt="Motif highlighting demo">
         <ul>
             <li><i>Motif Control</i>:
-                highlight entries of this motif both in the Output Window and Entry Table.
+                highlight entries of the motif both in the Output Window and the Motif Hits Table.
             </li>
             <li><i>Output Window</i>:
-                hover over a coloured entry in the sequence to highlight
-                the corresponding rows in the Entry Table and found model entry's Motif Control.
+                hover over a colored hits in the sequence to highlight
+                the corresponding rows in the Motif Hits Table and the respective motif in the Motif Control.
             </li>
             <li>
-                <i>Entry Table</i>:
-                hover over a row to highlight this entry in the Output Window
-                and corresponding Motif Control.
+                <i>Motif HIts Table</i>:
+                hover over a row to highlight the respective motif hit in the Output Window
+                and corresponding motif in the Motif Control.
             </li>
         </ul>
     </section>
     <section>
         <h2>View Modes</h2>
         <p>There are two View Modes, Multiple Mode and Single Mode.
-            Multiple Mode is activated automatically after first data submission.
+            Multiple Mode is activated automatically after the first data submission.
             Further submissions activate the last used View Mode.
         </p>
         <ul>
             <li>
-                <i>Multiple Mode: shows all the entered sequences without line breaks.
+                <i>Multiple Mode: shows all the entered sequences without line wrapping.
                     Horizontal scrolling is available when there is not enough space.</i>
             </li>
             <li>
                 <i>Single Mode:</i> shows only one selected sequence in the entire Output Window
-                with line breaks.
+                with automatic line breaks.
             </li>
         </ul>
         <p>
@@ -216,16 +213,16 @@
         <br>
         <img id="single-tabs" src="../img/single_tabs.png" alt="Sequence Tabs in Single Mode">
         <p>
-            If Single Mode is activated by Mode Switch, the first sequence is automatically selected
+            If the Single Mode is activated by the Mode Switch, the first sequence is automatically selected
             to be displayed in Single Mode.
-            If Single Mode is activated by Mode Button in the Sequence Tab, that sequence is selected.
+            If the Single Mode is activated by the Mode Button in the Sequence Tab, that sequence is auto-selected.
             You can change your selection by clicking another Sequence Tabs.
         </p>
     </section>
     <section>
-        <h2>Entry Table</h2>
+        <h2>Motif Hits Table</h2>
         <p>
-            Detailed data on detected binding sites are provided in the Entry Table
+            Detailed data on detected binding sites are provided in the Motif Hits Table
             at the bottom of the page. Generating the population of this table is the most
             time-consuming operation.
         </p>
@@ -235,14 +232,14 @@
         </p>
         <img id="logo" src="../img/logo.png" alt="Logo">
         <p>
-            The Entry Table has additional controls.
+            The Motif Hits Table has additional controls.
             Click <button class="example-button export-button">Select Columns</button>
             to select information to be displayed on the table.
-            Selected columns are coloured with white.
+            Selected columns are highlighted in white.
         </p>
         <img id="select_columns" src="../img/select_columns.png" alt="Column Selection">
         <p>
-            The Entry Table contents can be exported using Export Buttons. Available formats:
+            The Motif Hits Table contents can be exported using Export Buttons. Available formats:
             plain text <button class="example-button export-button">Copy</button> (copy to clipboard),
             xlsx <button class="example-button export-button">Excel</button>,
             PDF <button class="example-button export-button">PDF</button>,
@@ -250,19 +247,10 @@
         </p>
         <img id="export-buttons" src="../img/export_buttons.png" alt="Export Buttons">
         <p>
-            Entry Table contains only sites from displayed sequences.
+            The Motif Hits Table contains only sites from displayed sequences.
             According to the chosen View Mode, the table will contain different sites.
         </p>
     </section>
-    <!--<section>
-        <h2>Downloads</h2>
-        <p>
-            You can download MoLoTool as a folder on your local machine and run it by opening
-            <code>index.html</code> with your browser. To download MoLoTool, click the download
-            button<span class="material-icons tab-button">file_download</span>in the lower right
-            corner of the window.
-        </p>
-    </section>-->
 </div>
 
 </body>
