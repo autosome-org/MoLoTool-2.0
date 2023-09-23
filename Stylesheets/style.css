@@ -15,6 +15,7 @@ html {
   max-width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+  scrollbar-width: none;
 }
 
 body {
@@ -787,7 +788,9 @@ body {
 }
 
 .motif-count {
-  margin-left: 0;
+  display: inline-block;
+  position: relative;
+  float: left;
 }
 
 .model-collection {
