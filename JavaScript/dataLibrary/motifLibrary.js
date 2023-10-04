@@ -9,16 +9,16 @@ var motifLibrary = (function () {
         _library = {},
         _featuresForTableLibrary = {}, //created to speed up requests when building table
 
-        _logoBaseUrl = "https://hocomoco11.autosome.org";
+        _logoBaseUrl = "https://hocomoco12.autosome.org";
 
 
     var create = function (eventHandler) {
         _displayedFeatures = {
             "direct_logo_url": "Logo",
-            "uniprot_id": "Uniprot ID",
-            "motif_families": "Family",
-            "motif_subfamilies": "Subfamily",
-            "gene_names": "Gene name"
+            "uniprot_id_human": "Uniprot ID",
+            "tfclass/family": "Family",
+            "tfclass/subfamily": "Subfamily",
+            "gene_name_human": "Gene name"
         };
 
         _library = {};
@@ -67,7 +67,7 @@ var motifLibrary = (function () {
         return new Promise(function (resolve) {
             var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
             var xhr = new XHR();
-            var motifSource = "https://hocomoco11.autosome.org/motif/" + motifName + ".json?with_matrices=true&with_thresholds=true";
+            var motifSource = "https://hocomoco12.autosome.org/motif/" + motifName + ".json?with_matrices=true&with_thresholds=true";
 
             xhr.open('GET', motifSource, true);
             xhr.send();
@@ -84,6 +84,17 @@ var motifLibrary = (function () {
     }
 
 
+    let obtainFeature = function (obj, multikey) {
+        let currentObj = obj;
+        for (let key of multikey.split('/')) {
+            if (currentObj === undefined) {
+                return undefined;
+            }
+            currentObj = currentObj[key];
+        }
+        return currentObj;
+    }
+
     var extractDisplayedFeatures = function (motif) {
         if (_displayedFeatures === null) {
             errorHandler.logError({"fileName": _fileName, "message": "motifLibrary must be created _displayedFeatures = null"});
@@ -94,9 +105,9 @@ var motifLibrary = (function () {
 
             for (var jsonFeature in _displayedFeatures) {
                 displayedFeature = _displayedFeatures[jsonFeature];
-
+                let motifFeature = obtainFeature(motif, jsonFeature);
                 if (displayedFeature === "Logo") {
-                    logoFullUrl = _logoBaseUrl + motif[jsonFeature];
+                    logoFullUrl = _logoBaseUrl + motifFeature;
                     valuesToDisplay[displayedFeature] =
                         '<a class="material-icons md-dark interface-button logo-button" ' +
                         'onclick="motifTable.invertModel(this)" title="Click to invert model">sync</a>' +
@@ -105,34 +116,21 @@ var motifLibrary = (function () {
                 }
 
                 else if (displayedFeature === "Uniprot ID") {
-                    uniprotFullUrl = "https://www.uniprot.org/uniprot/" + motif[jsonFeature];
+                    uniprotFullUrl = "https://www.uniprot.org/uniprot/" + motifFeature;
                     valuesToDisplay[displayedFeature] = "<a href=\"" + uniprotFullUrl + "\"" +
                         " class=\"hocomoco-info\" target=\"_blank\">" +
-                        motif[jsonFeature] + "</a>";
+                        motifFeature + "</a>";
                 }
 
                 else if (displayedFeature === "Gene name") {
-                    if (motif["full_name"].match(/HUMAN/) !== null) {
-                        geneFullUrl = "https://www.genenames.org/cgi-bin/gene_symbol_report?match=" + motif[jsonFeature];
-                        valuesToDisplay[displayedFeature] = "<a href=\"" + geneFullUrl + "\"" +
-                            " class=\"hocomoco-info\" target=\"_blank\">" +
-                            motif[jsonFeature] + "</a>";
-                    }
-
-                    else if (motif["full_name"].match(/MOUSE/) !== null) {
-                        geneFullUrl = "https://www.informatics.jax.org/searchtool/Search.do?query=" + motif[jsonFeature];
-                        valuesToDisplay[displayedFeature] = "<a href=\"" + geneFullUrl + "\"" +
-                            " class=\"hocomoco-info\" target=\"_blank\">" +
-                            motif[jsonFeature] + "</a>";
-                    }
-
-                    else {
-                        valuesToDisplay[displayedFeature] = motif[jsonFeature];
-                    }
+                    geneFullUrl = "https://www.genenames.org/cgi-bin/gene_symbol_report?match=" + motifFeature;
+                    valuesToDisplay[displayedFeature] = "<a href=\"" + geneFullUrl + "\"" +
+                        " class=\"hocomoco-info\" target=\"_blank\">" +
+                        motifFeature + "</a>";
                 }
 
                 else {
-                    valuesToDisplay[displayedFeature] = motif[jsonFeature];
+                    valuesToDisplay[displayedFeature] = motifFeature;
                 }
             }
             return valuesToDisplay;
@@ -201,6 +199,7 @@ var motifLibrary = (function () {
         getUserRequestedMotifUnits: getUserRequestedUnits,
 
         getMotifFeaturesForTable: getMotifFeaturesForTable,
-        getTitlesForDisplayedFeatures: getTitlesForDisplayedFeatures
+        getTitlesForDisplayedFeatures: getTitlesForDisplayedFeatures,
+        obtainFeature: obtainFeature,
     };
 }());

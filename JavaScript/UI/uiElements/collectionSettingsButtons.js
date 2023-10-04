@@ -3,14 +3,11 @@ let collectionSettingsButtons = (function () {
       updatedURL;
 
   let init = function (collectionSwitchCallback) {
-    $('.model-collection').html('Collection: human, core');
+    $('.model-collection').html('Collection: H12CORE');
 
     $("#collection-select").selectmenu({width: 'auto'}).on('selectmenuchange', function() {
-      let species = this.value.split(', ')[0];
-      let collection = this.value.split(', ')[1];
-      updatedURL =
-          'https://hocomoco11.autosome.org/' + species +
-          '/mono.json?summary=true&full=' + ( collection === 'full' );
+      let collection = this.value;
+      updatedURL = 'https://hocomoco12.autosome.org/' + collection + '.json?summary=true&full=true';
       $('.model-collection').html('Collection: ' + this.value);
       collectionSwitchCallback(updatedURL);
     });

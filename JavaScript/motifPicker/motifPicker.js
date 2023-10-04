@@ -119,9 +119,9 @@ var motifPicker = (function () {
 
     var wrapSummaryPrimaryInformation = function (motifSummary) {
         let name = motifSummary["full_name"],
-            family = motifSummary["motif_families"],
-            subfamily = motifSummary["motif_subfamilies"],
-            geneName = motifSummary["gene_names"],
+            family = motifLibrary.obtainFeature(motifSummary, "tfclass/family"),
+            subfamily = motifLibrary.obtainFeature(motifSummary, "tfclass/subfamily"),
+            geneName = motifSummary["gene_name_human"],
             hiddenState = subfamilyButton.isShown() ? '' : 'hidden',
             subfamilyShown = subfamilyButton.isShown() ? 'subfamily-shown' : '';
 

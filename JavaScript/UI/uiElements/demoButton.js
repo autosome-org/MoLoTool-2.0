@@ -13,8 +13,8 @@ let demoButton = ( function () {
 
       defaultValueFor = {
         pValueLog: 4,
-        collection: 'human, core',
-        search: 'COE1_HUMAN.H11MO.0.A',
+        collection: 'H12CORE',
+        search: 'COE1.H12CORE.0.P.B',
         mode: 'Multiple',
         input: '>human SLAMF1 promoter\n' +
             'CAAAAAAGTGATTTAAAGCCTCATGGGAGATGAGCAATCCTCAA\n' +

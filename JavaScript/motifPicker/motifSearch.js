@@ -6,7 +6,7 @@ var motifSearch = (function () {
 
 
     var create = function() {
-        _keysToTest = ["full_name", "motif_families", "gene_names"];
+        _keysToTest = ["full_name", "tfclass/family", "gene_name_human"];
 
         var $suggestions = $('.suggestions'),
             $motifSearch = $('#motif-search');
@@ -46,9 +46,9 @@ var motifSearch = (function () {
         $('#motif-search').focus();
 
         if ( subfamilyButton.isShown() )
-            _keysToTest = ["full_name", "motif_families", "motif_subfamilies", "gene_names"];
+            _keysToTest = ["full_name", "tfclass/family", "tfclass/subfamily", "gene_name_human"];
         else
-            _keysToTest = ["full_name", "motif_families", "gene_names"];
+            _keysToTest = ["full_name", "tfclass/family", "gene_name_human"];
 
         var motifSummaries = motifPicker.getMotifSummaries(), //probably must be in picker
             regExpsToCheck = getRegExpsToCheck(),
@@ -116,7 +116,7 @@ var motifSearch = (function () {
             var testResult = 0, keysToTest = _keysToTest;
             for(var i = 0, key; i < keysToTest.length; i++) {
                 key = keysToTest[i];
-                testResult += testKeysWithRegExps(motifSummary[key], regExpsToTest);
+                testResult += testKeysWithRegExps(motifLibrary.obtainFeature(motifSummary, key), regExpsToTest);
             }
             return testResult;
         /* } */
