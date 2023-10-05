@@ -3,7 +3,7 @@ let uiBuilder = (function () {
 
       _eventHandler,
       _motifSummariesSource =
-          "https://hocomoco12.autosome.org/H12CORE.json?summary=true&full=false",
+          "https://hocomoco12.autosome.org/H12CORE.json?summary=true&full=true",
       $motifSearch = $("#motif-search");
 
 
