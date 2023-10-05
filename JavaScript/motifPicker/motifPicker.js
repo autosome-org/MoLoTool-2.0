@@ -29,6 +29,7 @@ var motifPicker = (function () {
             setMotifSummaries(promisedMotifSummaries);
             inputStateSwitcher.enableInput();
             motifSearch.applySearch();
+            $(window).trigger("collectionUpdated");
         });
     };
 

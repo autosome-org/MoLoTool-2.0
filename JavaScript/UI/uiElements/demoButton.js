@@ -52,18 +52,19 @@ let demoButton = ( function () {
     $modeSelect.val( defaultValueFor.mode ).selectmenu('refresh');
     $inputTextarea.val( defaultValueFor.input );
 
-    motifSearch.applySearch();
-    $motifList.children('.motif-container').click();
+    $(window).one("collectionUpdated", () => {
+      motifSearch.applySearch();
+      $motifList.children('.motif-container').click();
 
-    $motifSearch.val('');
-    motifSearch.applySearch();
+      $motifSearch.val('');
+      motifSearch.applySearch();
 
-    if ( comparisonMode.getCurrentMode() === 'Single' ) {
-      modeSwitcher.switchMode();
-    }
+      if ( comparisonMode.getCurrentMode() === 'Single' ) {
+        modeSwitcher.switchMode();
+      }
 
-    $inputButton.click();
-    /*$pValueLog.focus();*/
+      $inputButton.click();
+    });
   };
 
 
