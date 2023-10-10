@@ -122,9 +122,14 @@ var motifPicker = (function () {
         let name = motifSummary["full_name"],
             family = motifLibrary.obtainFeature(motifSummary, "tfclass/family"),
             subfamily = motifLibrary.obtainFeature(motifSummary, "tfclass/subfamily"),
-            geneName = motifSummary["gene_name_human"],
+            geneNameHuman = motifSummary["gene_name_human"],
+            geneNameMouse = motifSummary["gene_name_mouse"],
+            delimiter = (geneNameMouse && geneNameHuman) ? ' / ' : '',
             hiddenState = subfamilyButton.isShown() ? '' : 'hidden',
             subfamilyShown = subfamilyButton.isShown() ? 'subfamily-shown' : '';
+
+        geneNameHuman = geneNameHuman ? geneNameHuman : '';
+        geneNameMouse = geneNameMouse ? geneNameMouse : '';
 
         let ifMotifIsChosen = $(`#chosen-motif-list [data-name="${name}"]`).length !== 0,
             ifChosenClass = ifMotifIsChosen ? ' chosen-in-list' : '';
@@ -133,8 +138,8 @@ var motifPicker = (function () {
             '<div class="motif-title feature ' + subfamilyShown +'">'+ name +'</div>' +
             '<div class="motif-family feature"><p>'+ family +'</p></div>' +
             '<div class="motif-subfamily feature ' + hiddenState + '"><p>' + subfamily + '</p></div>' +
-            '<div class="motif-gene feature ' + subfamilyShown + '">'+ geneName +'</div>' +
-            '</div>';
+            '<div class="motif-gene feature ' + subfamilyShown + '"><span>' +
+            geneNameHuman + delimiter + '</span><span>' + geneNameMouse + '</span></div></div>';
     };
 
 

@@ -6,7 +6,7 @@ var motifSearch = (function () {
 
 
     var create = function() {
-        _keysToTest = ["full_name", "tfclass/family", "gene_name_human"];
+        _keysToTest = ["full_name", "tfclass/family", "gene_name_human", "gene_name_mouse"];
 
         var $suggestions = $('.suggestions'),
             $motifSearch = $('#motif-search');
@@ -46,9 +46,11 @@ var motifSearch = (function () {
         $('#motif-search').focus();
 
         if ( subfamilyButton.isShown() )
-            _keysToTest = ["full_name", "tfclass/family", "tfclass/subfamily", "gene_name_human"];
+            _keysToTest = ["full_name", "tfclass/family", "tfclass/subfamily",
+                "gene_name_human", "gene_name_mouse"];
         else
-            _keysToTest = ["full_name", "tfclass/family", "gene_name_human"];
+            _keysToTest = ["full_name", "tfclass/family",
+                "gene_name_human", "gene_name_mouse"];
 
         var motifSummaries = motifPicker.getMotifSummaries(), //probably must be in picker
             regExpsToCheck = getRegExpsToCheck(),
@@ -138,11 +140,14 @@ var motifSearch = (function () {
     var keyToString = function (key) {
         var stringToTest = "";
 
-        if (typeof key === 'undefined') {
-            errorHandler.logError({"fileName": _fileName, "message": "motif summary key is undefined"});
+        if (typeof key === undefined) {
+            errorHandler.logError({
+                "fileName": _fileName,
+                "message": "motif summary key is undefined"
+            });
         } else if (typeof key === "string") {
             stringToTest = key;
-        } else {
+        } else if (typeof key === 'object' & key !== null) {
             stringToTest = key.join(" "); //key is array and we join elements with " " separator
         }
         return stringToTest;

@@ -101,7 +101,7 @@ var motifLibrary = (function () {
             return {};
         } else {
             var valuesToDisplay = {}, displayedFeature,
-                logoFullUrl, uniprotFullUrl, geneFullUrl;
+                logoFullUrl, uniprotFullUrl, geneHumanFullUrl, geneMouseFullUrl;
 
             for (var jsonFeature in _displayedFeatures) {
                 displayedFeature = _displayedFeatures[jsonFeature];
@@ -123,10 +123,14 @@ var motifLibrary = (function () {
                 }
 
                 else if (displayedFeature === "Gene name") {
-                    geneFullUrl = "https://www.genenames.org/cgi-bin/gene_symbol_report?match=" + motifFeature;
-                    valuesToDisplay[displayedFeature] = "<a href=\"" + geneFullUrl + "\"" +
+                    geneHumanFullUrl =
+                        "https://www.genenames.org/cgi-bin/gene_symbol_report?match=" + motifFeature;
+                    geneMouseFullUrl =
+                        "https://www.informatics.jax.org/quicksearch/summary?queryType=exactPhrase&query=" + motifFeature;
+                    valuesToDisplay[displayedFeature] = "<a href=\"" + geneHumanFullUrl + "\"" +
                         " class=\"hocomoco-info\" target=\"_blank\">" +
                         motifFeature + "</a>";
+
                 }
 
                 else {

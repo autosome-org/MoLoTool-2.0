@@ -725,7 +725,7 @@ body {
 
 .feature {
   display: inline-block;
-  padding-top: 0.4rem;
+  padding-top: 0.55rem;
 }
 
 .motif-title {
@@ -740,7 +740,6 @@ body {
 .motif-family, .motif-subfamily {
   width: 14rem;
   max-width: 14rem;
-  vertical-align: top;
   padding-right: 0.5rem;
 }
 
@@ -756,6 +755,10 @@ body {
 
 .motif-gene {
   width: 6rem; /* 7rem*/
+}
+
+.motif-gene span {
+  display: block;
 }
 
 .motif-gene.subfamily-shown {
