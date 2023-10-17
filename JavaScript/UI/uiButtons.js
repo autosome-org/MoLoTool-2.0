@@ -33,6 +33,7 @@ let uiButtons = (function () {
 
     // clearButton.init();
     demoButton.init(inputCallback);
+    resetButton.init(inputCallback);
     // tutorialButton.init();
     // helpButton.init();
     // homeButton.init();
@@ -40,7 +41,7 @@ let uiButtons = (function () {
     // showMoreButton.init();
     collectionSettingsButtons.init(collectionSwitchCallback);
     resetChosenMotifs.init();
-    subfamilyButton.init();
+    // subfamilyButton.init();
     helpButton.init();
 
     keyboardNavigation.init();

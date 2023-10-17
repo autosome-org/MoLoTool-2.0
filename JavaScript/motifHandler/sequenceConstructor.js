@@ -57,7 +57,7 @@ var sequenceConstructor = (function () {
             positionInSequence = 0,
             motifCount, motifs, $motifContainer,
             backgroundColor, color,
-            commonBackgroundColor = "#BEC5AD", commonColor = "#ffffff",
+            commonBackgroundColor = "#BEC5AD", brightnessThreshold = 138,
             emptyBackgroundColor = "#ffffff", emptyColor = "#000000";
 
         for ( var i = 0; i < segments.length; i++ ) {
@@ -66,12 +66,12 @@ var sequenceConstructor = (function () {
             motifCount = motifs.length;
 
             if ( motifCount > 1 ) {
-                color = commonColor;
                 backgroundColor = commonBackgroundColor;
+                color = brightness(backgroundColor) > brightnessThreshold ? "#000000" : "#ffffff"
             } else if ( motifCount === 1 ) {
-                color = commonColor;
                 $motifContainer = motifPicker.getChosenMotifContainer(motifs[0]);
                 backgroundColor = colorPicker.getColorFromContainer($motifContainer);
+                color = brightness(backgroundColor) > brightnessThreshold ? "#000000" : "#ffffff"
             } else {
                 color = emptyColor;
                 backgroundColor = emptyBackgroundColor;
@@ -87,6 +87,17 @@ var sequenceConstructor = (function () {
 
         return sequenceToDisplay;
     };
+
+
+    var brightness = function(hex) {
+        var rgb = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        rgb = rgb ? {
+            r: parseInt(rgb[1], 16),
+            g: parseInt(rgb[2], 16),
+            b: parseInt(rgb[3], 16)
+        } : null;
+        return (rgb.r + rgb.g + rgb.b) / 3;
+    }
 
 
     var createSpan = function (color, backgroundColor, segment) {

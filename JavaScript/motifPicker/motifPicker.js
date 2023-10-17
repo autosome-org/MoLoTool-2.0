@@ -98,13 +98,13 @@ var motifPicker = (function () {
 
 
     var wrapLegendContainer = function () {
-        let hiddenState = subfamilyButton.isShown() ? '' : 'hidden',
-            subfamilyShown = subfamilyButton.isShown() ? 'subfamily-shown' : '';
+        /* let hiddenState = subfamilyButton.isShown() ? '' : 'hidden',
+            subfamilyShown = subfamilyButton.isShown() ? 'subfamily-shown' : ''; */
 
-        return '<div class="motif-title legend ' + subfamilyShown + '">Motif ID</div>' +
+        return '<div class="motif-title legend ' + /* subfamilyShown + */'">Motif ID</div>' +
         '<div class="motif-family legend">Family</div>' +
-        '<div class="motif-subfamily legend ' + hiddenState + '">Subfamily</div>' +
-        '<div class="motif-gene legend '+ subfamilyShown +'">Gene Name</div>';
+        // '<div class="motif-subfamily legend ' + hiddenState + '">Subfamily</div>' +
+        '<div class="motif-gene legend '+ /* subfamilyShown +*/'">Gene Name</div>';
     };
 
 
@@ -121,24 +121,22 @@ var motifPicker = (function () {
     var wrapSummaryPrimaryInformation = function (motifSummary) {
         let name = motifSummary["full_name"],
             family = motifLibrary.obtainFeature(motifSummary, "tfclass/family"),
-            subfamily = motifLibrary.obtainFeature(motifSummary, "tfclass/subfamily"),
-            geneNameHuman = motifSummary["gene_name_human"],
-            geneNameMouse = motifSummary["gene_name_mouse"],
-            delimiter = (geneNameMouse && geneNameHuman) ? ' / ' : '',
-            hiddenState = subfamilyButton.isShown() ? '' : 'hidden',
-            subfamilyShown = subfamilyButton.isShown() ? 'subfamily-shown' : '';
+            // subfamily = motifLibrary.obtainFeature(motifSummary, "tfclass/subfamily"),
+            geneNameHuman = motifSummary["gene_name_human"] ? motifSummary["gene_name_human"] : '',
+            geneNameMouse = motifSummary["gene_name_mouse"] ? motifSummary["gene_name_mouse"] : '',
+            delimiter = (geneNameMouse && geneNameHuman) ? ' / ' : '';
+            // hiddenState = subfamilyButton.isShown() ? '' : 'hidden'
+            // subfamilyShown = subfamilyButton.isShown() ? 'subfamily-shown' : '';
 
-        geneNameHuman = geneNameHuman ? geneNameHuman : '';
-        geneNameMouse = geneNameMouse ? geneNameMouse : '';
 
         let ifMotifIsChosen = $(`#chosen-motif-list [data-name="${name}"]`).length !== 0,
             ifChosenClass = ifMotifIsChosen ? ' chosen-in-list' : '';
 
         return  '<div class="suggestion' + ifChosenClass + '" id="' + name + '">' +
-            '<div class="motif-title feature ' + subfamilyShown +'">'+ name +'</div>' +
+            '<div class="motif-title feature ' + /* subfamilyShown +*/'">'+ name +'</div>' +
             '<div class="motif-family feature"><p>'+ family +'</p></div>' +
-            '<div class="motif-subfamily feature ' + hiddenState + '"><p>' + subfamily + '</p></div>' +
-            '<div class="motif-gene feature ' + subfamilyShown + '"><span>' +
+            // '<div class="motif-subfamily feature ' + hiddenState + '"><p>' + subfamily + '</p></div>' +
+            '<div class="motif-gene feature ' + /* subfamilyShown + */'"><span>' +
             geneNameHuman + delimiter + '</span><span>' + geneNameMouse + '</span></div></div>';
     };
 

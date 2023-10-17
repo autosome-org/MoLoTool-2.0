@@ -50,8 +50,9 @@ var motifTable = (function () {
                     "Logo":"4%",
                     "Uniprot ID":"6%",
                     "Family":"6%",
-                    "Subfamily":"6%",
-                    "Gene name":"3%"
+                    // "Subfamily":"6%",
+                    "Human gene":"3%",
+                    "Mouse gene": "3%",
                 },
 
                 featuresToShow = $.map(features.getFeatures(false), function (feature) {

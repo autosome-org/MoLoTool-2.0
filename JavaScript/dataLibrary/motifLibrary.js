@@ -17,8 +17,10 @@ var motifLibrary = (function () {
             "direct_logo_url": "Logo",
             "uniprot_id_human": "Uniprot ID",
             "tfclass/family": "Family",
-            "tfclass/subfamily": "Subfamily",
-            "gene_name_human": "Gene name"
+            // "tfclass/subfamily": "Subfamily",
+            "gene_name_human": "Human gene",
+            "gene_name_mouse": "Mouse gene"
+
         };
 
         _library = {};
@@ -122,15 +124,22 @@ var motifLibrary = (function () {
                         motifFeature + "</a>";
                 }
 
-                else if (displayedFeature === "Gene name") {
+                else if (displayedFeature === "Human gene") {
                     geneHumanFullUrl =
                         "https://www.genenames.org/cgi-bin/gene_symbol_report?match=" + motifFeature;
-                    geneMouseFullUrl =
-                        "https://www.informatics.jax.org/quicksearch/summary?queryType=exactPhrase&query=" + motifFeature;
                     valuesToDisplay[displayedFeature] = "<a href=\"" + geneHumanFullUrl + "\"" +
                         " class=\"hocomoco-info\" target=\"_blank\">" +
                         motifFeature + "</a>";
 
+                }
+
+                else if (displayedFeature === "Mouse gene") {
+                    geneMouseFullUrl =
+                    "https://www.informatics.jax.org/quicksearch/summary?queryType=exactPhrase&query=" + motifFeature;
+
+                    valuesToDisplay[displayedFeature] = "<a href=\"" + geneMouseFullUrl + "\"" +
+                        " class=\"hocomoco-info\" target=\"_blank\">" +
+                        motifFeature + "</a>";
                 }
 
                 else {

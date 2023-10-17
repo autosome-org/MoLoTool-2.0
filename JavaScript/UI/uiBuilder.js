@@ -138,7 +138,8 @@ let uiBuilder = (function () {
 
       $motifContainer.addClass('chosen-motif chosen-in-search').removeClass('hover-behavior suggestion');
       $motifContainer.removeAttr('id').attr("data-name", motifName);
-      $motifContainer.find('.motif-gene, .motif-family, .motif-title, .motif-subfamily').remove();
+      $motifContainer.find(// '.motif-gene, .motif-family, .motif-title, .motif-subfamily',
+          '.motif-gene, .motif-family, .motif-title').remove();
       $motifContainer.append($closeButton);
       $motifContainer.append( $(titleWithRef));
       $motifContainer.appendTo('#chosen-motif-list');

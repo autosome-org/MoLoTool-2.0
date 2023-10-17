@@ -1,7 +1,7 @@
-let demoButton = ( function () {
-  let _fileName = 'demoButton',
+let resetButton = ( function () {
+  let _fileName = 'resetButton',
 
-      $demoButton = $('#demo-button'),
+      $resetButton = $('#reset-button'),
       $resetChosenMotifsButton = $('.reset-chosen-motifs'),
       $pValueLog = $('#pvalue_log'),
       $collectionSelect = $('#collection-select'),
@@ -14,12 +14,9 @@ let demoButton = ( function () {
       defaultValueFor = {
         pValueLog: 4,
         collection: 'H12CORE',
-        search: 'COE1.H12CORE.0.P.B',
+        search: '',
         mode: 'Multiple',
-        input: '>human SLAMF1 promoter\n' +
-            'CAAAAAAGTGATTTAAAGCCTCATGGGAGATGAGCAATCCTCAA\n' +
-            '>mouse SLAMF1 promoter\n' +
-            'TGATAAAGTGATTTAAAGCCTGATCATAAATGAGCAATCCTGGA'
+        input: ''
       },
 
       _inputCallback;
@@ -28,17 +25,17 @@ let demoButton = ( function () {
   let init = function (inputCallback) {
     _inputCallback = inputCallback;
 
-    $demoButton.addClass('interface-button');
+    $resetButton.addClass('interface-button');
 
-    $demoButton.on('click', function () {
+    $resetButton.on('click', function () {
 
-      showDemo();
+      resetAll();
     });
 
   };
 
 
-  let showDemo = function () {
+  let resetAll = function () {
     if ( inputButton.isSubmitMode() ) {
       $inputButton.click();
     }

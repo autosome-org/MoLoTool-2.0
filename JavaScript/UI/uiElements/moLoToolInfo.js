@@ -28,7 +28,7 @@ let moLoToolInfo = (function () {
   $molotool.qtip({
 
     content: {
-      text: 'Sequence motif location tool v2.0. Search TFBSs in DNA sequence with PWMs from HOCOMOCO v11',
+      text: 'Sequence motif location tool v2.0. Search TFBSs in DNA sequence with PWMs from HOCOMOCO v12',
       title: {
         text: 'MoLoTool'
       }

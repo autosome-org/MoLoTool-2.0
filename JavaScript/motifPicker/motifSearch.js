@@ -1,7 +1,7 @@
 var motifSearch = (function () {
     var _fileName = "motifSearch",
 
-        $subfamilyButton = $('#subfamily-button'),
+        // $subfamilyButton = $('#subfamily-button'),
         _keysToTest;
 
 
@@ -45,10 +45,10 @@ var motifSearch = (function () {
         //ToDo binary search
         $('#motif-search').focus();
 
-        if ( subfamilyButton.isShown() )
+        /* if ( subfamilyButton.isShown() )
             _keysToTest = ["full_name", "tfclass/family", "tfclass/subfamily",
                 "gene_name_human", "gene_name_mouse"];
-        else
+        else */
             _keysToTest = ["full_name", "tfclass/family",
                 "gene_name_human", "gene_name_mouse"];
 

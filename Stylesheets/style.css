@@ -317,7 +317,7 @@ body {
   display: inline-block;
 }
 
-@media only screen and (max-width: 858px) {
+@media only screen and (max-width: 878px) {
   .nav li {
     display: block;
     width: calc(100% - 1rem) !important;
@@ -421,13 +421,13 @@ body {
   cursor: pointer;
 }
 
-#molotool-container:hover {
+/* #molotool-container:hover {
   border: 0.08rem solid black;
 }
 
 #molotool-container:active {
   background-color: inherit;
-}
+} */
 
 #molotool-container span {
   display: block;
@@ -473,6 +473,10 @@ body {
 #collection-select-button {
   background: #f1f1f1;
   width: 6.3rem !important;
+}
+
+#demo-button {
+  margin-left: 0.2rem;
 }
 
 .header-buttons button {
@@ -988,7 +992,7 @@ body {
   background-color: #fff;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 810px) {
   .sequence-window__label {
     display: none;
     visibility: hidden;
