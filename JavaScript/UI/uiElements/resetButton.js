@@ -13,7 +13,7 @@ let resetButton = ( function () {
 
       defaultValueFor = {
         pValueLog: 4,
-        collection: 'H12CORE',
+        collection: 'H13CORE',
         search: '',
         mode: 'Multiple',
         input: ''

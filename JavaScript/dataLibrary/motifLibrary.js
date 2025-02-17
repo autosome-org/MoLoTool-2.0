@@ -9,7 +9,7 @@ var motifLibrary = (function () {
         _library = {},
         _featuresForTableLibrary = {}, //created to speed up requests when building table
 
-        _logoBaseUrl = "https://hocomoco12.autosome.org";
+        _logoBaseUrl = "https://hocomoco13.autosome.org";
 
 
     var create = function (eventHandler) {
@@ -69,7 +69,7 @@ var motifLibrary = (function () {
         return new Promise(function (resolve) {
             var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
             var xhr = new XHR();
-            var motifSource = "https://hocomoco12.autosome.org/motif/" + motifName + ".json?with_matrices=true&with_thresholds=true";
+            var motifSource = "https://hocomoco13.autosome.org/motif/" + motifName + ".json?with_matrices=true&with_thresholds=true";
 
             xhr.open('GET', motifSource, true);
             xhr.send();
